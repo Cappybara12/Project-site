@@ -1,0 +1,126 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
+export const Hero = () => {
+  return (
+    <section className="relative pt-32 pb-20 overflow-hidden min-h-[85vh] flex flex-col items-center justify-center" style={{ background: '#EEF0F8' }}>
+      {/* Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div className="absolute top-20 left-[-10%] w-[600px] h-[600px] bg-blue-200/30 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 right-[-10%] w-[600px] h-[600px] bg-purple-200/30 rounded-full blur-3xl" />
+        
+        {/* Animated traveling lines */}
+        <svg className="absolute left-0 top-0 w-[300px] h-full opacity-20" viewBox="0 0 300 1000" fill="none">
+          <path
+            d="M 0 0 Q 80 250, 40 500 T 0 1000"
+            stroke="#9CA3AF"
+            strokeWidth="1.5"
+            fill="none"
+          />
+          <motion.circle r="4" fill="#4B56FF">
+            <animateMotion dur="8s" repeatCount="indefinite">
+              <mpath href="#heroLeftPath" />
+            </animateMotion>
+          </motion.circle>
+          <path id="heroLeftPath" d="M 0 0 Q 80 250, 40 500 T 0 1000" fill="none" />
+        </svg>
+
+        <svg className="absolute right-0 top-0 w-[300px] h-full opacity-20" viewBox="0 0 300 1000" fill="none">
+          <path
+            d="M 300 0 Q 220 250, 260 500 T 300 1000"
+            stroke="#9CA3AF"
+            strokeWidth="1.5"
+            fill="none"
+          />
+          <motion.circle r="4" fill="#4B56FF">
+            <animateMotion dur="10s" repeatCount="indefinite">
+              <mpath href="#heroRightPath" />
+            </animateMotion>
+          </motion.circle>
+          <path id="heroRightPath" d="M 300 0 Q 220 250, 260 500 T 300 1000" fill="none" />
+        </svg>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 text-center z-10">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-8 border border-blue-100 cursor-pointer hover:bg-blue-100 transition-colors"
+        >
+          <span className="px-1.5 py-0.5 bg-blue-200/50 text-blue-700 rounded text-xs font-bold">NEW</span>
+          Meet NOVA - AI that turns payment friction into growth
+          <ArrowRight className="w-4 h-4" />
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1 }}
+          className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+          style={{ letterSpacing: '-0.02em' }}
+        >
+          Financial Infrastructure
+          <br />
+          on a Global Scale
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
+        >
+          Orchestrate your financial operations across the globe from a single unified platform.
+        </motion.p>
+
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex items-center justify-center gap-4 mb-16"
+        >
+          <a href="/book-a-demo">
+            <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
+              Book a demo
+            </button>
+          </a>
+          <button className="bg-gray-100 text-gray-700 px-8 py-4 rounded-full text-base font-medium hover:bg-gray-200 transition-colors flex items-center gap-2">
+            See it in action
+            <ArrowRight className="w-4 h-4" />
+          </button>
+        </motion.div>
+
+        {/* Video Demo */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="relative w-full max-w-5xl mx-auto"
+        >
+          <div className="relative aspect-video bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-200">
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            >
+              <source src="/yuno-demo.mov" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            {/* Subtle overlay gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none" />
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
