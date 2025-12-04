@@ -5,42 +5,28 @@ import { motion } from "framer-motion";
 export const CTASection = () => {
   return (
     <section className="relative py-32 overflow-hidden" style={{ background: '#4B56FF' }}>
-      {/* Animated track lines with glowing dots */}
+      {/* Animated track lines with glowing dots - Inverted S curves */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Left side track - comes from top, curves right then down */}
+        {/* Left side track - Inverted S curve */}
         <svg className="absolute left-0 top-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-          {/* Track path - vertical down, curve right, horizontal, curve down */}
+          {/* Main inverted S curve on left - starts vertical, curves right (inward), then curves back left (outward) */}
           <path
             id="leftTrack"
-            d="M 150 -100 L 150 150 Q 150 250, 250 250 L 400 250 Q 500 250, 500 350 L 500 700"
+            d="M 120 -100 L 120 120 Q 120 220, 220 260 Q 320 300, 220 380 Q 120 460, 120 560 L 120 700"
             stroke="rgba(255,255,255,0.2)"
             strokeWidth="2"
             fill="none"
           />
-          {/* Animated glowing capsule - horizontal orientation (width > height) */}
-          <rect x="-10" y="-3" width="20" height="6" rx="3" fill="white" opacity="0.9">
+          {/* Animated glowing capsule */}
+          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" opacity="0.9">
             <animateMotion dur="8s" repeatCount="indefinite" rotate="auto">
               <mpath href="#leftTrack" />
             </animateMotion>
           </rect>
           {/* Glow effect */}
-          <rect x="-10" y="-3" width="20" height="6" rx="3" fill="white" filter="url(#glowFilter)" opacity="0.6">
+          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" filter="url(#glowFilter)" opacity="0.6">
             <animateMotion dur="8s" repeatCount="indefinite" rotate="auto">
               <mpath href="#leftTrack" />
-            </animateMotion>
-          </rect>
-          
-          {/* Second left track */}
-          <path
-            id="leftTrack2"
-            d="M 80 -50 L 80 300 Q 80 400, 180 400 L 300 400"
-            stroke="rgba(255,255,255,0.15)"
-            strokeWidth="2"
-            fill="none"
-          />
-          <rect x="-7" y="-2" width="14" height="4" rx="2" fill="white" opacity="0.7">
-            <animateMotion dur="6s" repeatCount="indefinite" rotate="auto" begin="2s">
-              <mpath href="#leftTrack2" />
             </animateMotion>
           </rect>
           
@@ -56,39 +42,25 @@ export const CTASection = () => {
           </defs>
         </svg>
         
-        {/* Right side track - comes from top, curves left then down */}
+        {/* Right side track - Inverted S curve */}
         <svg className="absolute right-0 top-0 w-full h-full" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
-          {/* Track path - vertical down, curve left, then curve down and right */}
+          {/* Main inverted S curve on right - starts vertical, curves left (inward), then curves back right (outward) */}
           <path
             id="rightTrack"
-            d="M 1050 -100 L 1050 100 Q 1050 200, 950 200 L 800 200 Q 700 200, 700 300 L 700 450 Q 700 550, 800 550 L 1300 550"
+            d="M 1080 -100 L 1080 120 Q 1080 220, 980 260 Q 880 300, 980 380 Q 1080 460, 1080 560 L 1080 700"
             stroke="rgba(255,255,255,0.2)"
             strokeWidth="2"
             fill="none"
           />
-          {/* Animated glowing capsule - horizontal orientation */}
-          <rect x="-10" y="-3" width="20" height="6" rx="3" fill="white" opacity="0.9">
+          {/* Animated glowing capsule */}
+          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" opacity="0.9">
             <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" begin="1s">
               <mpath href="#rightTrack" />
             </animateMotion>
           </rect>
-          <rect x="-10" y="-3" width="20" height="6" rx="3" fill="white" filter="url(#glowFilter2)" opacity="0.6">
+          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" filter="url(#glowFilter2)" opacity="0.6">
             <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" begin="1s">
               <mpath href="#rightTrack" />
-            </animateMotion>
-          </rect>
-          
-          {/* Second right track */}
-          <path
-            id="rightTrack2"
-            d="M 1120 -50 L 1120 200 Q 1120 300, 1020 300 L 900 300"
-            stroke="rgba(255,255,255,0.15)"
-            strokeWidth="2"
-            fill="none"
-          />
-          <rect x="-7" y="-2" width="14" height="4" rx="2" fill="white" opacity="0.7">
-            <animateMotion dur="5s" repeatCount="indefinite" rotate="auto" begin="3s">
-              <mpath href="#rightTrack2" />
             </animateMotion>
           </rect>
           

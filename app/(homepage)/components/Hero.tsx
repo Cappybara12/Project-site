@@ -11,35 +11,37 @@ export const Hero = () => {
         <div className="absolute top-20 left-[-10%] w-[600px] h-[600px] bg-blue-200/30 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-[-10%] w-[600px] h-[600px] bg-purple-200/30 rounded-full blur-3xl" />
         
-        {/* Animated traveling lines */}
-        <svg className="absolute left-0 top-0 w-[300px] h-full opacity-20" viewBox="0 0 300 1000" fill="none">
+        {/* Animated traveling lines - Inverted S curves */}
+        <svg className="absolute left-0 top-0 w-[400px] h-full opacity-15" viewBox="0 0 400 1000" fill="none">
+          {/* Inverted S curve - starts at left, curves inward (right), then curves back outward (left) */}
           <path
-            d="M 0 0 Q 80 250, 40 500 T 0 1000"
+            d="M 100 0 Q 200 200, 100 400 Q 50 550, 150 700 Q 200 800, 100 1000"
             stroke="#9CA3AF"
             strokeWidth="1.5"
             fill="none"
           />
-          <motion.circle r="4" fill="#4B56FF">
-            <animateMotion dur="8s" repeatCount="indefinite">
+          <motion.rect width="24" height="6" rx="3" fill="#4B56FF">
+            <animateMotion dur="8s" repeatCount="indefinite" rotate="auto">
               <mpath href="#heroLeftPath" />
             </animateMotion>
-          </motion.circle>
-          <path id="heroLeftPath" d="M 0 0 Q 80 250, 40 500 T 0 1000" fill="none" />
+          </motion.rect>
+          <path id="heroLeftPath" d="M 100 0 Q 200 200, 100 400 Q 50 550, 150 700 Q 200 800, 100 1000" fill="none" />
         </svg>
 
-        <svg className="absolute right-0 top-0 w-[300px] h-full opacity-20" viewBox="0 0 300 1000" fill="none">
+        <svg className="absolute right-0 top-0 w-[400px] h-full opacity-15" viewBox="0 0 400 1000" fill="none">
+          {/* Inverted S curve - starts at right, curves inward (left), then curves back outward (right) */}
           <path
-            d="M 300 0 Q 220 250, 260 500 T 300 1000"
+            d="M 300 0 Q 200 200, 300 400 Q 350 550, 250 700 Q 200 800, 300 1000"
             stroke="#9CA3AF"
             strokeWidth="1.5"
             fill="none"
           />
-          <motion.circle r="4" fill="#4B56FF">
-            <animateMotion dur="10s" repeatCount="indefinite">
+          <motion.rect width="24" height="6" rx="3" fill="#4B56FF">
+            <animateMotion dur="10s" repeatCount="indefinite" rotate="auto">
               <mpath href="#heroRightPath" />
             </animateMotion>
-          </motion.circle>
-          <path id="heroRightPath" d="M 300 0 Q 220 250, 260 500 T 300 1000" fill="none" />
+          </motion.rect>
+          <path id="heroRightPath" d="M 300 0 Q 200 200, 300 400 Q 350 550, 250 700 Q 200 800, 300 1000" fill="none" />
         </svg>
       </div>
 
