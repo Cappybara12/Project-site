@@ -21,10 +21,22 @@ export const BeforeAfterYuno = () => {
               </div>
             </div>
             <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-6 leading-tight">
-              Global infrastructure<br />is broken
+              Companies are trapped<br />in daily operations
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-8">
-              Building and scaling financial services across borders isn't just complex—it's fragmented. Each market comes with its own providers, regulations, tax rules, currencies, and customer preferences. That means companies are forced to stitch together dozens of systems just to operate internationally.
+              Teams spend most of their time on manual tasks: responding to messages, managing orders, updating systems, resolving requests, and reviewing scattered data. With so much operational work, there's no room to think about strategy, growth, or innovation.
+            </p>
+            <div className="mb-6">
+              <p className="text-sm font-semibold text-gray-700 mb-3">This challenge affects:</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1.5 bg-gray-100 rounded-full text-sm text-gray-700">Customer Service</span>
+                <span className="px-3 py-1.5 bg-gray-100 rounded-full text-sm text-gray-700">Sales</span>
+                <span className="px-3 py-1.5 bg-gray-100 rounded-full text-sm text-gray-700">Ecommerce Ecosystem</span>
+                <span className="px-3 py-1.5 bg-gray-100 rounded-full text-sm text-gray-700">Internal Operations</span>
+              </div>
+            </div>
+            <p className="text-base font-medium text-gray-800 italic">
+              The business works, but it doesn't advance.
             </p>
           </div>
 
@@ -41,7 +53,7 @@ export const BeforeAfterYuno = () => {
                       : "text-gray-500 hover:text-gray-700"
                   }`}
                 >
-                  Before Yuno
+                  BEFORE ALTURA
                 </button>
                 <button
                   onClick={() => setView("after")}
@@ -51,7 +63,7 @@ export const BeforeAfterYuno = () => {
                       : "text-gray-500 hover:text-gray-700"
                   }`}
                 >
-                  After Yuno
+                  AFTER ALTURA
                 </button>
               </div>
             </div>
@@ -68,22 +80,21 @@ export const BeforeAfterYuno = () => {
                     transition={{ duration: 0.3 }}
                     className="space-y-6"
                   >
-                    {/* Merchant at top */}
+                    {/* Company at top */}
                     <div className="flex justify-center mb-8">
                       <div className="px-6 py-3 bg-gray-100 rounded-xl font-semibold text-gray-700 border-2 border-gray-200">
-                        MERCHANT
+                        COMPANY
                       </div>
                     </div>
 
-                    {/* Multiple PSP connections */}
-                    <div className="grid grid-cols-3 gap-4">
-                      {["PSP 1", "PSP 2", "PSP 3"].map((psp, i) => (
-                        <div key={psp} className="relative">
-                          <div className="absolute top-0 left-1/2 w-0.5 h-8 bg-gray-300 -translate-x-1/2 -translate-y-full" />
-                          <div className="px-4 py-3 bg-red-50 rounded-lg text-center text-sm font-medium text-red-700 border border-red-200">
-                            {psp}
+                    {/* Manual Tasks */}
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      {["Manual Messages", "Manual Orders", "Manual Updates", "Manual Reports"].map((task, i) => (
+                        <div key={task} className="relative">
+                          <div className="px-4 py-3 bg-red-50 rounded-lg text-center text-xs font-medium text-red-700 border border-red-200">
+                            {task}
                             <div className="mt-2 flex flex-wrap gap-1 justify-center">
-                              <span className="px-2 py-0.5 bg-white rounded text-xs">❌</span>
+                              <span className="px-2 py-0.5 bg-white rounded text-xs">⏱️</span>
                             </div>
                           </div>
                         </div>
@@ -91,10 +102,11 @@ export const BeforeAfterYuno = () => {
                     </div>
 
                     <div className="mt-6 flex flex-wrap gap-2 text-xs text-gray-500 justify-center">
-                      <span className="px-2 py-1 bg-gray-100 rounded">RESTRICTED TOKENS</span>
-                      <span className="px-2 py-1 bg-gray-100 rounded">LIMITED ROUTING</span>
-                      <span className="px-2 py-1 bg-gray-100 rounded">SILOED DATA</span>
-                      <span className="px-2 py-1 bg-gray-100 rounded">LIMITED PAYMENTS METHODS</span>
+                      <span className="px-2 py-1 bg-gray-100 rounded">REACTIVE OPERATION</span>
+                      <span className="px-2 py-1 bg-gray-100 rounded">MANUAL PROCESSES</span>
+                      <span className="px-2 py-1 bg-gray-100 rounded">SCATTERED DATA</span>
+                      <span className="px-2 py-1 bg-gray-100 rounded">MULTIPLE PLATFORMS</span>
+                      <span className="px-2 py-1 bg-gray-100 rounded">LIMITED GROWTH</span>
                     </div>
                   </motion.div>
                 ) : (
@@ -106,29 +118,29 @@ export const BeforeAfterYuno = () => {
                     transition={{ duration: 0.3 }}
                     className="space-y-6"
                   >
-                    {/* Merchant at top */}
+                    {/* Company at top */}
                     <div className="flex justify-center mb-4">
                       <div className="px-6 py-3 bg-gray-100 rounded-xl font-semibold text-gray-700 border-2 border-gray-200">
-                        MERCHANT
+                        COMPANY
                       </div>
                     </div>
 
-                    {/* Yuno Layer */}
+                    {/* Altura Layer */}
                     <div className="relative py-4">
                       <div className="absolute top-0 left-1/2 w-0.5 h-4 bg-blue-400 -translate-x-1/2" />
                       <div className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-xl text-center">
-                        <div className="text-white font-bold text-lg">YUNO</div>
-                        <div className="text-blue-100 text-xs mt-1">Unified Orchestration Layer</div>
+                        <div className="text-white font-bold text-lg">ALTURA</div>
+                        <div className="text-blue-100 text-xs mt-1">Automated Technology Platform</div>
                       </div>
                     </div>
 
-                    {/* Connected PSPs */}
-                    <div className="grid grid-cols-3 gap-4">
-                      {["PSP 1", "PSP 2", "PSP 3"].map((psp, i) => (
-                        <div key={psp} className="relative">
+                    {/* Automated Solutions */}
+                    <div className="grid grid-cols-2 gap-4 mb-4">
+                      {["AI Automation", "Centralized Data", "Strategic Teams", "Scalable Tech"].map((solution, i) => (
+                        <div key={solution} className="relative">
                           <div className="absolute top-0 left-1/2 w-0.5 h-8 bg-blue-300 -translate-x-1/2 -translate-y-full" />
-                          <div className="px-4 py-3 bg-green-50 rounded-lg text-center text-sm font-medium text-green-700 border border-green-200">
-                            {psp}
+                          <div className="px-4 py-3 bg-green-50 rounded-lg text-center text-xs font-medium text-green-700 border border-green-200">
+                            {solution}
                             <div className="mt-2">
                               <span className="px-2 py-0.5 bg-white rounded text-xs">✅</span>
                             </div>
@@ -137,8 +149,12 @@ export const BeforeAfterYuno = () => {
                       ))}
                     </div>
 
-                    <div className="mt-6 text-center">
-                      <p className="text-sm text-blue-600 font-semibold">+1,000 payment methods connected</p>
+                    <div className="mt-6 text-center space-y-2">
+                      <p className="text-sm text-blue-600 font-semibold">Automated Operation</p>
+                      <p className="text-sm text-blue-600 font-semibold">Centralized & Visible Data</p>
+                      <p className="text-sm text-blue-600 font-semibold">Free & Strategic Teams</p>
+                      <p className="text-sm text-blue-600 font-semibold">Technology that Scales</p>
+                      <p className="text-base font-bold text-green-600 mt-4">A Business in Motion</p>
                     </div>
                   </motion.div>
                 )}

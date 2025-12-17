@@ -6,24 +6,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const faqs = [
   {
-    question: "What is payment orchestration, and how does it work?",
-    answer: "Payment orchestration acts as a central layer that connects your business to multiple payment providers, acquirers, and banks. It automatically routes transactions to the best provider based on rules you define (like location, cost, or uptime) to maximize approval rates and minimize costs."
+    question: "What is Altura Automations and how does it work?",
+    answer: "Altura Automations are AI agents personalized for each type of business. They automate customer service and process management through WhatsApp, Instagram, Messenger, email, and calls. They operate with precision, adapt to your internal flows, and improve your users' experience 24/7."
   },
   {
-    question: "Why do global companies need payment orchestration?",
-    answer: "Global companies face fragmented payment landscapes. Orchestration simplifies this by offering a single integration to manage all providers, ensuring local payment method support, redundancy during outages, and unified reporting."
+    question: "How does One Source Platform centralize my ecommerce data?",
+    answer: "One Source Platform integrates your entire ecommerce ecosystem—website, digital advertising, ERP, CRM, and more—into a single unified platform. It provides customizable dashboards, deep analysis, AI chat capabilities, and machine learning insights to help you make better strategic decisions."
   },
   {
-    question: "How can Yuno help increase my approval rates and reduce failed payments?",
-    answer: "Yuno uses smart routing and automatic retries. If a transaction fails with one provider, it instantly retries with a backup provider. Our AI also selects the optimal route for each transaction to ensure the highest probability of success."
+    question: "What can Altura Custom Projects build for my business?",
+    answer: "Altura Custom Projects creates applications, platforms, internal systems, and advanced integrations designed to adapt to your operation, strengthen your processes, and scale with your company. All developments are built with enterprise standards for security, scalability, and reliability."
   },
   {
-    question: "Is it easy to add new payment methods or providers with Yuno?",
-    answer: "Yes. Yuno offers 'click-to-configure' integrations. You can enable new payment methods or PSPs in your dashboard without writing new code, allowing you to expand into new markets in days, not months."
+    question: "How quickly can Altura automate my operations?",
+    answer: "Implementation time varies by solution, but Altura Automations can typically be deployed within weeks. One Source Platform integration depends on your existing systems, and Custom Projects are built to your specific timeline and requirements."
   },
   {
-    question: "How does Yuno protect against payment fraud and chargebacks?",
-    answer: "Yuno integrates with leading anti-fraud providers and allows you to set custom risk rules. You can block suspicious transactions before they process and manage chargebacks from a central dashboard."
+    question: "Does Altura work with my existing tools and systems?",
+    answer: "Yes. Altura solutions are designed to integrate with your existing infrastructure. One Source Platform connects to major ecommerce platforms, ERPs, CRMs, and advertising tools. Custom Projects can integrate with any system through APIs and custom development."
   }
 ];
 
@@ -77,7 +77,7 @@ export const FAQ = () => {
                 Frequently asked questions and answers
              </h2>
              <p className="text-gray-500 leading-relaxed">
-                Find answers to common questions about payment solutions and how Yuno can address your specific business needs.
+                Find answers to common questions about Altura's technology solutions and how they can transform your business operations.
              </p>
         </div>
 

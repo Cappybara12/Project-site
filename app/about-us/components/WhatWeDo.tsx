@@ -26,7 +26,7 @@ export const WhatWeDo = () => {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-              We're redefining global payments to enable the businesses of tomorrow.
+              We're building technology that automates, connects and empowers businesses.
             </h2>
           </motion.div>
 
@@ -37,7 +37,7 @@ export const WhatWeDo = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Founded in 2021, Yuno has quickly become the payment orchestration solution of choice by leading global brands like McDonalds, Rappi, Viva Aerobus, and Netease. Our platform empowers global merchants to seamlessly accept payments from anywhere in the world and optimize their payment workflows.
+              Altura creates intelligent technology solutions that free businesses from daily operational tasks. Through AI-powered automations, unified data platforms, and custom enterprise development, we help companies optimize processes, improve efficiency, and accelerate growth—all from a single ecosystem.
             </p>
           </motion.div>
         </div>

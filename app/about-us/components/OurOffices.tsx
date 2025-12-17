@@ -14,9 +14,7 @@ export const OurOffices = () => {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <p className="text-sm font-bold text-gray-600 uppercase tracking-widest">
-            Our Offices
-          </p>
+         
         </motion.div>
 
         {/* Globe Image - Centered */}
@@ -30,8 +28,8 @@ export const OurOffices = () => {
           <Image
             src="/globe-offices.webp"
             alt="Global offices map"
-            width={1000}
-            height={1000}
+            width={1200}
+            height={1200}
             className="w-full max-w-5xl h-auto"
             priority
           />

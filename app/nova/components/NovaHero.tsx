@@ -36,19 +36,19 @@ export const NovaHero = () => {
           <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600/20 rounded-full mb-8 border border-blue-500/30 shadow-lg shadow-blue-500/20">
             <Sparkles className="w-4 h-4 text-blue-400" />
             <span className="text-sm font-semibold text-white uppercase tracking-wider">
-              Meet Nova AI
+              Altura Automations
             </span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight tracking-tight">
-            From Friction to<br />
-            Growth—Automatically
+            AI Agents That Automate<br />
+            Your Business Operations
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed tracking-wide">
-            NOVA turns abandoned check-outs, declined cards, and inbound support into AI-powered conversations that recover revenue, delight customers, and surface the data signals you've been missing.
+            Altura Automations are personalized AI agents for each type of business. They automate customer service and process management through WhatsApp, Instagram, Messenger, email, and calls—operating with precision, adapting to your internal flows, and improving your users' experience 24/7.
           </p>
 
           {/* CTA Buttons */}

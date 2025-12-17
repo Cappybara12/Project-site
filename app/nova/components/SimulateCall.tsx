@@ -9,20 +9,20 @@ type TabType = "failed" | "abandoned" | "unpaid";
 
 const tabContent = {
   failed: {
-    title: "FAILED PAYMENTS",
-    description: "Click to experience NOVA resolving an abandoned checkout",
+    title: "CUSTOMER INQUIRIES",
+    description: "Click to experience Altura Automations handling customer questions via WhatsApp",
     color: "from-red-500/40 to-orange-500/40",
     filter: "hue-rotate(330deg) saturate(1.5)",
   },
   abandoned: {
-    title: "ABANDONED CHECKOUTS",
-    description: "Click to experience NOVA resolving an abandoned checkout",
+    title: "ORDER MANAGEMENT",
+    description: "Click to experience Altura Automations managing orders and tracking information",
     color: "from-green-500/40 to-emerald-500/40",
     filter: "hue-rotate(90deg) saturate(1.3)",
   },
   unpaid: {
-    title: "UNPAID BALANCES",
-    description: "Click to experience NOVA collecting a payment from a customer",
+    title: "SUPPORT REQUESTS",
+    description: "Click to experience Altura Automations resolving customer support issues automatically",
     color: "from-purple-500/40 to-blue-500/40",
     filter: "hue-rotate(250deg) saturate(1.2)",
   },
@@ -48,7 +48,7 @@ export const SimulateCall = () => {
         {/* Top Label */}
         <div className="text-center mb-16">
           <p className="text-sm font-semibold text-gray-400 uppercase tracking-widest">
-            Simulate a call from NOVA
+            Experience Altura Automations in action
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export const SimulateCall = () => {
                 {activeTab === "failed" && (
                   <div className="mb-2 mx-auto w-24 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent"></div>
                 )}
-                Failed Payments
+                Customer Inquiries
               </button>
               <button
                 onClick={() => setActiveTab("abandoned")}
@@ -118,7 +118,7 @@ export const SimulateCall = () => {
                 {activeTab === "abandoned" && (
                   <div className="mb-2 mx-auto w-24 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent"></div>
                 )}
-                Abandoned Checkouts
+                Order Management
               </button>
               <button
                 onClick={() => setActiveTab("unpaid")}
@@ -129,7 +129,7 @@ export const SimulateCall = () => {
                 {activeTab === "unpaid" && (
                   <div className="mb-2 mx-auto w-24 h-0.5 bg-gradient-to-r from-transparent via-white to-transparent"></div>
                 )}
-                Unpaid Balances
+                Support Requests
               </button>
             </div>
           </div>

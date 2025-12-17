@@ -20,17 +20,11 @@ export const Industries = () => {
             fill="none"
           />
           {/* Traveling dot */}
-          <motion.circle
-            r="4"
-            fill="#E4F59A"
-            initial={{ offsetDistance: "0%" }}
-            animate={{ offsetDistance: "100%" }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-          >
+          <circle r="4" fill="#E4F59A">
             <animateMotion dur="8s" repeatCount="indefinite">
               <mpath href="#path1" />
             </animateMotion>
-          </motion.circle>
+          </circle>
           <path id="path1" d="M 800 0 Q 600 100, 500 200 T 200 400" fill="none" />
         </svg>
 

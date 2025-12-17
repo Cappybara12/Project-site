@@ -11,15 +11,15 @@ const features = [
     heading: "AI agents personalized for each type of business.",
     description: "Automate customer service and process management through WhatsApp, Instagram, Messenger, email, and calls. They operate with precision, adapt to your internal flows, and improve your users' experience.",
     icon: MessageCircle,
-    cta: "Explore Automations"
+    cta: "Explore Automations →"
   },
   {
     id: "onesource",
     title: "ONE SOURCE PLATFORM",
-    heading: "Centralize your entire e-commerce ecosystem.",
-    description: "Platform that centralizes information from your website, digital advertising, ERP, CRM, and more—for a more organized, connected, and strategic operation. Boost your data with artificial intelligence and machine learning capabilities.",
+    heading: "Platform that centralizes the information of your entire ecommerce ecosystem—website, digital advertising, ERP, CRM and more—to enable a more organized, connected and strategic operation.",
+    description: "Boost your data with artificial intelligence and machine learning capabilities.",
     icon: Zap,
-    cta: "Explore One Source"
+    cta: "Explore One Source →"
   },
   {
     id: "custom",
@@ -27,7 +27,7 @@ const features = [
     heading: "Custom developments built with enterprise standards.",
     description: "We create applications, platforms, internal systems, and advanced integrations designed to adapt to your operation, strengthen your processes, and scale with your company.",
     icon: TrendingUp,
-    cta: "See Custom Projects"
+    cta: "See Custom Projects →"
   }
 ];
 
@@ -702,10 +702,10 @@ export const StickyFeatures = () => {
                 Altura Solutions
               </div>
               <h2 className="text-4xl font-medium text-gray-900 mb-8 leading-tight">
-                Transform your business<br />with Altura
+                Three solutions that strengthen<br />your company's operations
               </h2>
               <p className="text-gray-500 mb-12 leading-relaxed">
-                From AI-powered automations to unified data platforms and custom enterprise solutions—we build technology that scales with your ambitions.
+                Technology designed to improve how you serve, manage and scale every area of your business.
               </p>
               
               <div className="space-y-6 relative">

@@ -63,11 +63,11 @@ export const NovaInAction = () => {
           </div>
           
           <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-            NOVA In Action
+            Altura Automations In Action
           </h2>
           
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Global companies using NOVA are already seeing real results across their payment operations.
+            Businesses using Altura Automations are seeing real results: faster response times, higher customer satisfaction, and more time for strategic work.
           </p>
         </div>
 
@@ -93,11 +93,11 @@ export const NovaInAction = () => {
             {/* Description + Chart */}
             <div className="max-w-md">
               <p className="text-lg md:text-xl font-semibold text-white uppercase tracking-wider mb-8 leading-tight">
-                Of contacted users successfully complete their payments
+                Of customer inquiries resolved automatically
               </p>
               
               <p className="text-gray-400 mb-8">
-                NOVA has helped recover millions in lost revenue, all with zero coding or maintenance work required.
+                Altura Automations handle thousands of conversations daily, providing instant responses and freeing your team to focus on growth and innovation.
               </p>
 
               {/* Curved Line Chart */}
@@ -157,7 +157,7 @@ export const NovaInAction = () => {
               <AnimatedNumber value={70} suffix="+" />
             </div>
             <p className="text-sm uppercase tracking-widest text-gray-400 font-semibold">
-              Languages and Dialects
+              Communication Channels
             </p>
           </motion.div>
 
@@ -169,10 +169,10 @@ export const NovaInAction = () => {
             className="text-center"
           >
             <div className="text-6xl md:text-7xl font-bold text-white mb-4">
-              <AnimatedNumber value={200} suffix="+" />
+              &lt;2s
             </div>
             <p className="text-sm uppercase tracking-widest text-gray-400 font-semibold">
-              Countries Available
+              Average Response Time
             </p>
           </motion.div>
 
@@ -184,10 +184,10 @@ export const NovaInAction = () => {
             className="text-center"
           >
             <div className="text-6xl md:text-7xl font-bold text-white mb-4">
-              0
+              24/7
             </div>
             <p className="text-sm uppercase tracking-widest text-gray-400 font-semibold">
-              Coding or Maintenance Work
+              Always Available
             </p>
           </motion.div>
         </div>

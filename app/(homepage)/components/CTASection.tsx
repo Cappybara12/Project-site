@@ -84,7 +84,7 @@ export const CTASection = () => {
           viewport={{ once: true }}
           className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
         >
-          Powering the future<br />of financial infrastructure
+          Ready to transform<br />your business operations?
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -93,7 +93,7 @@ export const CTASection = () => {
           viewport={{ once: true }}
           className="text-xl text-blue-100 mb-10"
         >
-          Talk with one of our payment experts.
+          Discover how Altura can automate, connect and empower your business.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -7,20 +7,20 @@ const features = [
   {
     icon: CreditCard,
     number: "01.",
-    title: "RECOVER LOST REVENUE",
-    description: "NOVA detects payment failures and cart abandonment in real-time and reaches out to customers - via WhatsApp or voice call - guiding them towards a successful payment.",
+    title: "AUTOMATED CUSTOMER SERVICE",
+    description: "AI agents that handle customer inquiries, support requests, and order management through WhatsApp, Instagram, Messenger, email, and phone calls—providing instant responses 24/7.",
   },
   {
     icon: Headphones,
     number: "02.",
-    title: "PROACTIVE CUSTOMER SUPPORT",
-    description: "NOVA jumps in to support customers with a payment issue at the moment help is needed—reducing drop-offs and improving customer satisfaction.",
+    title: "PROCESS AUTOMATION",
+    description: "Automate repetitive tasks like order processing, inventory updates, appointment scheduling, and data entry. Your team can focus on strategy and growth instead of manual work.",
   },
   {
     icon: Package,
     number: "03.",
-    title: "OPTIMIZING THE CUSTOMER EXPERIENCE",
-    description: "NOVA uses real customer engagements and transaction data to identify behaviors, payment preferences, and friction points to help you improve your customer experience.",
+    title: "MULTI-CHANNEL INTEGRATION",
+    description: "Seamlessly connect and manage customer interactions across all your communication channels. One AI agent, multiple platforms, unified experience for your customers.",
   },
 ];
 
@@ -37,7 +37,7 @@ export const WhatNovaHelps = () => {
         {/* Section Header - Centered */}
         <div className="mb-16 text-center">
           <p className="text-xs font-semibold text-gray-500 uppercase tracking-[0.2em]">
-            What NOVA can help with:
+            What Altura Automations can help with:
           </p>
         </div>
 

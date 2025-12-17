@@ -23,23 +23,23 @@ export const OrchestrationSection = () => {
           <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600/20 rounded-full mb-12 border border-blue-500/30">
             <Sparkles className="w-4 h-4 text-blue-400" />
             <span className="text-sm font-semibold text-white uppercase tracking-wider">
-              Orchestration Meets Intelligence
+              Intelligent Automation
             </span>
           </div>
 
           {/* Headline with Alternating Brightness */}
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8">
             <span className="block text-white">
-              NOVA intercepts every decline,
+              Altura Automations handle every interaction,
             </span>
             <span className="block text-gray-500">
-              guides customers to completion,
+              respond instantly across all channels,
             </span>
             <span className="block text-white">
-              and surfaces the 'why' so you
+              and learn from each conversation
             </span>
             <span className="block text-gray-500">
-              can prevent the next drop-off.
+              to continuously improve your operations.
             </span>
           </h2>
         </motion.div>

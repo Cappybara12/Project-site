@@ -27,10 +27,10 @@ export const AboutHero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-              Making global payments effortless
+              Technology that transforms<br />how businesses operate
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
-              Our mission is to help businesses around the world thrive in today's evolving commerce landscape. Leveraging deep industry knowledge, cutting-edge technology, and the power of AI, we are helping businesses simplify payment management and unlock new revenue streams.
+              Altura is dedicated to helping businesses automate operations, centralize information, and accelerate growth through intelligent technology solutions. We combine AI-powered automation, unified data platforms, and custom enterprise development to create technology that scales with your ambitions.
             </p>
           </motion.div>
         </div>

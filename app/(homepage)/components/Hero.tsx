@@ -50,11 +50,10 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-8 border border-blue-100 cursor-pointer hover:bg-blue-100 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-8 border border-blue-100"
         >
-          <span className="px-1.5 py-0.5 bg-blue-200/50 text-blue-700 rounded text-xs font-bold">NEW</span>
-          Meet NOVA - AI that turns payment friction into growth
-          <ArrowRight className="w-4 h-4" />
+          <span className="px-1.5 py-0.5 bg-blue-200/50 text-blue-700 rounded text-xs font-bold">ALTURA</span>
+          Technology Infrastructure for Modern Businesses
         </motion.div>
 
         {/* Heading */}
@@ -65,9 +64,9 @@ export const Hero = () => {
           className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight"
           style={{ letterSpacing: '-0.02em' }}
         >
-          Financial Infrastructure
+          Technology Infrastructure
           <br />
-          on a Global Scale
+          that Automates, Connects and Empowers Your Business
         </motion.h1>
 
         {/* Subtitle */}
@@ -77,7 +76,7 @@ export const Hero = () => {
           transition={{ delay: 0.2 }}
           className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          Orchestrate your financial operations across the globe from a single unified platform.
+          Technology designed to strengthen your operations, improve your customers' experience and accelerate your company's growth from a single ecosystem.
         </motion.p>
 
         {/* Buttons */}
@@ -89,7 +88,7 @@ export const Hero = () => {
         >
           <a href="/book-a-demo">
             <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
-              Book a demo
+              Explore Products
             </button>
           </a>
           <button className="bg-gray-100 text-gray-700 px-8 py-4 rounded-full text-base font-medium hover:bg-gray-200 transition-colors flex items-center gap-2">

@@ -54,12 +54,12 @@ export const NovaCtaSection = () => {
 
           {/* Headline */}
           <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-8 leading-tight">
-            Go live with NOVA immediately
+            Automate your operations<br />with Altura today
           </h2>
 
           {/* Subtext */}
           <p className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed max-w-2xl">
-            Elevate your payment strategy with NOVA. Our team can help you started quickly - no code required.
+            Transform your business with AI-powered automation. Our team can help you get started quickly—no code required. Automate customer service, streamline processes, and free your team to focus on growth.
           </p>
 
           {/* CTA Button */}

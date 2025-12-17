@@ -5,6 +5,7 @@ import { ImpactMetrics } from "./ImpactMetrics";
 import { UnifiedInfrastructure } from "./UnifiedInfrastructure";
 import { StickyFeatures } from "./StickyFeatures";
 import { BeforeAfterYuno } from "./BeforeAfterYuno";
+import { SolutionSection } from "./SolutionSection";
 import { Industries } from "./Industries";
 import { Testimonials } from "./Testimonials";
 import { FAQ } from "./FAQ";
@@ -20,6 +21,7 @@ export const HomePage = () => {
       <UnifiedInfrastructure />
       <StickyFeatures />
       <BeforeAfterYuno />
+      <SolutionSection />
       <Industries />
       <Testimonials />
       <FAQ />

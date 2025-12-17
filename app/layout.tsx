@@ -3,10 +3,11 @@ import "@fontsource/titillium-web/400.css";
 import "@fontsource/titillium-web/600.css";
 import "@fontsource/titillium-web/700.css";
 import "./globals.css";
+import { GoogleTranslate } from "./components/common/GoogleTranslate";
 
 export const metadata: Metadata = {
-  title: "Yuno - Financial Infrastructure on a Global Scale",
-  description: "Orchestrate your financial operations across the globe from a single unified platform.",
+  title: "Altura - Technology Infrastructure that Automates, Connects and Empowers Your Business",
+  description: "Technology designed to strengthen your operations, improve your customers' experience and accelerate your company's growth from a single ecosystem.",
 };
 
 export default function RootLayout({
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
+        <GoogleTranslate />
         {children}
       </body>
     </html>

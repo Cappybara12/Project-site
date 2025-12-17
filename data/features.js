@@ -22,24 +22,24 @@ export const features = [
 
 export const infrastructureFeatures = [
   {
-    id: 'boost-revenue',
-    title: 'BOOST REVENUE',
-    heading: 'Increase conversion and approval rates with intelligent orchestration.',
-    description: 'Smart routing, cascading, and network tokenization maximize your payment success rates.',
+    id: 'optimize-processes',
+    title: 'OPTIMIZE YOUR PROCESSES',
+    heading: 'Tools that simplify tasks and allow you to operate more clearly and efficiently.',
+    description: 'Streamline your workflows and eliminate manual tasks with intelligent automation that adapts to your business needs.',
     icon: 'chart'
   },
   {
-    id: 'lower-costs',
-    title: 'LOWER COSTS',
-    heading: 'Reduce operational overhead and fees with optimized routing.',
-    description: 'Route transactions to the most cost-effective provider while maintaining high performance.',
+    id: 'unify-systems',
+    title: 'UNIFY YOUR SYSTEMS',
+    heading: 'Connect your platforms and centralize key information for a more organized and coherent operation.',
+    description: 'Integrate all your tools and data sources into a single unified platform that provides a complete view of your business.',
     icon: 'routing'
   },
   {
-    id: 'faster-market',
-    title: 'FASTER TIME TO MARKET',
-    heading: 'Launch in new regions without starting from scratch.',
-    description: 'Single integration gives you access to hundreds of payment methods worldwide.',
+    id: 'accelerate-growth',
+    title: 'ACCELERATE YOUR GROWTH',
+    heading: 'Flexible technology that adapts to new opportunities and allows you to advance without limiting business scale.',
+    description: 'Scale your operations seamlessly with technology that grows with you and enables rapid expansion into new markets.',
     icon: 'globe'
   }
 ];

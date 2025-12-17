@@ -58,3 +58,30 @@ html {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Hide Google Translate bar and banners */
+.goog-te-banner-frame,
+#google_translate_element,
+.skiptranslate,
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Hide the Google Translate top bar completely */
+.goog-te-banner-frame {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  top: -9999px !important;
+}
+
+/* Prevent body shift when translate bar appears */
+body.top {
+  padding-top: 0 !important;
+}
