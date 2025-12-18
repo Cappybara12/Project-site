@@ -1,0 +1,54 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="emailGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#34A853;stop-opacity:0.1" />
+    </linearGradient>
+    <style>
+      @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+      @keyframes slideIn { 0% { transform: translateX(-30px); opacity: 0; } 100% { transform: translateX(0); opacity: 1; } }
+      .float { animation: float 3s ease-in-out infinite; }
+      .pulse { animation: pulse 2s ease-in-out infinite; }
+      .slide1 { animation: slideIn 0.8s ease-out; }
+      .slide2 { animation: slideIn 1s ease-out 0.3s both; }
+    </style>
+  </defs>
+  <rect width="800" height="600" fill="url(#emailGrad1)"/>
+  
+  <!-- Email interface -->
+  <g class="float">
+    <rect x="150" y="80" width="500" height="480" rx="20" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+    
+    <!-- Header -->
+    <rect x="150" y="80" width="500" height="60" fill="#4285F4"/>
+    <text x="170" y="115" font-family="Arial" font-size="16" fill="#FFFFFF" font-weight="bold">Inbox</text>
+    
+    <!-- Email list -->
+    <g class="slide1">
+      <rect x="160" y="160" width="480" height="80" rx="10" fill="#F9FAFB" stroke="#4285F4" stroke-width="2"/>
+      <circle cx="180" cy="200" r="15" fill="#4285F4"/>
+      <text x="205" y="195" font-family="Arial" font-size="14" fill="#1F2937" font-weight="bold">Customer Inquiry</text>
+      <text x="205" y="215" font-family="Arial" font-size="12" fill="#6B7280">I need help with my order...</text>
+      <text x="600" y="200" font-family="Arial" font-size="11" fill="#6B7280">2 min ago</text>
+    </g>
+    
+    <g class="slide2">
+      <rect x="160" y="260" width="480" height="100" rx="10" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1"/>
+      <text x="170" y="285" font-family="Arial" font-size="12" fill="#1F2937" font-weight="bold">AI Agent Response:</text>
+      <text x="170" y="305" font-family="Arial" font-size="11" fill="#6B7280">Thank you for contacting us. I've analyzed your</text>
+      <text x="170" y="325" font-family="Arial" font-size="11" fill="#6B7280">request and here's the information you need...</text>
+      <circle cx="600" cy="310" r="15" fill="#34A853"/>
+      <path d="M 595 310 L 600 315 L 605 305" stroke="#FFFFFF" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- AI brain icon -->
+  <g class="pulse">
+    <circle cx="700" cy="200" r="50" fill="#4285F4" opacity="0.2"/>
+    <circle cx="700" cy="200" r="35" fill="#4285F4"/>
+    <path d="M 685 195 Q 700 185 715 195 Q 720 200 715 205 Q 700 215 685 205 Q 680 200 685 195" fill="#FFFFFF"/>
+    <circle cx="695" cy="195" r="3" fill="#FFFFFF"/>
+    <circle cx="705" cy="195" r="3" fill="#FFFFFF"/>
+  </g>
+</svg>

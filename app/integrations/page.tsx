@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Search, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { useLanguageSwitcher } from "../components/common/useLanguageSwitcher";
 
 // Country to flag emoji mapping
 const countryFlags: { [key: string]: string } = {
@@ -274,6 +275,7 @@ const allCountries = [...new Set(integrations.flatMap(i => i.countries))].sort()
 const allFeatures = ["Network Tokenization", "3DS", "Recurring", "Tokenization", "Instant"];
 
 export default function IntegrationsPage() {
+  const { currentLang } = useLanguageSwitcher();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
@@ -391,10 +393,14 @@ export default function IntegrationsPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-              Financial Infrastructure
+              {currentLang === "en" 
+                ? "We connect your technology so your systems work as a single ecosystem"
+                : "Conectamos tu tecnología para que tus sistemas trabajen como un solo ecosistema"}
             </h1>
             <p className="text-xl md:text-2xl text-gray-600">
-              Single Integration. Global Reach. Add Providers in Seconds.
+              {currentLang === "en"
+                ? "Altura integrates with ecommerce platforms, CRM, ERP, marketing tools, messaging, payments, analytics and internal systems. We design stable and secure integrations that allow information to flow between tools and processes to operate in a coordinated and efficient way."
+                : "Altura se integra con plataformas de ecommerce, CRM, ERP, herramientas de marketing, mensajería, pagos, analítica y sistemas internos. Diseñamos integraciones estables y seguras que permiten que la información fluya entre herramientas y que los procesos operen de forma coordinada y eficiente."}
             </p>
           </motion.div>
         </div>
@@ -660,15 +666,18 @@ export default function IntegrationsPage() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight italic">
-              Powering the future<br />
-              of financial infrastructure
+              {currentLang === "en" 
+                ? <>Powering the future<br />of financial infrastructure</>
+                : <>Impulsando el futuro<br />de la infraestructura financiera</>}
             </h2>
             <p className="text-xl text-blue-100 mb-12">
-              Talk with one of our payment experts.
+              {currentLang === "en"
+                ? "Talk with one of our payment experts."
+                : "Habla con uno de nuestros expertos en pagos."}
             </p>
             <Link href="/book-a-demo">
               <button className="px-8 py-4 bg-white text-blue-600 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
-                Book a Demo
+                {currentLang === "en" ? "Book a Demo" : "Reservar una demo"}
               </button>
             </Link>
           </motion.div>

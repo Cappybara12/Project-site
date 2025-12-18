@@ -1,28 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Network, Zap, TrendingUp, Globe } from "lucide-react";
+import { Target, Zap, Network, TrendingUp } from "lucide-react";
 
 const advantages = [
   {
-    icon: Network,
-    title: "All-in-one integration",
-    description: "Connect to over +1000 payment methods and providers with a single, no-code integration."
+    icon: Target,
+    title: "Soluciones diseñadas para procesos reales"
   },
   {
     icon: Zap,
-    title: "High-performing payments",
-    description: "Benefit from industry-leading approval rates and fraud prevention measures to maximize your revenue and minimize risk."
+    title: "Enfoque práctico y orientado a resultados"
+  },
+  {
+    icon: Network,
+    title: "Integraciones profundas entre sistemas"
   },
   {
     icon: TrendingUp,
-    title: "Unified insights",
-    description: "Get a clear view of your payment data with our dashboard. Track metrics, spot trends, and optimize your strategy."
-  },
-  {
-    icon: Globe,
-    title: "Built for global scale",
-    description: "Yuno empowers you to accept payments from anywhere in the world, effortlessly."
+    title: "Tecnología preparada para escalar"
   }
 ];
 
@@ -40,7 +36,7 @@ export const YunoAdvantage = () => {
           className="mb-16"
         >
           <p className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-4">
-            Why Yuno Stands Out
+            Por qué Altura
           </p>
         </motion.div>
 
@@ -55,11 +51,8 @@ export const YunoAdvantage = () => {
             className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-12 text-white flex flex-col justify-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              The Yuno advantage
+              Acompañamiento a largo plazo
             </h2>
-            <p className="text-lg md:text-xl text-blue-100">
-              Yuno sets itself apart by offering a comprehensive payments orchestration solution that goes beyond traditional payment processors.
-            </p>
           </motion.div>
 
           {/* First Feature Card */}
@@ -76,9 +69,6 @@ export const YunoAdvantage = () => {
             <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">
               {advantages[0].title}
             </h3>
-            <p className="text-base text-gray-600 leading-relaxed">
-              {advantages[0].description}
-            </p>
           </motion.div>
         </div>
 
@@ -101,9 +91,6 @@ export const YunoAdvantage = () => {
                 <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">
                   {advantage.title}
                 </h3>
-                <p className="text-base text-gray-600 leading-relaxed">
-                  {advantage.description}
-                </p>
               </motion.div>
             );
           })}
@@ -112,4 +99,3 @@ export const YunoAdvantage = () => {
     </section>
   );
 };
-

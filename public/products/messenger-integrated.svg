@@ -1,0 +1,55 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="msgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0084FF;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:0.1" />
+    </linearGradient>
+    <style>
+      @keyframes connect { 0% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 20; } }
+      @keyframes glow { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+      @keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+      .connect { animation: connect 2s linear infinite; }
+      .glow { animation: glow 2s ease-in-out infinite; }
+      .rotate { animation: rotate 3s linear infinite; }
+    </style>
+  </defs>
+  <rect width="800" height="600" fill="url(#msgGrad3)"/>
+  
+  <!-- Messenger icon -->
+  <g>
+    <circle cx="150" cy="200" r="50" fill="#0084FF" class="glow"/>
+    <path d="M 120 180 Q 150 200 120 220 L 150 210 Z" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- CRM -->
+  <rect x="500" y="100" width="200" height="150" rx="10" fill="#FFFFFF" stroke="#3B82F6" stroke-width="2"/>
+  <rect x="510" y="110" width="180" height="20" rx="5" fill="#3B82F6"/>
+  <rect x="510" y="140" width="60" height="15" rx="3" fill="#E5E7EB"/>
+  <rect x="580" y="140" width="60" height="15" rx="3" fill="#E5E7EB"/>
+  <rect x="650" y="140" width="40" height="15" rx="3" fill="#E5E7EB"/>
+  <text x="520" y="125" font-family="Arial" font-size="12" fill="#FFFFFF" font-weight="bold">CRM</text>
+  
+  <!-- ERP -->
+  <rect x="500" y="300" width="200" height="150" rx="10" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="2"/>
+  <rect x="510" y="310" width="180" height="20" rx="5" fill="#8B5CF6"/>
+  <rect x="510" y="340" width="80" height="15" rx="3" fill="#E5E7EB"/>
+  <rect x="510" y="365" width="80" height="15" rx="3" fill="#E5E7EB"/>
+  <text x="520" y="325" font-family="Arial" font-size="12" fill="#FFFFFF" font-weight="bold">ERP</text>
+  
+  <!-- Ecommerce -->
+  <rect x="500" y="500" width="200" height="80" rx="10" fill="#FFFFFF" stroke="#10B981" stroke-width="2"/>
+  <ellipse cx="600" cy="510" rx="80" ry="10" fill="#10B981"/>
+  <text x="520" y="570" font-family="Arial" font-size="12" fill="#1F2937" font-weight="bold">Ecommerce</text>
+  
+  <!-- Connection lines -->
+  <path d="M 200 200 L 500 175" stroke="#3B82F6" stroke-width="3" fill="none" stroke-dasharray="10,5" class="connect"/>
+  <path d="M 200 200 L 500 375" stroke="#8B5CF6" stroke-width="3" fill="none" stroke-dasharray="10,5" class="connect" style="animation-delay: 0.5s;"/>
+  <path d="M 200 200 L 500 540" stroke="#10B981" stroke-width="3" fill="none" stroke-dasharray="10,5" class="connect" style="animation-delay: 1s;"/>
+  
+  <!-- Central hub -->
+  <g class="rotate">
+    <circle cx="200" cy="200" r="30" fill="#0084FF" opacity="0.3"/>
+    <circle cx="200" cy="200" r="20" fill="#0084FF"/>
+    <circle cx="200" cy="200" r="10" fill="#FFFFFF"/>
+  </g>
+</svg>
