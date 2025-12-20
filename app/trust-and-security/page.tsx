@@ -3,6 +3,7 @@
 import { Shield, Lock, FileText, ClipboardCheck, CheckCircle, Eye, Code, Search, Server, LucideIcon, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 type Card = {
   icon: LucideIcon;
@@ -106,6 +107,12 @@ const securitySections: Section[] = [
 ];
 
 export default function TrustAndSecurityPage() {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted");
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Badges */}
@@ -284,7 +291,7 @@ export default function TrustAndSecurityPage() {
 
             {/* Right Side - Form */}
             <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 mb-2">First name</label>

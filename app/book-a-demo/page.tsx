@@ -15,6 +15,12 @@ export default function BookADemoPage() {
     transactions: ""
   });
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+  };
+
   return (
     <div className="min-h-screen bg-white pt-32 pb-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,7 +53,7 @@ export default function BookADemoPage() {
             className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-3xl p-8 md:p-10"
           >
             <div className="bg-white rounded-2xl p-8 shadow-sm">
-              <form className="space-y-5">
+              <form className="space-y-5" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">First name</label>

@@ -15,6 +15,12 @@ export const ContactForm = () => {
     transactions: ""
   });
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+  };
+
   return (
     <section className="relative py-24 bg-gradient-to-br from-blue-50 to-purple-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,7 +52,7 @@ export const ContactForm = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100"
           >
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">First name</label>
