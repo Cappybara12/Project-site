@@ -286,12 +286,12 @@ export const Navbar = () => {
                       </div>
                       <ul className="space-y-2">
                         {[
-                          { name: { en: "Retail", es: "Retail" }, href: "/book-a-demo", icon: "🛍️" },
-                          { name: { en: "Pet Shops", es: "Tiendas de Mascotas" }, href: "/book-a-demo", icon: "🐾" },
-                          { name: { en: "Dealerships", es: "Concesionarios" }, href: "/book-a-demo", icon: "🚗" },
-                          { name: { en: "Distributors", es: "Distribuidoras" }, href: "/book-a-demo", icon: "📦" },
-                          { name: { en: "Restaurants", es: "Restaurantes" }, href: "/book-a-demo", icon: "🍽️" },
-                          { name: { en: "Construction", es: "Constructoras" }, href: "/book-a-demo", icon: "🏗️" }
+                          { name: { en: "Retail", es: "Retail" }, href: "/industries/retail", icon: "🛍️" },
+                          { name: { en: "Pet Shops", es: "Tiendas de Mascotas" }, href: "/industries/retail/pet-shops", icon: "🐾" },
+                          { name: { en: "Dealerships", es: "Concesionarios" }, href: "/industries/retail/concesionarios", icon: "🚗" },
+                          { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/retail/distribuidoras", icon: "📦" },
+                          { name: { en: "Restaurants", es: "Restaurantes" }, href: "/industries/retail/restaurantes", icon: "🍽️" },
+                          { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" }
                         ].map((item) => (
                           <Link key={item.name.en} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
                             <span className="text-lg">{item.icon}</span>
@@ -316,12 +316,12 @@ export const Navbar = () => {
                       </div>
                       <ul className="space-y-2">
                         {[
-                          { name: { en: "Retail", es: "Retail" }, href: "/book-a-demo", icon: "🛍️" },
-                          { name: { en: "DTC Brands", es: "Marcas DTC" }, href: "/book-a-demo", icon: "🏷️" },
-                          { name: { en: "Ecommerce", es: "Ecommerce" }, href: "/book-a-demo", icon: "🛒" },
-                          { name: { en: "Agencies", es: "Agencias" }, href: "/book-a-demo", icon: "📊" },
-                          { name: { en: "Marketplaces", es: "Marketplaces" }, href: "/book-a-demo", icon: "🏪" },
-                          { name: { en: "Subscription Companies", es: "Empresas de suscripción" }, href: "/book-a-demo", icon: "🔄" }
+                          { name: { en: "Retail", es: "Retail" }, href: "/industries/retail/platform", icon: "🛍️" },
+                          { name: { en: "DTC Brands", es: "Marcas DTC" }, href: "/industries/retail/marcas-dtc", icon: "🏷️" },
+                          { name: { en: "Ecommerce", es: "Ecommerce" }, href: "/industries/retail/ecommerce", icon: "🛒" },
+                          { name: { en: "Agencies", es: "Agencias" }, href: "/industries/retail/agencias", icon: "📊" },
+                          { name: { en: "Marketplaces", es: "Marketplaces" }, href: "/industries/retail/marketplaces", icon: "🏪" },
+                          { name: { en: "Subscription Companies", es: "Empresas de suscripción" }, href: "/industries/retail/empresas-suscripcion", icon: "🔄" }
                         ].map((item) => (
                           <Link key={item.name.en} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
                             <span className="text-lg">{item.icon}</span>
@@ -347,12 +347,12 @@ export const Navbar = () => {
                       </div>
                       <ul className="space-y-2">
                         {[
-                          { name: { en: "Construction", es: "Constructoras" }, href: "/book-a-demo", icon: "🏗️" },
-                          { name: { en: "Import & Export", es: "Importación y Exportación" }, href: "/book-a-demo", icon: "📦" },
-                          { name: { en: "Insurance", es: "Aseguradoras" }, href: "/book-a-demo", icon: "🛡️" },
-                          { name: { en: "Distributors", es: "Distribuidoras" }, href: "/book-a-demo", icon: "🚚" },
-                          { name: { en: "Logistics Companies", es: "Empresas logísticas" }, href: "/book-a-demo", icon: "📋" },
-                          { name: { en: "Retail", es: "Retail" }, href: "/book-a-demo", icon: "🛍️" }
+                          { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" },
+                          { name: { en: "Import & Export", es: "Importación y Exportación" }, href: "/industries/constructoras/import-export", icon: "📦" },
+                          { name: { en: "Insurance", es: "Aseguradoras" }, href: "/industries/constructoras/aseguradoras", icon: "🛡️" },
+                          { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/constructoras/distribuidoras", icon: "🚚" },
+                          { name: { en: "Logistics Companies", es: "Empresas logísticas" }, href: "/industries/constructoras/empresas-logisticas", icon: "📋" },
+                          { name: { en: "Retail", es: "Retail" }, href: "/industries/constructoras/retail", icon: "🛍️" }
                         ].map((item) => (
                           <Link key={item.name.en} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
                             <span className="text-lg">{item.icon}</span>
