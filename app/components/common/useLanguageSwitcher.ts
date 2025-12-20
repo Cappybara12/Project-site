@@ -47,14 +47,14 @@ export const useLanguageSwitcher = () => {
         if (select && select.value === "es") {
           setCurrentLang("es");
           if (typeof window !== "undefined") {
-            localStorage.setItem("yuno-lang", "es");
+            localStorage.setItem("altura-lang", "es");
           }
         }
       } else {
         // Default to English if nothing is detected
         setCurrentLang("en");
         if (typeof window !== "undefined") {
-          localStorage.setItem("yuno-lang", "en");
+          localStorage.setItem("altura-lang", "en");
         }
       }
     }
@@ -90,7 +90,7 @@ export const useLanguageSwitcher = () => {
     
     // Store in localStorage immediately
     if (typeof window !== "undefined") {
-      localStorage.setItem("yuno-lang", lang);
+      localStorage.setItem("altura-lang", lang);
     }
     
     // Set cookie for Google Translate
