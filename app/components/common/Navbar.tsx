@@ -64,7 +64,7 @@ export const Navbar = () => {
     { href: "#", label: "Developers" },
     { href: "/about-us", label: "Company" },
     { href: "/pricing", label: "Pricing" },
-    { href: "#", label: "Integrations" },
+    { href: "/integrations", label: "Integrations" },
   ];
 
   const resourcesLinks = [
@@ -473,7 +473,7 @@ export const Navbar = () => {
               )}
             </div>
 
-            <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
+            <Link href="/integrations" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
               Integrations
             </Link>
           </div>
