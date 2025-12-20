@@ -34,7 +34,8 @@ export default function MarcasDTCPage() {
       description: {
         en: "Unifies traffic, campaigns, conversions, orders and recurrence in dashboards that show the real performance of each funnel stage.",
         es: "Unifica tráfico, campañas, conversiones, pedidos y recurrencia en dashboards que muestran el desempeño real de cada etapa del funnel."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function MarcasDTCPage() {
       description: {
         en: "Cross-references data from digital advertising, organic channels and sales to understand which campaigns convert, which audiences work best and where to adjust investment.",
         es: "Cruza datos de pauta digital, canales orgánicos y ventas para entender qué campañas convierten, qué audiencias funcionan mejor y dónde ajustar inversión."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function MarcasDTCPage() {
       description: {
         en: "OS Copilot, AI Chat and Insight ML help interpret results, answer questions instantly and project growth scenarios without depending on manual reports.",
         es: "OS Copilot, AI Chat e Insight ML ayudan a interpretar resultados, responder preguntas al instante y proyectar escenarios de crecimiento sin depender de reportes manuales."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function MarcasDTCPage() {
       description: {
         en: "Competitor Intelligence allows monitoring prices, trends and market movements to adjust offers, bundles and positioning strategies.",
         es: "Competitor Intelligence permite monitorear precios, tendencias y movimientos del mercado para ajustar ofertas, bundles y estrategias de posicionamiento."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

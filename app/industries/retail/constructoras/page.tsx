@@ -34,7 +34,8 @@ export default function ConstructorasPage() {
       description: {
         en: "The agent responds to inquiries about projects, typologies, locations, reference prices, availability, estimated dates and required documentation, maintaining clear and consistent communication.",
         es: "El agente responde consultas sobre proyectos, tipologías, ubicaciones, precios de referencia, disponibilidad, fechas estimadas y documentación requerida, manteniendo una comunicación clara y consistente."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function ConstructorasPage() {
       description: {
         en: "Automates requests related to warranties, repairs, deliveries, documentation, claims and case follow-up, capturing all necessary information for the human team.",
         es: "Automatiza solicitudes relacionadas con garantías, reparaciones, entregas, escrituración, reclamos y seguimiento de casos, capturando toda la información necesaria para el equipo humano."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function ConstructorasPage() {
       description: {
         en: "Each interaction is organized by type, project, apartment or client, and recorded in internal systems or tracking tools to guarantee traceability.",
         es: "Cada interacción se organiza por tipo, proyecto, apartamento o cliente, y se registra en sistemas internos o herramientas de seguimiento para garantizar trazabilidad."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function ConstructorasPage() {
       description: {
         en: "The agent can connect to CRMs, after-sales tracking systems, databases or internal files to check, create or update information in real time.",
         es: "El agente puede conectarse a CRMs, sistemas de seguimiento posventa, bases de datos o archivos internos para consultar, crear o actualizar información en tiempo real."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

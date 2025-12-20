@@ -34,7 +34,8 @@ export default function RetailCustomPage() {
       description: {
         en: "We develop custom solutions to manage inventories, orders, clients, prices, promotions and internal operations from a centralized environment.",
         es: "Desarrollamos soluciones a medida para gestionar inventarios, pedidos, clientes, precios, promociones y operaciones internas desde un entorno centralizado."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function RetailCustomPage() {
       description: {
         en: "We connect physical stores, ecommerce, marketplaces, CRMs and internal systems to guarantee information coherence and operational continuity.",
         es: "Conectamos tiendas físicas, ecommerce, marketplaces, CRMs y sistemas internos para garantizar coherencia en la información y continuidad operativa."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function RetailCustomPage() {
       description: {
         en: "We transform manual processes into digital flows: inventory control, order management, returns, internal approvals and operational reports.",
         es: "Transformamos procesos manuales en flujos digitales: control de inventarios, gestión de pedidos, devoluciones, aprobaciones internas y reportes operativos."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function RetailCustomPage() {
       description: {
         en: "Developments are built with modern technologies that allow scaling in number of stores, channels, products and operational volume without limiting growth.",
         es: "Los desarrollos se construyen con tecnologías modernas que permiten escalar en número de tiendas, canales, productos y volumen operativo sin limitar el crecimiento."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

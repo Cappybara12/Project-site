@@ -34,7 +34,8 @@ export default function AseguradorasPage() {
       description: {
         en: "We develop systems to manage policies, clients, coverage, renewals, expirations and statuses in a centralized environment.",
         es: "Desarrollamos sistemas para administrar pólizas, clientes, coberturas, renovaciones, vencimientos y estados en un entorno centralizado."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function AseguradorasPage() {
       description: {
         en: "We create digital flows for registration, validation, tracking and resolution of claims, including document upload and status control.",
         es: "Creamos flujos digitales para el registro, validación, seguimiento y resolución de siniestros, incluyendo carga de documentos y control de estados."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function AseguradorasPage() {
       description: {
         en: "We connect platforms with core systems, accounting tools, CRMs, external providers and internal databases to keep information synchronized.",
         es: "Conectamos plataformas con sistemas core, herramientas contables, CRMs, proveedores externos y bases de datos internas para mantener la información sincronizada."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function AseguradorasPage() {
       description: {
         en: "We design systems with access controls, action logging and structures that guarantee compliance and complete visibility of each process.",
         es: "Diseñamos sistemas con controles de acceso, registro de acciones y estructuras que garantizan cumplimiento y visibilidad completa de cada proceso."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

@@ -34,7 +34,8 @@ export default function RestaurantesPage() {
       description: {
         en: "Quick responses about menu, prices, promotions, hours, locations, policies and special events, maintaining clear communication aligned with the brand.",
         es: "Respuestas rápidas sobre menú, precios, promociones, horarios, sedes, políticas y eventos especiales, manteniendo una comunicación clara y alineada a la marca."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function RestaurantesPage() {
       description: {
         en: "The agent can take reservations, confirm availability, send reminders, manage changes and cancellations according to restaurant capacity.",
         es: "El agente puede tomar reservas, confirmar disponibilidad, enviar recordatorios, gestionar cambios y cancelaciones según la capacidad del restaurante."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function RestaurantesPage() {
       description: {
         en: "Attends inquiries about orders, delivery times, statuses, coverage areas and payment methods, integrating with order systems or delivery platforms.",
         es: "Atiende consultas sobre pedidos, tiempos de entrega, estados, zonas de cobertura y métodos de pago, integrándose con sistemas de pedidos o plataformas de delivery."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function RestaurantesPage() {
       description: {
         en: "During high demand moments, the agent absorbs most inquiries, allowing the team to focus on in-person service and internal operations.",
         es: "Durante momentos de alta demanda, el agente absorbe la mayor parte de las consultas, permitiendo que el equipo se enfoque en la atención presencial y la operación interna."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

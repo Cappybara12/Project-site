@@ -34,7 +34,8 @@ export default function EmpresasSuscripcionPage() {
       description: {
         en: "Centralizes data on acquisition, activation, renewals, upgrades, downgrades and cancellations to understand the real behavior of your subscribers.",
         es: "Centraliza datos de adquisición, activación, renovaciones, upgrades, downgrades y cancelaciones para entender el comportamiento real de tus suscriptores."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function EmpresasSuscripcionPage() {
       description: {
         en: "Monitors churn, LTV, MRR, ARPU, cohorts and performance by plan from dashboards designed for growth, operations and management teams.",
         es: "Monitorea churn, LTV, MRR, ARPU, cohortes y rendimiento por plan desde dashboards diseñados para equipos de growth, operaciones y dirección."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function EmpresasSuscripcionPage() {
       description: {
         en: "OS Copilot, AI Chat and Insight ML help identify cancellation patterns, forecast renewals and detect retention opportunities before they occur.",
         es: "OS Copilot, AI Chat e Insight ML ayudan a identificar patrones de cancelación, prever renovaciones y detectar oportunidades de retención antes de que ocurran."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function EmpresasSuscripcionPage() {
       description: {
         en: "Integrates payments, CRM, support, marketing and product usage to make coordinated decisions based on real data.",
         es: "Integra pagos, CRM, soporte, marketing y uso del producto para tomar decisiones coordinadas y basadas en datos reales."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

@@ -34,7 +34,8 @@ export default function DistribuidorasPage() {
       description: {
         en: "The agent attends questions about prices, catalogs, presentations, availability, commercial conditions and delivery times, maintaining consistency and accuracy in information.",
         es: "El agente atiende preguntas sobre precios, catálogos, presentaciones, disponibilidad, condiciones comerciales y tiempos de entrega, manteniendo coherencia y exactitud en la información."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function DistribuidorasPage() {
       description: {
         en: "Allows customers to check order statuses, dispatch dates, billing and logistics updates without human team intervention.",
         es: "Permite a los clientes consultar estados de pedido, fechas de despacho, facturación y novedades logísticas sin intervención del equipo humano."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function DistribuidorasPage() {
       description: {
         en: "Checks stock, records orders, updates statuses, validates customers and connects with ERP, CRM or proprietary distributor systems.",
         es: "Consulta stock, registra pedidos, actualiza estados, valida clientes y se conecta con ERP, CRM o sistemas propios de la distribuidora."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function DistribuidorasPage() {
       description: {
         en: "Reduces repetitive calls and messages, frees the team from manual tasks and improves organization of incoming request flows.",
         es: "Reduce llamadas y mensajes repetitivos, libera al equipo de tareas manuales y mejora la organización del flujo de solicitudes entrantes."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

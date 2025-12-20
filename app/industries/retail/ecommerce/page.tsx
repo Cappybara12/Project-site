@@ -34,7 +34,8 @@ export default function EcommercePage() {
       description: {
         en: "Integrates data from your online store, payment gateways, inventories, CRM, digital advertising and logistics to have a complete vision of operations in one place.",
         es: "Integra datos de tu tienda online, pasarelas de pago, inventarios, CRM, pauta digital y logística para tener una visión completa de la operación en un solo lugar."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function EcommercePage() {
       description: {
         en: "Evaluates sales, conversions, average ticket, customer behavior, performance by channel and product performance without depending on manual reports.",
         es: "Evalúa ventas, conversiones, ticket promedio, comportamiento de clientes, rendimiento por canal y desempeño de productos sin depender de reportes manuales."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function EcommercePage() {
       description: {
         en: "With OS Copilot, AI Chat and Insight ML, transforms complex data into clear conclusions, immediate answers and projections that help anticipate scenarios and optimize operations.",
         es: "Con OS Copilot, AI Chat e Insight ML, transforma datos complejos en conclusiones claras, respuestas inmediatas y proyecciones que ayudan a anticipar escenarios y optimizar la operación."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function EcommercePage() {
       description: {
         en: "Monitors market prices, competitor movements and trends to adjust commercial strategies and maintain a solid competitive position.",
         es: "Monitorea precios del mercado, movimientos de la competencia y tendencias para ajustar estrategias comerciales y mantener una posición competitiva sólida."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

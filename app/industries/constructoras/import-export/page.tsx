@@ -34,7 +34,8 @@ export default function ImportExportPage() {
       description: {
         en: "We develop systems to manage orders, shipments, suppliers, clients, cargo status, logistical milestones and documentation associated with each operation.",
         es: "Desarrollamos sistemas para gestionar órdenes, embarques, proveedores, clientes, estados de carga, hitos logísticos y documentación asociada a cada operación."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function ImportExportPage() {
       description: {
         en: "We automate document management, validations, records, internal approvals and notifications between involved areas.",
         es: "Automatizamos la gestión de documentos, validaciones, registros, aprobaciones internas y notificaciones entre áreas involucradas."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function ImportExportPage() {
       description: {
         en: "We connect platforms with ERPs, accounting systems, logistics tools, external operators, customs agencies and internal databases.",
         es: "Conectamos plataformas con ERPs, sistemas contables, herramientas logísticas, operadores externos, agencias de aduana y bases de datos internas."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function ImportExportPage() {
       description: {
         en: "Centralizes all information from each operation to have clarity on statuses, timelines, costs and responsibilities in a single environment.",
         es: "Centraliza toda la información de cada operación para tener claridad sobre estados, tiempos, costos y responsabilidades en un solo entorno."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

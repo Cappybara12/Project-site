@@ -34,7 +34,8 @@ export default function MarketplacesPage() {
       description: {
         en: "Centralizes information on sales, inventories, commissions, performance by seller and order status in dashboards designed for complex operations.",
         es: "Centraliza información de ventas, inventarios, comisiones, desempeño por vendedor y estado de pedidos en dashboards diseñados para operaciones complejas."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function MarketplacesPage() {
       description: {
         en: "Evaluates categories, sellers, products, conversion, average ticket and customer behavior to identify growth and optimization opportunities.",
         es: "Evalúa categorías, sellers, productos, conversión, ticket promedio y comportamiento del cliente para identificar oportunidades de crecimiento y optimización."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function MarketplacesPage() {
       description: {
         en: "OS Copilot, AI Chat and Insight ML help answer key questions, detect patterns, project demand and anticipate scenarios without depending on manual analysis.",
         es: "OS Copilot, AI Chat e Insight ML ayudan a responder preguntas clave, detectar patrones, proyectar demanda y anticipar escenarios sin depender de análisis manuales."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function MarketplacesPage() {
       description: {
         en: "Competitor Intelligence allows monitoring market prices, trends by category and positioning against other marketplaces to adjust commercial strategies.",
         es: "Competitor Intelligence permite monitorear precios del mercado, tendencias por categoría y posicionamiento frente a otros marketplaces para ajustar estrategias comerciales."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

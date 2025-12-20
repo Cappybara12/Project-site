@@ -34,7 +34,8 @@ export default function EmpresasLogisticasPage() {
       description: {
         en: "We develop systems to manage orders, shipments, routes, statuses, incidents and clients in a single environment, adapted to the real operation of each company.",
         es: "Desarrollamos sistemas para gestionar órdenes, envíos, rutas, estados, incidencias y clientes en un solo entorno, adaptado a la operación real de cada empresa."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function EmpresasLogisticasPage() {
       description: {
         en: "Centralizes tracking of packages, cargo and deliveries with clear statuses, defined milestones and visibility for internal teams and clients.",
         es: "Centraliza el seguimiento de paquetes, cargas y entregas con estados claros, hitos definidos y visibilidad para equipos internos y clientes."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function EmpresasLogisticasPage() {
       description: {
         en: "We connect platforms with ERPs, inventory systems, clients, carriers, external operators and monitoring tools to keep everything synchronized.",
         es: "Conectamos plataformas con ERPs, sistemas de inventario, clientes, transportistas, operadores externos y herramientas de monitoreo para mantener todo sincronizado."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function EmpresasLogisticasPage() {
       description: {
         en: "We digitalize and automate processes like route assignment, notifications, validations, delivery records, incident management and report generation.",
         es: "Digitalizamos y automatizamos procesos como asignación de rutas, notificaciones, validaciones, registros de entrega, gestión de incidencias y generación de reportes."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

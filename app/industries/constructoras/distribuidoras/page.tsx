@@ -34,7 +34,8 @@ export default function DistribuidorasCustomPage() {
       description: {
         en: "We develop systems to manage orders, clients, price lists, commercial conditions, billing and account statuses in a single environment.",
         es: "Desarrollamos sistemas para administrar pedidos, clientes, listas de precios, condiciones comerciales, facturación y estados de cuenta en un solo entorno."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function DistribuidorasCustomPage() {
       description: {
         en: "We convert manual processes into digital flows: inventory management, order preparation, dispatches, deliveries and logistics tracking.",
         es: "Convertimos procesos manuales en flujos digitales: gestión de inventarios, preparación de pedidos, despachos, entregas y seguimiento logístico."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function DistribuidorasCustomPage() {
       description: {
         en: "We connect developments with ERPs, accounting systems, inventory platforms, ecommerce and internal tools to keep information synchronized.",
         es: "Conectamos los desarrollos con ERPs, sistemas contables, plataformas de inventario, ecommerce y herramientas internas para mantener la información sincronizada."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function DistribuidorasCustomPage() {
       description: {
         en: "Systems are designed to support growth in volume, new channels, more clients and geographic expansion without needing to rebuild the solution.",
         es: "Los sistemas se diseñan para soportar crecimiento en volumen, nuevos canales, más clientes y expansión geográfica sin necesidad de reconstruir la solución."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

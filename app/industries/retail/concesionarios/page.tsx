@@ -34,7 +34,8 @@ export default function ConcesionariosPage() {
       description: {
         en: "The agent responds instantly to common questions: availability, delivery times, review processes, required documents, locations, hours and more. Always with a professional tone consistent with the dealership's identity.",
         es: "El agente responde al instante preguntas comunes: disponibilidad, tiempos de entrega, procesos de revisión, documentos requeridos, sedes, horarios y más. Siempre con un tono profesional y coherente con la identidad del concesionario."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function ConcesionariosPage() {
       description: {
         en: "Identifies user intent, collects key data, validates information and classifies the type of need, leaving prospects ready for your sales team.",
         es: "Identifica la intención del usuario, recopila datos clave, valida información y clasifica el tipo de necesidad, dejando listos los prospectos para tu equipo comercial."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function ConcesionariosPage() {
       description: {
         en: "The agent can manage appointments for test drives, workshops, reviews, maintenance or commercial consultations, according to internal availability.",
         es: "El agente puede gestionar agendamientos para test drives, talleres, revisiones, mantenimientos o asesorías comerciales, según disponibilidad interna."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function ConcesionariosPage() {
       description: {
         en: "Checks inventories, records leads, updates information or sends data to your CRM or ERP to maintain a more organized and efficient operation.",
         es: "Consulta inventarios, registra leads, actualiza información o envía datos a tu CRM o ERP para mantener una operación más ordenada y eficiente."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

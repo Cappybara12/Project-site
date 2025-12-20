@@ -34,7 +34,8 @@ export default function RetailPage() {
       description: {
         en: "Instant responses for inquiries about products, availability, prices, locations, hours, policies and more. The agent responds with precision while maintaining your brand identity.",
         es: "Respuestas al instante para consultas sobre productos, disponibilidad, precios, ubicaciones, horarios, políticas y más. El agente responde con precisión y manteniendo la identidad de tu marca."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function RetailPage() {
       description: {
         en: "Recommendations based on categories, upselling, cross-selling, automated catalog sends and intelligent follow-ups to close more sales without human intervention.",
         es: "Recomendaciones basadas en categorías, upselling, cross-selling, envíos de catálogos automatizados y seguimientos inteligentes para cerrar más ventas sin intervención humana."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function RetailPage() {
       description: {
         en: "The agent can check stock, process orders, validate information, record data and update statuses by connecting to your ecommerce platform, inventories or CRM.",
         es: "El agente puede consultar stock, procesar pedidos, validar información, registrar datos y actualizar estados conectándose a tu plataforma de ecommerce, inventarios o CRM."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function RetailPage() {
       description: {
         en: "Repetitive inquiries are resolved automatically, freeing time for your team to focus on strategic tasks and high-value personalized attention.",
         es: "Las consultas repetitivas se resuelven automáticamente, liberando tiempo para que tu equipo se enfoque en tareas estratégicas y atención personalizada de alto valor."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

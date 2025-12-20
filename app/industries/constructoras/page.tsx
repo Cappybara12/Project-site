@@ -34,7 +34,8 @@ export default function ConstructorasCustomPage() {
       description: {
         en: "We develop systems for tracking leads, projects, units, clients, documentation, warranties and after-sales requests, all in a single environment.",
         es: "Desarrollamos sistemas para el seguimiento de leads, proyectos, unidades, clientes, escrituración, garantías y solicitudes de posventa, todo en un solo entorno."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function ConstructorasCustomPage() {
       description: {
         en: "We convert manual processes into clear digital flows: request control, approvals, assignment of responsible parties, case tracking and report generation.",
         es: "Convertimos procesos manuales en flujos digitales claros: control de solicitudes, aprobaciones, asignación de responsables, seguimiento de casos y generación de reportes."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function ConstructorasCustomPage() {
       description: {
         en: "We connect new platforms with CRMs, accounting systems, project management tools, control sheets or internal databases.",
         es: "Conectamos plataformas nuevas con CRMs, sistemas contables, herramientas de gestión de proyectos, hojas de control o bases de datos internas."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function ConstructorasCustomPage() {
       description: {
         en: "Systems are built with modern and scalable technologies, allowing the addition of new projects, modules or functionalities without rebuilding the platform.",
         es: "Los sistemas se construyen con tecnologías modernas y escalables, permitiendo agregar nuevos proyectos, módulos o funcionalidades sin rehacer la plataforma."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

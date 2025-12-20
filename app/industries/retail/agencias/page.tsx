@@ -34,7 +34,8 @@ export default function AgenciasPage() {
       description: {
         en: "Centralizes data from digital advertising, ecommerce, leads, conversions and results in dashboards separated by client, brand or campaign.",
         es: "Centraliza datos de pauta digital, ecommerce, leads, conversiones y resultados en dashboards separados por cliente, marca o campaña."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function AgenciasPage() {
       description: {
         en: "Cross-references information from channels, audiences, creatives and results to understand what is working, what is not and where to optimize investment.",
         es: "Cruza información de canales, audiencias, creativos y resultados para entender qué está funcionando, qué no y dónde optimizar inversión."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function AgenciasPage() {
       description: {
         en: "With OS Copilot and AI Chat, teams can consult results, compare periods and obtain conclusions without building manual reports.",
         es: "Con OS Copilot y AI Chat, los equipos pueden consultar resultados, comparar periodos y obtener conclusiones sin construir reportes manuales."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function AgenciasPage() {
       description: {
         en: "The platform allows managing multiple brands and accounts without duplicating efforts, maintaining order, consistency and clarity in data.",
         es: "La plataforma permite manejar múltiples marcas y cuentas sin duplicar esfuerzos, manteniendo orden, consistencia y claridad en los datos."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

@@ -34,7 +34,8 @@ export default function RetailPlatformPage() {
       description: {
         en: "Centralizes sales, inventories, traffic, campaigns, conversions and customer behavior in personalized dashboards that show the real state of operations.",
         es: "Centraliza ventas, inventarios, tráfico, campañas, conversiones y comportamiento del cliente en dashboards personalizados que muestran el estado real de la operación."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function RetailPlatformPage() {
       description: {
         en: "Cross-references information from ecommerce, stores, marketing and operations to understand which products work best, which channels convert more and where improvement opportunities are.",
         es: "Cruza información de ecommerce, tiendas, marketing y operaciones para entender qué productos funcionan mejor, qué canales convierten más y dónde están las oportunidades de mejora."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function RetailPlatformPage() {
       description: {
         en: "OS Copilot, AI Chat and Insight ML transform complex data into clear conclusions, projections and immediate answers for commercial, operational and executive teams.",
         es: "OS Copilot, AI Chat e Insight ML transforman datos complejos en conclusiones claras, proyecciones y respuestas inmediatas para equipos comerciales, operativos y directivos."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function RetailPlatformPage() {
       description: {
         en: "With Competitor Intelligence, retail can monitor market prices, trends and competitor movements to adjust commercial strategies with greater precision.",
         es: "Con Competitor Intelligence, el retail puede monitorear precios del mercado, tendencias y movimientos de la competencia para ajustar estrategias comerciales con mayor precisión."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 

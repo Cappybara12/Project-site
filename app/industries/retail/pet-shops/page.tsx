@@ -34,7 +34,8 @@ export default function PetShopsPage() {
       description: {
         en: "Information about spa services, grooming, veterinary, hours, prices, locations and availability attended instantly, without wait times.",
         es: "Información sobre servicios de spa, grooming, veterinaria, horarios, precios, sedes y disponibilidad atendida al instante, sin tiempos de espera."
-      }
+      },
+      image: "/industries/placeholder-1.svg"
     },
     {
       title: {
@@ -44,7 +45,8 @@ export default function PetShopsPage() {
       description: {
         en: "The agent can manage appointments, confirm reservations, send reminders and reschedule sessions according to business availability.",
         es: "El agente puede gestionar citas, confirmar reservas, enviar recordatorios y reprogramar sesiones según la disponibilidad del negocio."
-      }
+      },
+      image: "/industries/placeholder-2.svg"
     },
     {
       title: {
@@ -54,7 +56,8 @@ export default function PetShopsPage() {
       description: {
         en: "Guides users with recommendations for food, snacks, accessories or medicines and checks inventory in real time if integrated with your system.",
         es: "Guía a los usuarios con recomendaciones de alimentos, snacks, accesorios o medicinas y consulta el inventario en tiempo real si está integrado a tu sistema."
-      }
+      },
+      image: "/industries/placeholder-3.svg"
     },
     {
       title: {
@@ -64,7 +67,8 @@ export default function PetShopsPage() {
       description: {
         en: "The agent classifies requests, records information, notifies internal teams and significantly reduces the volume of manual tasks.",
         es: "El agente clasifica solicitudes, registra información, notifica a equipos internos y reduce significativamente el volumen de tareas manuales."
-      }
+      },
+      image: "/industries/placeholder-4.svg"
     }
   ];
 
