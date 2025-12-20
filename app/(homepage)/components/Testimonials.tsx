@@ -45,7 +45,7 @@ export const Testimonials = () => {
           </div>
         </div>
         <h2 className="text-4xl md:text-5xl font-semibold mb-8">
-          Discover how Yuno has helped<br />our customers win
+          Discover how Altura has helped<br />our customers win
         </h2>
         <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">
           View all success stories →
@@ -64,7 +64,7 @@ export const Testimonials = () => {
                     <iframe
                       className="absolute inset-0 w-full h-full"
                       src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`}
-                      title="Yuno Success Story"
+                      title="Altura Success Story"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen

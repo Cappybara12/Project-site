@@ -40,7 +40,7 @@ export const ContactForm = () => {
               Talk with one of our<br />payment experts
             </h2>
             <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              Explore how Yuno's innovative payment orchestration solutions can help you increase approval rates, reduce costs, seamlessly integrate over 1,000 global and local payment methods, and simplify payment management.
+              Explore how Altura's innovative payment orchestration solutions can help you increase approval rates, reduce costs, seamlessly integrate over 1,000 global and local payment methods, and simplify payment management.
             </p>
           </motion.div>
 
@@ -160,8 +160,8 @@ export const ContactForm = () => {
                 className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
               />
               <label htmlFor="consent" className="text-sm text-gray-600">
-                I agree to receive emails and other communications about news, offers, and updates from Yuno in accordance with{" "}
-                <a href="#" className="text-blue-600 underline">Yuno's Privacy Policy</a>. I accept I can unsubscribe at any time
+                I agree to receive emails and other communications about news, offers, and updates from Altura in accordance with{" "}
+                <a href="#" className="text-blue-600 underline">Altura's Privacy Policy</a>. I accept I can unsubscribe at any time
               </label>
             </div>
 

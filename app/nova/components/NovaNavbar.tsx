@@ -70,7 +70,7 @@ export const NovaNavbar = () => {
                 <div className="w-1.5 h-1.5 bg-blue-400 rounded-sm"></div>
                 <div className="w-1.5 h-1.5 bg-blue-400 rounded-sm opacity-80"></div>
               </div>
-              yuno
+              altura
             </span>
           </Link>
 
@@ -122,7 +122,7 @@ export const NovaNavbar = () => {
                             <div className="w-1.5 h-1.5 bg-white rounded-sm"></div>
                             <div className="w-1.5 h-1.5 bg-white rounded-sm opacity-80"></div>
                           </div>
-                          <span className="text-xs font-bold">YUNO</span>
+                          <span className="text-xs font-bold">ALTURA</span>
                         </div>
                         <div className="text-xs opacity-80">Featured eBook</div>
                         <h3 className="text-lg font-bold mt-2 mb-2">Payment Orchestration Guide</h3>

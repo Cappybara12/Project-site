@@ -18,9 +18,9 @@ export const VideoDemo = () => {
           className="text-center mb-12"
         >
           <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
-            See Yuno in Action
+            See Altura in Action
           </h2>
-          <p className="text-lg text-gray-500">Watch how Yuno simplifies global payment orchestration</p>
+          <p className="text-lg text-gray-500">Watch how Altura simplifies global payment orchestration</p>
         </motion.div>
 
         <motion.div 

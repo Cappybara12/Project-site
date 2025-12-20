@@ -32,7 +32,7 @@ const securitySections: Section[] = [
         icon: FileText,
         image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=400&q=80",
         title: "PCI DSS",
-        description: "Yuno complies with PCI DSS v4.0, one of the most stringent security standards in the payment industry, ensuring secure payment card processing.",
+        description: "Altura complies with PCI DSS v4.0, one of the most stringent security standards in the payment industry, ensuring secure payment card processing.",
         cta: "Download PDF"
       },
       {
@@ -46,14 +46,14 @@ const securitySections: Section[] = [
         icon: CheckCircle,
         image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80",
         title: "ISO 27001",
-        description: "Yuno is also ISO 27001 certified which demonstrates our commitment to operating a mature security program.",
+        description: "Altura is also ISO 27001 certified which demonstrates our commitment to operating a mature security program.",
         cta: "Download PDF"
       },
       {
         icon: CheckCircle,
         image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=400&q=80",
         title: "SOC2",
-        description: "Yuno is SOC 2 Type 2 compliant, guaranteeing strict controls over security and privacy.",
+        description: "Altura is SOC 2 Type 2 compliant, guaranteeing strict controls over security and privacy.",
         cta: "Download PDF"
       }
     ]
@@ -62,22 +62,22 @@ const securitySections: Section[] = [
     id: "infrastructure",
     badge: "INFRASTRUCTURE",
     title: "Secure & resilient infrastructure",
-    description: "Yuno's infrastructure is built on the AWS Well-Architected Framework, ensuring top-tier security, reliability, and encryption. With industry-leading protections for data in transit and at rest, we safeguard every transaction with the highest security standards.",
+    description: "Altura's infrastructure is built on the AWS Well-Architected Framework, ensuring top-tier security, reliability, and encryption. With industry-leading protections for data in transit and at rest, we safeguard every transaction with the highest security standards.",
     cards: [
       {
         icon: Shield,
         title: "Infrastructure security",
-        description: "Yuno's infrastructure is designed following the AWS Well-Architected Framework, ensuring security, reliability, and operational excellence. By leveraging AWS data centers and their audited security programs, we maintain robust physical, environmental, and infrastructure protections as part of our architecture."
+        description: "Altura's infrastructure is designed following the AWS Well-Architected Framework, ensuring security, reliability, and operational excellence. By leveraging AWS data centers and their audited security programs, we maintain robust physical, environmental, and infrastructure protections as part of our architecture."
       },
       {
         icon: Server,
         title: "Data in transit",
-        description: "At Yuno, all data is transmitted through secure, encrypted channels using TLS 1.3 ensuring the highest level of protection. This approach safeguards both internal and external communications and reinforces the security of our website by mitigating risks associated with weaker protocol versions."
+        description: "At Altura, all data is transmitted through secure, encrypted channels using TLS 1.3 ensuring the highest level of protection. This approach safeguards both internal and external communications and reinforces the security of our website by mitigating risks associated with weaker protocol versions."
       },
       {
         icon: Lock,
         title: "Data at rest",
-        description: "At Yuno we use Advanced Encryption Standard (AES) with 256-bit keys when persisting confidential data within the vault. Each confidential record within the vault is previously encrypted under the SHA-512 hashing algorithm where irreversible and unique hashes are generated. It is then encrypted using a separate, randomly generated encryption key."
+        description: "At Altura we use Advanced Encryption Standard (AES) with 256-bit keys when persisting confidential data within the vault. Each confidential record within the vault is previously encrypted under the SHA-512 hashing algorithm where irreversible and unique hashes are generated. It is then encrypted using a separate, randomly generated encryption key."
       }
     ]
   },
@@ -85,22 +85,22 @@ const securitySections: Section[] = [
     id: "product-security",
     badge: "PRODUCT SECURITY",
     title: "Robust & proactive product security",
-    description: "Yuno ensures data protection through strict access controls, a secure development lifecycle, and continuous security testing. With proactive vulnerability management, penetration testing, and a bug bounty program, we stay ahead of emerging threats to keep our platform secure.",
+    description: "Altura ensures data protection through strict access controls, a secure development lifecycle, and continuous security testing. With proactive vulnerability management, penetration testing, and a bug bounty program, we stay ahead of emerging threats to keep our platform secure.",
     cards: [
       {
         icon: Eye,
         title: "Data access monitoring",
-        description: "Yuno policies and procedures ensure access to data is within a particular employee's scope of duty only. All access is based on the principle of least privilege. User-role assignment works to satisfy the least privilege principle and technical controls include enforcement of 2FA and VPN."
+        description: "Altura policies and procedures ensure access to data is within a particular employee's scope of duty only. All access is based on the principle of least privilege. User-role assignment works to satisfy the least privilege principle and technical controls include enforcement of 2FA and VPN."
       },
       {
         icon: Code,
         title: "Software development lifecycle",
-        description: "Yuno uses a continuous, secure, build and release process informed by industry practices including OWASP. New features and enhancements are peer reviewed and analyzed for security issues prior to release. Yuno also has a dedicated QA team that analyzes all code for issues prior to deployment into production."
+        description: "Altura uses a continuous, secure, build and release process informed by industry practices including OWASP. New features and enhancements are peer reviewed and analyzed for security issues prior to release. Altura also has a dedicated QA team that analyzes all code for issues prior to deployment into production."
       },
       {
         icon: Search,
         title: "Security testing and vulnerability management",
-        description: "Yuno proactively enhances its security by collaborating with industry experts and security researchers. We conduct regular penetration tests through an external firm and participate in HackerOne's bug bounty program to identify and address potential vulnerabilities. Additionally, our patch management process ensures timely updates for both internal and external services, with vulnerabilities triaged and remediated based on their severity."
+        description: "Altura proactively enhances its security by collaborating with industry experts and security researchers. We conduct regular penetration tests through an external firm and participate in HackerOne's bug bounty program to identify and address potential vulnerabilities. Additionally, our patch management process ensures timely updates for both internal and external services, with vulnerabilities triaged and remediated based on their severity."
       }
     ]
   }
@@ -128,7 +128,7 @@ export default function TrustAndSecurityPage() {
                 Safe and secure transactions
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
-                At Yuno, security is a top priority. Users trust us with their sensitive data, and we continuously evolve our security measures to meet the highest standards of the global financial industry.
+                At Altura, security is a top priority. Users trust us with their sensitive data, and we continuously evolve our security measures to meet the highest standards of the global financial industry.
               </p>
               <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-base font-semibold hover:bg-blue-700 transition-colors shadow-lg">
                 Read the whitepaper
@@ -196,7 +196,7 @@ export default function TrustAndSecurityPage() {
                           <div className="flex items-start gap-6">
                             <div className="w-28 h-36 bg-gradient-to-br from-blue-100 to-purple-100 rounded-xl flex-shrink-0 flex items-center justify-center overflow-hidden">
                               <div className="text-center p-3">
-                                <div className="text-xs text-blue-600 font-medium mb-1">yuno</div>
+                                <div className="text-xs text-blue-600 font-medium mb-1">altura</div>
                                 <div className="text-sm font-bold text-gray-800">{card.title}</div>
                                 <div className="text-xs text-gray-500">Compliance</div>
                                 {/* Wave pattern */}
@@ -252,7 +252,7 @@ export default function TrustAndSecurityPage() {
 
             <div className="relative z-10 text-center max-w-3xl mx-auto">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
-                Yuno's commitment to security transparency
+                Altura's commitment to security transparency
               </h2>
               <p className="text-xl text-gray-300 mb-12 leading-relaxed">
                 Learn about our commitment to security and compliance. Visit our{" "}
@@ -285,7 +285,7 @@ export default function TrustAndSecurityPage() {
                 Talk with one of our<br />payment experts
               </h2>
               <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                Explore how Yuno's innovative payment orchestration solutions can help you increase approval rates, reduce costs, seamlessly integrate over 1,000 global and local payment methods, and simplify payment management.
+                Explore how Altura's innovative payment orchestration solutions can help you increase approval rates, reduce costs, seamlessly integrate over 1,000 global and local payment methods, and simplify payment management.
               </p>
             </div>
 
@@ -383,8 +383,8 @@ export default function TrustAndSecurityPage() {
                     className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   <label htmlFor="consent-security" className="text-sm text-gray-600">
-                    I agree to receive emails and other communications about news, offers, and updates from Yuno in accordance with{" "}
-                    <a href="#" className="text-blue-600 underline">Yuno's Privacy Policy</a>. I accept I can unsubscribe at any time.
+                    I agree to receive emails and other communications about news, offers, and updates from Altura in accordance with{" "}
+                    <a href="#" className="text-blue-600 underline">Altura's Privacy Policy</a>. I accept I can unsubscribe at any time.
                   </label>
                 </div>
 

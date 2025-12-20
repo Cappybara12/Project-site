@@ -88,7 +88,7 @@ export const Navbar = () => {
                 <div className="w-1.5 h-1.5 bg-blue-600 rounded-sm"></div>
                 <div className="w-1.5 h-1.5 bg-blue-600 rounded-sm opacity-80"></div>
               </div>
-              yuno
+              altura
             </span>
           </Link>
 
@@ -432,7 +432,7 @@ export const Navbar = () => {
                             <div className="w-1.5 h-1.5 bg-white rounded-sm"></div>
                             <div className="w-1.5 h-1.5 bg-white rounded-sm opacity-80"></div>
                           </div>
-                          <span className="text-xs font-bold">YUNO</span>
+                          <span className="text-xs font-bold">ALTURA</span>
                         </div>
                         <p className="text-xs text-blue-200 mb-2">Crypto Meets Payments</p>
                         <h4 className="text-sm font-bold">How Orchestration Bridges the Fiat-Crypto Divide</h4>

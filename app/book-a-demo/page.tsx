@@ -172,8 +172,8 @@ export default function BookADemoPage() {
                     className="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
                   />
                   <label htmlFor="consent" className="text-sm text-gray-600">
-                    I agree to receive emails and other communications about news, offers, and updates from Yuno in accordance with{" "}
-                    <a href="#" className="text-blue-600 underline">Yuno's Privacy Policy</a>. I accept I can unsubscribe at any time.
+                    I agree to receive emails and other communications about news, offers, and updates from Altura in accordance with{" "}
+                    <a href="#" className="text-blue-600 underline">Altura's Privacy Policy</a>. I accept I can unsubscribe at any time.
                   </label>
                 </div>
 

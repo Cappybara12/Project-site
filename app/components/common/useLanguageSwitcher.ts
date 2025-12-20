@@ -6,7 +6,7 @@ export const useLanguageSwitcher = () => {
   // Initialize from localStorage if available (for faster initial render)
   const getInitialLang = (): "en" | "es" => {
     if (typeof window !== "undefined") {
-      const stored = localStorage.getItem("yuno-lang");
+      const stored = localStorage.getItem("altura-lang");
       if (stored === "es" || stored === "en") {
         return stored;
       }
@@ -20,7 +20,7 @@ export const useLanguageSwitcher = () => {
   const detectLanguage = () => {
     // First check localStorage (most reliable)
     if (typeof window !== "undefined") {
-      const storedLang = localStorage.getItem("yuno-lang");
+      const storedLang = localStorage.getItem("altura-lang");
       if (storedLang === "es" || storedLang === "en") {
         setCurrentLang(storedLang);
         return;
@@ -36,7 +36,7 @@ export const useLanguageSwitcher = () => {
       setCurrentLang(lang);
       // Store in localStorage for faster access
       if (typeof window !== "undefined") {
-        localStorage.setItem("yuno-lang", lang);
+        localStorage.setItem("altura-lang", lang);
       }
     } else {
       // Check if Google Translate has already translated the page

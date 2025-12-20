@@ -22,7 +22,7 @@ const advantages = [
   {
     icon: Globe,
     title: "Built for global scale",
-    description: "Yuno empowers you to accept payments from anywhere in the world, effortlessly."
+    description: "Altura empowers you to accept payments from anywhere in the world, effortlessly."
   }
 ];
 
@@ -40,7 +40,7 @@ export const YunoAdvantage = () => {
           className="mb-16"
         >
           <p className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-4">
-            Why Yuno Stands Out
+            Why Altura Stands Out
           </p>
         </motion.div>
 
@@ -55,10 +55,10 @@ export const YunoAdvantage = () => {
             className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-12 text-white flex flex-col justify-center"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              The Yuno advantage
+              The Altura advantage
             </h2>
             <p className="text-lg md:text-xl text-blue-100">
-              Yuno sets itself apart by offering a comprehensive payments orchestration solution that goes beyond traditional payment processors.
+              Altura sets itself apart by offering a comprehensive payments orchestration solution that goes beyond traditional payment processors.
             </p>
           </motion.div>
 

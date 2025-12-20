@@ -13,7 +13,7 @@ export const Footer = () => {
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-sm"></div>
                         <div className="w-1.5 h-1.5 bg-blue-600 rounded-sm opacity-80"></div>
                     </div>
-                    <span className="text-2xl font-bold text-gray-900">yuno</span>
+                    <span className="text-2xl font-bold text-gray-900">altura</span>
                 </div>
                 <p className="text-gray-500 text-sm mb-6 max-w-xs">
                     Technology Infrastructure that Automates, Connects and Empowers Your Business.
@@ -63,7 +63,7 @@ export const Footer = () => {
         </div>
 
         <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-xs text-gray-400">© 2024 Yuno. All rights reserved.</p>
+            <p className="text-xs text-gray-400">© 2024 Altura. All rights reserved.</p>
             <div className="flex gap-6">
                 {/* Social Icons Placeholder */}
                 <div className="w-5 h-5 bg-gray-200 rounded-full hover:bg-blue-600 transition-colors cursor-pointer"></div>

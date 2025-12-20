@@ -60,7 +60,7 @@ export const LoadingScreen = ({ children }: { children: React.ReactNode }) => {
                   className="w-3 h-3 bg-white rounded-sm"
                 />
               </div>
-              <span className="text-5xl font-bold text-white">yuno</span>
+              <span className="text-5xl font-bold text-white">altura</span>
             </motion.div>
           </motion.div>
         )}

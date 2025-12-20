@@ -39,7 +39,7 @@ export const TestimonialsNova = () => {
           transition={{ duration: 0.6 }}
           className="flex items-center justify-center gap-8 mb-16"
         >
-          {/* Yuno Logo */}
+          {/* Altura Logo */}
           <div className="flex items-center gap-2 px-6 py-4 bg-blue-600/10 rounded-2xl border border-blue-500/20">
             <div className="grid grid-cols-2 gap-0.5">
               <div className="w-2 h-2 bg-blue-400 rounded-sm opacity-60"></div>
@@ -47,7 +47,7 @@ export const TestimonialsNova = () => {
               <div className="w-2 h-2 bg-blue-400 rounded-sm"></div>
               <div className="w-2 h-2 bg-blue-400 rounded-sm opacity-80"></div>
             </div>
-            <span className="text-2xl font-bold text-blue-400">yuno</span>
+            <span className="text-2xl font-bold text-blue-400">altura</span>
           </div>
 
           {/* X Symbol */}

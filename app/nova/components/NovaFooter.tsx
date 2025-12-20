@@ -5,7 +5,7 @@ export const NovaFooter = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Copyright */}
           <p className="text-sm text-gray-500">
-            © 2025 YUNO. ALL RIGHTS RESERVED
+            © 2025 ALTURA. ALL RIGHTS RESERVED
           </p>
 
           {/* Language Selector */}
