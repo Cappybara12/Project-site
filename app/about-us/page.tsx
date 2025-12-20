@@ -1,8 +1,6 @@
 import { AboutHero } from "./components/AboutHero";
 import { OurOffices } from "./components/OurOffices";
 import { WhatWeDo } from "./components/WhatWeDo";
-import { HowWeWork } from "./components/HowWeWork";
-import { OurVision } from "./components/OurVision";
 import { YunoAdvantage } from "./components/YunoAdvantage";
 import { Investors } from "./components/Investors";
 import { JoinUs } from "./components/JoinUs";
@@ -14,8 +12,6 @@ export default function AboutUsPage() {
       <AboutHero />
       <OurOffices />
       <WhatWeDo />
-      <HowWeWork />
-      <OurVision />
       <YunoAdvantage />
       <Investors />
       <JoinUs />
@@ -23,3 +19,4 @@ export default function AboutUsPage() {
     </div>
   );
 }
+

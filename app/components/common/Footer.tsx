@@ -16,45 +16,48 @@ export const Footer = () => {
                     <span className="text-2xl font-bold text-gray-900">yuno</span>
                 </div>
                 <p className="text-gray-500 text-sm mb-6 max-w-xs">
-                    Orchestrate your financial operations across the globe from a single unified platform.
+                    Technology Infrastructure that Automates, Connects and Empowers Your Business.
                 </p>
             </div>
 
             <div>
-                <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">Product</h4>
+                <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">Products</h4>
                 <ul className="space-y-3 text-sm text-gray-500">
-                    <li><Link href="#" className="hover:text-blue-600">Platform</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Routing</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Reconciliation</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Security</Link></li>
+                    <li><Link href="/products/whatsapp" className="hover:text-blue-600">WhatsApp</Link></li>
+                    <li><Link href="/products/instagram" className="hover:text-blue-600">Instagram</Link></li>
+                    <li><Link href="/products/messenger" className="hover:text-blue-600">Messenger</Link></li>
+                    <li><Link href="/products/email" className="hover:text-blue-600">Email</Link></li>
+                    <li><Link href="/products/calls" className="hover:text-blue-600">Calls</Link></li>
+                    <li><Link href="/nova" className="hover:text-blue-600">NOVA AI</Link></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">Industries</h4>
+                <ul className="space-y-3 text-sm text-gray-500">
+                    <li><Link href="#" className="hover:text-blue-600">E-commerce</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600">Travel</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600">Mobility</Link></li>
+                    <li><Link href="#" className="hover:text-blue-600">Gaming</Link></li>
                 </ul>
             </div>
 
              <div>
                 <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">Company</h4>
                 <ul className="space-y-3 text-sm text-gray-500">
-                    <li><Link href="#" className="hover:text-blue-600">About Us</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Careers</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Blog</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Contact</Link></li>
+                    <li><Link href="/about-us" className="hover:text-blue-600">About Us</Link></li>
+                    <li><Link href="/blog" className="hover:text-blue-600">Blog</Link></li>
+                    <li><Link href="/book-a-demo" className="hover:text-blue-600">Book a Demo</Link></li>
+                    <li><Link href="/pricing" className="hover:text-blue-600">Pricing</Link></li>
                 </ul>
             </div>
             
             <div>
                 <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">Resources</h4>
                 <ul className="space-y-3 text-sm text-gray-500">
-                    <li><Link href="#" className="hover:text-blue-600">Documentation</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">API Reference</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Community</Link></li>
-                </ul>
-            </div>
-
-             <div>
-                <h4 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">Legal</h4>
-                <ul className="space-y-3 text-sm text-gray-500">
-                    <li><Link href="#" className="hover:text-blue-600">Privacy Policy</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Terms of Service</Link></li>
-                    <li><Link href="#" className="hover:text-blue-600">Cookie Settings</Link></li>
+                    <li><Link href="/integrations" className="hover:text-blue-600">Integrations</Link></li>
+                    <li><Link href="/trust-and-security" className="hover:text-blue-600">Trust & Security</Link></li>
+                    <li><Link href="/terms-and-conditions" className="hover:text-blue-600">Terms & Conditions</Link></li>
                 </ul>
             </div>
         </div>

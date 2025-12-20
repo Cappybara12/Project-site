@@ -22,7 +22,7 @@ export const TrustedBy = () => {
   );
 
   return (
-    <section className="py-16 bg-white border-b border-gray-100">
+    <section className="py-8 bg-white border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <p className="text-sm text-gray-500 mb-12">The solution trusted by global leaders</p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12 items-center min-h-[80px]">

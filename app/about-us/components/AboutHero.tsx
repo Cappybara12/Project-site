@@ -15,7 +15,7 @@ export const AboutHero = () => {
             transition={{ duration: 0.6 }}
           >
             <p className="text-sm font-bold text-gray-600 uppercase tracking-widest">
-              🏢 ABOUT ALTURA GROUP
+              About Us
             </p>
           </motion.div>
 
@@ -27,16 +27,10 @@ export const AboutHero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
-              Construimos tecnología para que las empresas puedan enfocarse en lo que realmente impulsa su crecimiento
+              Technology that transforms<br />how businesses operate
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6">
-              Altura Group nace con un objetivo claro: ayudar a las empresas a operar mejor mediante tecnología diseñada para sus procesos reales.
-            </p>
-            <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-6">
-              Creamos soluciones que automatizan tareas, conectan sistemas y convierten datos en herramientas útiles para la toma de decisiones.
-            </p>
             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed">
-              Trabajamos en la intersección entre automatización con IA, plataformas de datos y desarrollo a la medida, adaptándonos a distintos sectores y modelos de negocio.
+              Altura is dedicated to helping businesses automate operations, centralize information, and accelerate growth through intelligent technology solutions. We combine AI-powered automation, unified data platforms, and custom enterprise development to create technology that scales with your ambitions.
             </p>
           </motion.div>
         </div>
@@ -80,3 +74,4 @@ export const AboutHero = () => {
     </section>
   );
 };
+

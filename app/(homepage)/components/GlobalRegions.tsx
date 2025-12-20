@@ -12,7 +12,7 @@ export const GlobalRegions = () => {
   const active = regions.find(r => r.id === activeRegion) || regions[0];
 
   return (
-    <section className="py-24 bg-white">
+    <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">

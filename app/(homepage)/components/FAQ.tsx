@@ -32,35 +32,35 @@ export const FAQ = () => {
 
   return (
     <section className="relative py-24 bg-white overflow-visible">
-      {/* Animated track lines that extend into CTA section */}
+      {/* Animated track lines - straight and thinner inverted S pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-visible">
-        {/* Left track - starts in FAQ, continues down */}
+        {/* Left track - straight vertical line with inverted S curve */}
         <svg className="absolute left-0 top-0 w-full h-[calc(100%+200px)]" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
           <path
             id="faqLeftTrack"
-            d="M 120 0 L 120 500 Q 120 600, 220 600 L 350 600 Q 450 600, 450 700 L 450 900"
-            stroke="rgba(79, 70, 229, 0.15)"
-            strokeWidth="2"
+            d="M 60 0 L 60 200 Q 60 300, 40 400 Q 60 500, 60 600 L 60 900"
+            stroke="rgba(79, 70, 229, 0.12)"
+            strokeWidth="1"
             fill="none"
           />
-          {/* Animated glowing capsule - horizontal orientation */}
-          <rect x="-8" y="-2" width="16" height="4" rx="2" fill="#4F46E5" opacity="0.8">
+          {/* Animated glowing capsule - thinner */}
+          <rect x="-4" y="-1" width="8" height="2" rx="1" fill="#4F46E5" opacity="0.6">
             <animateMotion dur="7s" repeatCount="indefinite" rotate="auto">
               <mpath href="#faqLeftTrack" />
             </animateMotion>
           </rect>
         </svg>
         
-        {/* Right track - starts in FAQ, curves down */}
+        {/* Right track - straight vertical line with inverted S curve, moved further right */}
         <svg className="absolute right-0 top-0 w-full h-[calc(100%+200px)]" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
           <path
             id="faqRightTrack"
-            d="M 1080 0 L 1080 400 Q 1080 500, 980 500 L 850 500 Q 750 500, 750 600 L 750 900"
-            stroke="rgba(79, 70, 229, 0.15)"
-            strokeWidth="2"
+            d="M 1160 0 L 1160 200 Q 1160 300, 1180 400 Q 1160 500, 1160 600 L 1160 900"
+            stroke="rgba(79, 70, 229, 0.12)"
+            strokeWidth="1"
             fill="none"
           />
-          <rect x="-8" y="-2" width="16" height="4" rx="2" fill="#4F46E5" opacity="0.8">
+          <rect x="-4" y="-1" width="8" height="2" rx="1" fill="#4F46E5" opacity="0.6">
             <animateMotion dur="8s" repeatCount="indefinite" rotate="auto" begin="2s">
               <mpath href="#faqRightTrack" />
             </animateMotion>

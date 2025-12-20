@@ -37,29 +37,6 @@ export default function BookADemoPage() {
               Build a payment engine that approves more, fails less, and drives revenue at scale.
             </p>
 
-            {/* Separator */}
-            <div className="border-t border-gray-200 my-8"></div>
-
-            {/* Testimonial */}
-            <div className="mt-8">
-              <div className="text-blue-600 text-4xl font-serif mb-4">"</div>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Yuno has elevated our payment approval rate by an impressive 10%, directly impacting revenue.
-              </p>
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 bg-gray-200 rounded-full overflow-hidden">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
-                    alt="Vasiliy Everstov"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div>
-                  <div className="font-bold text-gray-900">Vasiliy Everstov</div>
-                  <div className="text-sm text-gray-500">Head of FinTech, InDrive</div>
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           {/* Right - Form on Gradient Background */}
@@ -156,17 +133,16 @@ export default function BookADemoPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Number of transactions per month</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">Product</label>
                     <select
                       className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
                       value={formData.transactions}
                       onChange={(e) => setFormData({...formData, transactions: e.target.value})}
                     >
                       <option value="">Please Select</option>
-                      <option value="0-1k">0 - 1,000</option>
-                      <option value="1k-10k">1,000 - 10,000</option>
-                      <option value="10k-100k">10,000 - 100,000</option>
-                      <option value="100k+">100,000+</option>
+                      <option value="automations">Automations</option>
+                      <option value="one-source-platform">One Source Platform</option>
+                      <option value="custom-projects">Custom Projects</option>
                     </select>
                   </div>
                 </div>

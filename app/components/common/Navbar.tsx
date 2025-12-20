@@ -1,28 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { 
-  Globe, 
-  ChevronDown, 
-  Menu, 
-  X, 
-  MessageCircle, 
-  Instagram, 
-  Facebook, 
-  Mail, 
-  Phone,
-  LayoutDashboard,
-  BarChart3,
-  Bot,
-  Brain,
-  TrendingUp,
-  Smartphone,
-  Globe as GlobeIcon,
-  Plug,
-  Settings,
-  Workflow,
-  ArrowRight
-} from "lucide-react";
+import { Globe, ChevronDown, Menu, X } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useLanguageSwitcher } from "./useLanguageSwitcher";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,10 +12,14 @@ export const Navbar = () => {
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
-  const [mobileProductOpen, setMobileProductOpen] = useState(false);
-  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const { currentLang, isOpen, setIsOpen, switchLanguage } = useLanguageSwitcher();
   const langDropdownRef = useRef<HTMLDivElement>(null);
+  const productDropdownRef = useRef<HTMLDivElement>(null);
+  const industriesDropdownRef = useRef<HTMLDivElement>(null);
+  
+  // Hover delay timers
+  const productTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const industriesTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -67,13 +50,21 @@ export const Navbar = () => {
     };
   }, [mobileMenuOpen]);
 
+  // Cleanup timers on unmount
+  useEffect(() => {
+    return () => {
+      if (productTimerRef.current) clearTimeout(productTimerRef.current);
+      if (industriesTimerRef.current) clearTimeout(industriesTimerRef.current);
+    };
+  }, []);
+
   const navLinks = [
     { href: "#", label: "Product" },
     { href: "/nova", label: "NOVA AI" },
     { href: "#", label: "Developers" },
     { href: "#", label: "Company" },
-    { href: "#", label: "Integrations" },
     { href: "/pricing", label: "Pricing" },
+    { href: "#", label: "Integrations" },
   ];
 
   const resourcesLinks = [
@@ -82,287 +73,6 @@ export const Navbar = () => {
     { title: "Success Stories", icon: "⚡", href: "#" },
     { title: "Product Updates", icon: "📢", href: "#" },
     { title: "Newsroom", icon: "📰", href: "#" }
-  ];
-
-  // Product dropdown content with bilingual support
-  const productSections = [
-    {
-      id: "automations",
-      icon: (
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-          <Bot className="w-5 h-5 text-white" />
-        </div>
-      ),
-      heading: {
-        en: "AUTOMATIONS",
-        es: "AUTOMATIZACIONES"
-      },
-      subheading: {
-        en: "AI Agents for Customer Service and Sales",
-        es: "Agentes de IA para atención al cliente y ventas"
-      },
-      items: [
-        { 
-          name: { en: "WhatsApp", es: "WhatsApp" }, 
-          icon: MessageCircle, 
-          href: "/products/whatsapp" 
-        },
-        { 
-          name: { en: "Instagram", es: "Instagram" }, 
-          icon: Instagram, 
-          href: "/products/instagram" 
-        },
-        { 
-          name: { en: "Messenger", es: "Messenger" }, 
-          icon: Facebook, 
-          href: "/products/messenger" 
-        },
-        { 
-          name: { en: "Email", es: "Email" }, 
-          icon: Mail, 
-          href: "/products/email" 
-        },
-        { 
-          name: { en: "Calls", es: "Llamadas" }, 
-          icon: Phone, 
-          href: "/products/calls" 
-        }
-      ]
-    },
-    {
-      id: "platform",
-      icon: (
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-          <LayoutDashboard className="w-5 h-5 text-white" />
-        </div>
-      ),
-      heading: {
-        en: "ONE SOURCE PLATFORM",
-        es: "PLATAFORMA ÚNICA"
-      },
-      subheading: {
-        en: "Centralize, analyze and power your ecommerce",
-        es: "Centraliza, analiza y potencia tu ecommerce"
-      },
-      items: [
-        { 
-          name: { en: "Dashboards", es: "Dashboards" }, 
-          icon: LayoutDashboard, 
-          href: "/products/dashboards" 
-        },
-        { 
-          name: { en: "Deep Analysis", es: "Análisis Profundo" }, 
-          icon: BarChart3, 
-          href: "/products/deep-analysis" 
-        },
-        { 
-          name: { en: "AI Chat", es: "Chat IA" }, 
-          icon: Bot, 
-          href: "/products/ai-chat" 
-        },
-        { 
-          name: { en: "Insight ML", es: "Insight ML" }, 
-          icon: Brain, 
-          href: "/products/insight-ml" 
-        },
-        { 
-          name: { en: "Competitor Intelligence", es: "Inteligencia Competitiva" }, 
-          icon: TrendingUp, 
-          href: "/products/competitor-intelligence" 
-        }
-      ]
-    },
-    {
-      id: "projects",
-      icon: (
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
-          <Workflow className="w-5 h-5 text-white" />
-        </div>
-      ),
-      heading: {
-        en: "CUSTOM PROJECTS",
-        es: "PROYECTOS PERSONALIZADOS"
-      },
-      subheading: {
-        en: "Scale your company's operations",
-        es: "Escala la operación de tu empresa"
-      },
-      items: [
-        { 
-          name: { en: "Apps", es: "Apps" }, 
-          icon: Smartphone, 
-          href: "/products/apps" 
-        },
-        { 
-          name: { en: "Websites", es: "Sitios Web" }, 
-          icon: GlobeIcon, 
-          href: "/products/websites" 
-        },
-        { 
-          name: { en: "Integrations", es: "Integraciones" }, 
-          icon: Plug, 
-          href: "/products/integrations" 
-        },
-        { 
-          name: { en: "Systems", es: "Sistemas" }, 
-          icon: Settings, 
-          href: "/products/systems" 
-        },
-        { 
-          name: { en: "Process Automation", es: "Automatización de procesos" }, 
-          icon: Workflow, 
-          href: "/products/process-automation" 
-        }
-      ]
-    }
-  ];
-
-  // Industries dropdown content with bilingual support
-  const industriesSections = [
-    {
-      id: "automations-industries",
-      icon: (
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-          <Bot className="w-5 h-5 text-white" />
-        </div>
-      ),
-      heading: {
-        en: "AUTOMATIONS",
-        es: "AUTOMATIZACIONES"
-      },
-      subheading: {
-        en: "AI automation for customer service, sales and operations",
-        es: "Automatización con IA para servicio al cliente, ventas y operaciones"
-      },
-      items: [
-        { 
-          name: { en: "Retail", es: "Retail" }, 
-          icon: MessageCircle, 
-          href: "/industries/retail" 
-        },
-        { 
-          name: { en: "Pet Shops", es: "Pet Shops" }, 
-          icon: MessageCircle, 
-          href: "/industries/retail/pet-shops" 
-        },
-        { 
-          name: { en: "Concesionarios", es: "Concesionarios" }, 
-          icon: MessageCircle, 
-          href: "/industries/retail/concesionarios" 
-        },
-        { 
-          name: { en: "Distribuidoras", es: "Distribuidoras" }, 
-          icon: MessageCircle, 
-          href: "/industries/retail/distribuidoras" 
-        },
-        { 
-          name: { en: "Restaurantes", es: "Restaurantes" }, 
-          icon: MessageCircle, 
-          href: "/industries/retail/restaurantes" 
-        },
-        { 
-          name: { en: "Constructoras", es: "Constructoras" }, 
-          icon: MessageCircle, 
-          href: "/industries/retail/constructoras" 
-        }
-      ]
-    },
-    {
-      id: "platform-industries",
-      icon: (
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-          <LayoutDashboard className="w-5 h-5 text-white" />
-        </div>
-      ),
-      heading: {
-        en: "ONE SOURCE PLATFORM",
-        es: "PLATAFORMA ÚNICA"
-      },
-      subheading: {
-        en: "Data ecosystem for ecommerce, marketing and digital operations",
-        es: "Ecosistema de datos para ecommerce, marketing y operaciones digitales"
-      },
-      items: [
-        {
-          name: { en: "Retail", es: "Retail" },
-          icon: LayoutDashboard,
-          href: "/industries/retail/platform"
-        },
-        { 
-          name: { en: "Marcas DTC", es: "Marcas DTC" }, 
-          icon: LayoutDashboard, 
-          href: "/industries/retail/marcas-dtc" 
-        },
-        { 
-          name: { en: "Ecommerce", es: "Ecommerce" }, 
-          icon: LayoutDashboard, 
-          href: "/industries/retail/ecommerce" 
-        },
-        { 
-          name: { en: "Agencias (marketing, performance, medios)", es: "Agencias (marketing, performance, medios)" }, 
-          icon: LayoutDashboard, 
-          href: "/industries/retail/agencias" 
-        },
-        { 
-          name: { en: "Marketplaces", es: "Marketplaces" }, 
-          icon: LayoutDashboard, 
-          href: "/industries/retail/marketplaces" 
-        },
-        { 
-          name: { en: "Empresas de suscripción", es: "Empresas de suscripción" }, 
-          icon: LayoutDashboard, 
-          href: "/industries/retail/empresas-suscripcion" 
-        }
-      ]
-    },
-    {
-      id: "projects-industries",
-      icon: (
-        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-green-500 to-teal-500 flex items-center justify-center">
-          <Workflow className="w-5 h-5 text-white" />
-        </div>
-      ),
-      heading: {
-        en: "CUSTOM PROJECTS",
-        es: "PROYECTOS PERSONALIZADOS"
-      },
-      subheading: {
-        en: "Custom developments for internal processes and enterprise platforms",
-        es: "Desarrollos personalizados para procesos internos y plataformas empresariales"
-      },
-      items: [
-        { 
-          name: { en: "Constructoras", es: "Constructoras" }, 
-          icon: Workflow, 
-          href: "/industries/constructoras" 
-        },
-        { 
-          name: { en: "Import & Export", es: "Import & Export" }, 
-          icon: Workflow, 
-          href: "/industries/constructoras/import-export" 
-        },
-        { 
-          name: { en: "Aseguradoras", es: "Aseguradoras" }, 
-          icon: Workflow, 
-          href: "/industries/constructoras/aseguradoras" 
-        },
-        { 
-          name: { en: "Distribuidoras", es: "Distribuidoras" }, 
-          icon: Workflow, 
-          href: "/industries/constructoras/distribuidoras" 
-        },
-        { 
-          name: { en: "Empresas logísticas", es: "Empresas logísticas" }, 
-          icon: Workflow, 
-          href: "/industries/constructoras/empresas-logisticas" 
-        },
-        { 
-          name: { en: "Retail", es: "Retail" }, 
-          icon: Workflow, 
-          href: "/industries/constructoras/retail" 
-        }
-      ]
-    }
   ];
 
   return (
@@ -396,155 +106,277 @@ export const Navbar = () => {
             {/* Product Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setProductOpen(true)}
-              onMouseLeave={() => setProductOpen(false)}
+              ref={productDropdownRef}
+              onMouseEnter={() => {
+                if (productTimerRef.current) clearTimeout(productTimerRef.current);
+                setProductOpen(true);
+              }}
+              onMouseLeave={() => {
+                productTimerRef.current = setTimeout(() => {
+                  setProductOpen(false);
+                }, 200);
+              }}
             >
-              <button className={`text-sm font-medium transition-colors flex items-center gap-1 ${
-                productOpen ? "text-blue-600" : "text-gray-600 hover:text-blue-600"
-              }`}>
+              <button className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors flex items-center gap-1">
                 Product
                 <ChevronDown className="w-4 h-4" />
               </button>
               
               {productOpen && (
-                <div className="absolute top-full left-0 mt-2 w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50">
-                  <div className="p-8">
-                    {/* Three Column Grid */}
-                    <div className="grid grid-cols-3 gap-8 mb-6">
-                      {productSections.map((section) => (
-                        <div key={section.id} className="flex flex-col">
-                          {/* Icon and Heading */}
-                          <div className="flex items-center gap-3 mb-3">
-                            {section.icon}
-                            <div>
-                              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide">
-                                {section.heading[currentLang]}
-                              </h3>
-                            </div>
-                          </div>
-                          
-                          {/* Subheading */}
-                          <p className="text-xs text-gray-500 mb-4">
-                            {section.subheading[currentLang]}
-                          </p>
-                          
-                          {/* Items List */}
-                          <div className="space-y-2">
-                            {section.items.map((item, idx) => {
-                              const IconComponent = item.icon;
-                              return (
-                                <Link
-                                  key={idx}
-                                  href={item.href}
-                                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
-                                >
-                                  <IconComponent className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
-                                  <span className="text-sm text-gray-700 group-hover:text-blue-600 transition-colors">
-                                    {item.name[currentLang]}
-                                  </span>
-                                </Link>
-                              );
-                            })}
-                          </div>
+                <div 
+                  className="fixed top-20 left-1/2 transform -translate-x-1/2 mt-2 w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+                  onMouseEnter={() => {
+                    if (productTimerRef.current) clearTimeout(productTimerRef.current);
+                    setProductOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    productTimerRef.current = setTimeout(() => {
+                      setProductOpen(false);
+                    }, 200);
+                  }}
+                >
+                  <div className="grid grid-cols-3 gap-0 p-8">
+                    {/* Column 1: AUTOMATIONS */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                          </svg>
                         </div>
-                      ))}
+                        <div>
+                          <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">AUTOMATIONS</h3>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Agentes de IA para servicio al cliente y ventas" : "AI Agents for Customer Service and Sales"}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2">
+                        {[
+                          { name: "WhatsApp", href: "/products/whatsapp", icon: "💬" },
+                          { name: "Instagram", href: "/products/instagram", icon: "📷" },
+                          { name: "Messenger", href: "/products/messenger", icon: "💬" },
+                          { name: "Email", href: "/products/email", icon: "✉️" },
+                          { name: "Calls", href: "/products/calls", icon: "📞" }
+                        ].map((item) => (
+                          <Link key={item.name} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
+                            <span className="text-lg">{item.icon}</span>
+                            <span className="text-sm text-gray-700 group-hover:text-blue-600">{item.name}</span>
+                          </Link>
+                        ))}
+                      </ul>
                     </div>
-                    
-                    {/* CTA Buttons */}
-                    <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                      <Link href="/book-a-demo">
-                        <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">
-                          {currentLang === "en" ? "Book a demo" : "Reservar una demo"}
-                        </button>
-                      </Link>
-                      <Link href="#">
-                        <button className="flex items-center gap-2 text-gray-700 hover:text-blue-600 text-sm font-medium transition-colors">
-                          {currentLang === "en" ? "See it in action" : "Verlo en acción"}
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                      </Link>
+
+                    {/* Column 2: ONE SOURCE PLATFORM */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+                          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Centraliza, analiza y potencia tu ecommerce" : "Centralize, analyze and power your ecommerce"}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2">
+                        {[
+                          { name: "Dashboards", href: "#", icon: "📊" },
+                          { name: "Deep Analysis", href: "#", icon: "🔍" },
+                          { name: "AI Chat", href: "#", icon: "🤖" },
+                          { name: "Insight ML", href: "#", icon: "🧠" },
+                          { name: "Competitor Intelligence", href: "#", icon: "📈" }
+                        ].map((item) => (
+                          <Link key={item.name} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
+                            <span className="text-lg">{item.icon}</span>
+                            <span className="text-sm text-gray-700 group-hover:text-blue-600">{item.name}</span>
+                          </Link>
+                        ))}
+                      </ul>
                     </div>
+
+                    {/* Column 3: CUSTOM PROJECTS */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+                          <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">CUSTOM PROJECTS</h3>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Escala las operaciones de tu empresa" : "Scale your company's operations"}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2">
+                        {[
+                          { name: "Apps", href: "#", icon: "📱" },
+                          { name: "Websites", href: "#", icon: "🌐" },
+                          { name: "Integrations", href: "#", icon: "🔗" },
+                          { name: "Systems", href: "#", icon: "⚙️" },
+                          { name: "Process Automation", href: "#", icon: "🔄" }
+                        ].map((item) => (
+                          <Link key={item.name} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
+                            <span className="text-lg">{item.icon}</span>
+                            <span className="text-sm text-gray-700 group-hover:text-blue-600">{item.name}</span>
+                          </Link>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="border-t border-gray-100 px-8 py-4 flex items-center justify-between bg-gray-50">
+                    <Link href="/book-a-demo" className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors">
+                      Book a demo
+                    </Link>
+                    <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium flex items-center gap-2">
+                      See it in action
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
                 </div>
               )}
             </div>
-            
+
             {/* Industries Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setIndustriesOpen(true)}
-              onMouseLeave={() => setIndustriesOpen(false)}
+              ref={industriesDropdownRef}
+              onMouseEnter={() => {
+                if (industriesTimerRef.current) clearTimeout(industriesTimerRef.current);
+                setIndustriesOpen(true);
+              }}
+              onMouseLeave={() => {
+                industriesTimerRef.current = setTimeout(() => {
+                  setIndustriesOpen(false);
+                }, 200);
+              }}
             >
-              <button className={`text-sm font-medium transition-colors flex items-center gap-1 ${
-                industriesOpen ? "text-blue-600" : "text-gray-600 hover:text-blue-600"
-              }`}>
+              <button className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors flex items-center gap-1">
                 Industries
                 <ChevronDown className="w-4 h-4" />
               </button>
               
               {industriesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50">
-                  <div className="p-8">
-                    {/* Three Column Grid */}
-                    <div className="grid grid-cols-3 gap-8 mb-6">
-                      {industriesSections.map((section) => (
-                        <div key={section.id} className="flex flex-col">
-                          {/* Icon and Heading */}
-                          <div className="flex items-center gap-3 mb-3">
-                            {section.icon}
-                            <div>
-                              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide">
-                                {section.heading[currentLang]}
-                              </h3>
-                            </div>
-                          </div>
-                          
-                          {/* Subheading */}
-                          <p className="text-xs text-gray-500 mb-4">
-                            {section.subheading[currentLang]}
-                          </p>
-                          
-                          {/* Items List */}
-                          <div className="space-y-2">
-                            {section.items.map((item, idx) => {
-                              const IconComponent = item.icon;
-                              return (
-                                <Link
-                                  key={idx}
-                                  href={item.href}
-                                  className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
-                                >
-                                  <IconComponent className="w-4 h-4 text-gray-400 group-hover:text-blue-600 transition-colors" />
-                                  <span className="text-sm text-gray-700 group-hover:text-blue-600 transition-colors">
-                                    {item.name[currentLang]}
-                                  </span>
-                                </Link>
-                              );
-                            })}
-                          </div>
+                <div 
+                  className="fixed top-20 left-1/2 transform -translate-x-1/2 mt-2 w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden z-50"
+                  onMouseEnter={() => {
+                    if (industriesTimerRef.current) clearTimeout(industriesTimerRef.current);
+                    setIndustriesOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    industriesTimerRef.current = setTimeout(() => {
+                      setIndustriesOpen(false);
+                    }, 200);
+                  }}
+                >
+                  <div className="grid grid-cols-3 gap-0 p-8">
+                    {/* Column 1: AUTOMATIONS */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
                         </div>
-                      ))}
+                        <div>
+                          <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">AUTOMATIONS</h3>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Automatización de IA para servicio al cliente, ventas y operaciones" : "AI automation for customer service, sales and operations"}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2">
+                        {[
+                          { name: { en: "Retail", es: "Retail" }, href: "#", icon: "🛍️" },
+                          { name: { en: "Pet Shops", es: "Tiendas de Mascotas" }, href: "#", icon: "🐾" },
+                          { name: { en: "Dealerships", es: "Concesionarios" }, href: "#", icon: "🚗" },
+                          { name: { en: "Distributors", es: "Distribuidoras" }, href: "#", icon: "📦" },
+                          { name: { en: "Restaurants", es: "Restaurantes" }, href: "#", icon: "🍽️" },
+                          { name: { en: "Construction", es: "Constructoras" }, href: "#", icon: "🏗️" }
+                        ].map((item) => (
+                          <Link key={item.name.en} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
+                            <span className="text-lg">{item.icon}</span>
+                            <span className="text-sm text-gray-700 group-hover:text-blue-600">{item.name[currentLang]}</span>
+                          </Link>
+                        ))}
+                      </ul>
                     </div>
-                    
-                    {/* CTA Buttons */}
-                    <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
-                      <Link href="/book-a-demo">
-                        <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors">
-                          {currentLang === "en" ? "Book a demo" : "Reservar una demo"}
-                        </button>
-                      </Link>
-                      <Link href="#">
-                        <button className="flex items-center gap-2 text-gray-700 hover:text-blue-600 text-sm font-medium transition-colors">
-                          {currentLang === "en" ? "See it in action" : "Verlo en acción"}
-                          <ArrowRight className="w-4 h-4" />
-                        </button>
-                      </Link>
+
+                    {/* Column 2: ONE SOURCE PLATFORM */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+                          <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Ecosistema de datos para ecommerce, marketing y operaciones digitales" : "Data ecosystem for ecommerce, marketing and digital operations"}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2">
+                        {[
+                          { name: { en: "Retail", es: "Retail" }, href: "#", icon: "🛍️" },
+                          { name: { en: "DTC Brands", es: "Marcas DTC" }, href: "#", icon: "🏷️" },
+                          { name: { en: "Ecommerce", es: "Ecommerce" }, href: "#", icon: "🛒" },
+                          { name: { en: "Agencies", es: "Agencias" }, href: "#", icon: "📊" },
+                          { name: { en: "Marketplaces", es: "Marketplaces" }, href: "#", icon: "🏪" },
+                          { name: { en: "Subscription Companies", es: "Empresas de suscripción" }, href: "#", icon: "🔄" }
+                        ].map((item) => (
+                          <Link key={item.name.en} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
+                            <span className="text-lg">{item.icon}</span>
+                            <span className="text-sm text-gray-700 group-hover:text-blue-600">{item.name[currentLang]}</span>
+                          </Link>
+                        ))}
+                      </ul>
                     </div>
+
+                    {/* Column 3: CUSTOM PROJECTS */}
+                    <div>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center">
+                          <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">CUSTOM PROJECTS</h3>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Desarrollos personalizados para procesos internos y plataformas empresariales" : "Custom developments for internal processes and enterprise platforms"}</p>
+                        </div>
+                      </div>
+                      <ul className="space-y-2">
+                        {[
+                          { name: { en: "Construction", es: "Constructoras" }, href: "#", icon: "🏗️" },
+                          { name: { en: "Import & Export", es: "Importación y Exportación" }, href: "#", icon: "📦" },
+                          { name: { en: "Insurance", es: "Aseguradoras" }, href: "#", icon: "🛡️" },
+                          { name: { en: "Distributors", es: "Distribuidoras" }, href: "#", icon: "🚚" },
+                          { name: { en: "Logistics Companies", es: "Empresas logísticas" }, href: "#", icon: "📋" },
+                          { name: { en: "Retail", es: "Retail" }, href: "#", icon: "🛍️" }
+                        ].map((item) => (
+                          <Link key={item.name.en} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
+                            <span className="text-lg">{item.icon}</span>
+                            <span className="text-sm text-gray-700 group-hover:text-blue-600">{item.name[currentLang]}</span>
+                          </Link>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="border-t border-gray-100 px-8 py-4 flex items-center justify-between bg-gray-50">
+                    <Link href="/book-a-demo" className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors">
+                      Book a demo
+                    </Link>
+                    <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium flex items-center gap-2">
+                      See it in action
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </Link>
                   </div>
                 </div>
               )}
             </div>
-            
+
             <Link href="/nova" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
               NOVA AI
             </Link>
@@ -561,8 +393,15 @@ export const Navbar = () => {
             {/* Resources Dropdown */}
             <div 
               className="relative"
-              onMouseEnter={() => setResourcesOpen(true)}
-              onMouseLeave={() => setResourcesOpen(false)}
+              onMouseEnter={() => {
+                if (productTimerRef.current) clearTimeout(productTimerRef.current);
+                setResourcesOpen(true);
+              }}
+              onMouseLeave={() => {
+                productTimerRef.current = setTimeout(() => {
+                  setResourcesOpen(false);
+                }, 200);
+              }}
             >
               <button className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors flex items-center gap-1">
                 Resources
@@ -570,7 +409,18 @@ export const Navbar = () => {
               </button>
               
               {resourcesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
+                <div 
+                  className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+                  onMouseEnter={() => {
+                    if (productTimerRef.current) clearTimeout(productTimerRef.current);
+                    setResourcesOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    productTimerRef.current = setTimeout(() => {
+                      setResourcesOpen(false);
+                    }, 200);
+                  }}
+                >
                   <div className="grid grid-cols-2 gap-0">
                     {/* Left - eBook Feature */}
                     <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-8 text-white">
@@ -676,11 +526,11 @@ export const Navbar = () => {
             </div>
             
             <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
-              {currentLang === "en" ? "Log In" : "Iniciar Sesión"}
+              Log In
             </Link>
             <Link href="/book-a-demo">
               <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-all shadow-sm hover:shadow-md">
-                {currentLang === "en" ? "Book a Demo" : "Reservar una Demo"}
+                Book a Demo
               </button>
             </Link>
           </div>
@@ -723,117 +573,7 @@ export const Navbar = () => {
 
                 {/* Navigation Links */}
                 <div className="space-y-1 mb-6 flex-grow">
-                  {/* Product Dropdown for Mobile */}
-                  <div>
-                    <button
-                      onClick={() => setMobileProductOpen(!mobileProductOpen)}
-                      className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
-                    >
-                      <span>Product</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${mobileProductOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    
-                    {mobileProductOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="mt-2 space-y-4 pl-4"
-                      >
-                        {productSections.map((section) => (
-                          <div key={section.id} className="space-y-2">
-                            <div className="flex items-center gap-2 mb-2">
-                              {section.icon}
-                              <h4 className="text-sm font-bold text-gray-900">
-                                {section.heading[currentLang]}
-                              </h4>
-                            </div>
-                            <p className="text-xs text-gray-500 mb-2 pl-10">
-                              {section.subheading[currentLang]}
-                            </p>
-                            <div className="space-y-1 pl-10">
-                              {section.items.map((item, idx) => {
-                                const IconComponent = item.icon;
-                                return (
-                                  <Link
-                                    key={idx}
-                                    href={item.href}
-                                    onClick={() => {
-                                      setMobileMenuOpen(false);
-                                      setMobileProductOpen(false);
-                                    }}
-                                    className="flex items-center gap-2 px-2 py-1.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                                  >
-                                    <IconComponent className="w-4 h-4" />
-                                    {item.name[currentLang]}
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </div>
-
-                  {/* Industries Dropdown for Mobile */}
-                  <div>
-                    <button
-                      onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
-                      className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
-                    >
-                      <span>Industries</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${mobileIndustriesOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    
-                    {mobileIndustriesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="mt-2 space-y-4 pl-4"
-                      >
-                        {industriesSections.map((section) => (
-                          <div key={section.id} className="space-y-2">
-                            <div className="flex items-center gap-2 mb-2">
-                              {section.icon}
-                              <h4 className="text-sm font-bold text-gray-900">
-                                {section.heading[currentLang]}
-                              </h4>
-                            </div>
-                            <p className="text-xs text-gray-500 mb-2 pl-10">
-                              {section.subheading[currentLang]}
-                            </p>
-                            <div className="space-y-1 pl-10">
-                              {section.items.map((item, idx) => {
-                                const IconComponent = item.icon;
-                                return (
-                                  <Link
-                                    key={idx}
-                                    href={item.href}
-                                    onClick={() => {
-                                      setMobileMenuOpen(false);
-                                      setMobileIndustriesOpen(false);
-                                    }}
-                                    className="flex items-center gap-2 px-2 py-1.5 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                                  >
-                                    <IconComponent className="w-4 h-4" />
-                                    {item.name[currentLang]}
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ))}
-                      </motion.div>
-                    )}
-                  </div>
-                  
-                  {navLinks.filter(link => link.label !== "Product").map((link) => (
+                  {navLinks.map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
@@ -924,14 +664,14 @@ export const Navbar = () => {
                     onClick={() => setMobileMenuOpen(false)}
                     className="block w-full px-4 py-3 text-center text-gray-700 hover:bg-gray-50 rounded-lg transition-colors font-medium"
                   >
-                    {currentLang === "en" ? "Log In" : "Iniciar Sesión"}
+                    Log In
                   </Link>
                   <Link
                     href="/book-a-demo"
                     onClick={() => setMobileMenuOpen(false)}
                     className="block w-full px-4 py-3 text-center bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors"
                   >
-                    {currentLang === "en" ? "Book a Demo" : "Reservar una Demo"}
+                    Book a Demo
                   </Link>
                 </div>
               </div>

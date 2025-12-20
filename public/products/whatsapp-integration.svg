@@ -4,30 +4,13 @@
       <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.1" />
       <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:0.1" />
     </linearGradient>
-    <style>
-      @keyframes connect {
-        0% { stroke-dashoffset: 0; }
-        100% { stroke-dashoffset: 20; }
-      }
-      @keyframes glow {
-        0%, 100% { opacity: 0.5; }
-        50% { opacity: 1; }
-      }
-      @keyframes rotate {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      .connect { animation: connect 2s linear infinite; }
-      .glow { animation: glow 2s ease-in-out infinite; }
-      .rotate { animation: rotate 3s linear infinite; }
-    </style>
   </defs>
   
   <rect width="800" height="600" fill="url(#intGrad)"/>
   
   <!-- WhatsApp icon -->
   <g>
-    <circle cx="150" cy="200" r="50" fill="#25D366" class="glow"/>
+    <circle cx="150" cy="200" r="50" fill="#25D366" opacity="0.8"/>
     <path d="M 130 180 Q 120 200 130 220 L 150 210 Z" fill="#FFFFFF"/>
   </g>
   
@@ -56,21 +39,17 @@
   <text x="520" y="545" font-family="Arial" font-size="12" fill="#1F2937" font-weight="bold">Database</text>
   
   <!-- Connection lines -->
-  <path d="M 200 200 L 500 175" stroke="#3B82F6" stroke-width="3" fill="none" stroke-dasharray="10,5" class="connect"/>
-  <path d="M 200 200 L 500 375" stroke="#8B5CF6" stroke-width="3" fill="none" stroke-dasharray="10,5" class="connect" style="animation-delay: 0.5s;">
-  <path d="M 200 200 L 500 540" stroke="#10B981" stroke-width="3" fill="none" stroke-dasharray="10,5" class="connect" style="animation-delay: 1s;">
+  <path d="M 200 200 L 500 175" stroke="#3B82F6" stroke-width="3" fill="none" stroke-dasharray="10,5"/>
+  <path d="M 200 200 L 500 375" stroke="#8B5CF6" stroke-width="3" fill="none" stroke-dasharray="10,5"/>
+  <path d="M 200 200 L 500 540" stroke="#10B981" stroke-width="3" fill="none" stroke-dasharray="10,5"/>
   
-  <!-- Central hub with rotation -->
-  <g class="rotate">
-    <circle cx="200" cy="200" r="30" fill="#6366F1" opacity="0.3"/>
-    <circle cx="200" cy="200" r="20" fill="#6366F1"/>
-    <circle cx="200" cy="200" r="10" fill="#FFFFFF"/>
-  </g>
+  <!-- Central hub -->
+  <circle cx="200" cy="200" r="30" fill="#6366F1" opacity="0.3"/>
+  <circle cx="200" cy="200" r="20" fill="#6366F1"/>
+  <circle cx="200" cy="200" r="10" fill="#FFFFFF"/>
   
   <!-- Data flow indicators -->
-  <g class="glow">
-    <circle cx="350" cy="187" r="5" fill="#3B82F6"/>
-    <circle cx="350" cy="387" r="5" fill="#8B5CF6"/>
-    <circle cx="350" cy="520" r="5" fill="#10B981"/>
-  </g>
+  <circle cx="350" cy="187" r="5" fill="#3B82F6"/>
+  <circle cx="350" cy="387" r="5" fill="#8B5CF6"/>
+  <circle cx="350" cy="520" r="5" fill="#10B981"/>
 </svg>

@@ -3,10 +3,30 @@
 import { useState, useEffect } from "react";
 
 export const useLanguageSwitcher = () => {
-  const [currentLang, setCurrentLang] = useState<"en" | "es">("en");
+  // Initialize from localStorage if available (for faster initial render)
+  const getInitialLang = (): "en" | "es" => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("yuno-lang");
+      if (stored === "es" || stored === "en") {
+        return stored;
+      }
+    }
+    return "en";
+  };
+  
+  const [currentLang, setCurrentLang] = useState<"en" | "es">(getInitialLang());
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
+  const detectLanguage = () => {
+    // First check localStorage (most reliable)
+    if (typeof window !== "undefined") {
+      const storedLang = localStorage.getItem("yuno-lang");
+      if (storedLang === "es" || storedLang === "en") {
+        setCurrentLang(storedLang);
+        return;
+      }
+    }
+    
     // Check current language from cookie
     const cookies = document.cookie.split(";");
     const googtransCookie = cookies.find(c => c.trim().startsWith("googtrans="));
@@ -14,12 +34,64 @@ export const useLanguageSwitcher = () => {
     if (googtransCookie) {
       const lang = googtransCookie.includes("/es") ? "es" : "en";
       setCurrentLang(lang);
+      // Store in localStorage for faster access
+      if (typeof window !== "undefined") {
+        localStorage.setItem("yuno-lang", lang);
+      }
+    } else {
+      // Check if Google Translate has already translated the page
+      const body = document.body;
+      if (body.classList.contains("translated-ltr") || body.classList.contains("translated-rtl")) {
+        // Check the actual language from the translate element
+        const select = document.querySelector<HTMLSelectElement>("#google_translate_element_hidden select, .goog-te-combo");
+        if (select && select.value === "es") {
+          setCurrentLang("es");
+          if (typeof window !== "undefined") {
+            localStorage.setItem("yuno-lang", "es");
+          }
+        }
+      } else {
+        // Default to English if nothing is detected
+        setCurrentLang("en");
+        if (typeof window !== "undefined") {
+          localStorage.setItem("yuno-lang", "en");
+        }
+      }
     }
+  };
+
+  useEffect(() => {
+    detectLanguage();
+    
+    // Check periodically for language changes (in case cookie is set asynchronously)
+    const interval = setInterval(() => {
+      detectLanguage();
+    }, 500);
+    
+    // Also listen for DOM changes that might indicate translation
+    const observer = new MutationObserver(() => {
+      detectLanguage();
+    });
+    
+    observer.observe(document.body, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+    
+    return () => {
+      clearInterval(interval);
+      observer.disconnect();
+    };
   }, []);
 
   const switchLanguage = (lang: "en" | "es") => {
     setCurrentLang(lang);
     setIsOpen(false);
+    
+    // Store in localStorage immediately
+    if (typeof window !== "undefined") {
+      localStorage.setItem("yuno-lang", lang);
+    }
     
     // Set cookie for Google Translate
     if (lang === "en") {
