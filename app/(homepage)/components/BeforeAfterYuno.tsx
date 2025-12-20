@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export const BeforeAfterYuno = () => {
   const [view, setView] = useState<"before" | "after">("before");
@@ -82,16 +83,16 @@ export const BeforeAfterYuno = () => {
                   >
                     {/* Company at top */}
                     <div className="flex justify-center mb-8">
-                      <div className="px-6 py-3 bg-gray-100 rounded-xl font-semibold text-gray-700 border-2 border-gray-200">
+                      <Link href="/about-us" className="px-6 py-3 bg-gray-100 rounded-xl font-semibold text-gray-700 border-2 border-gray-200 hover:bg-gray-200 transition-colors cursor-pointer">
                         COMPANY
-                      </div>
+                      </Link>
                     </div>
 
                     {/* Manual Tasks */}
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       {["Manual Messages", "Manual Orders", "Manual Updates", "Manual Reports"].map((task, i) => (
                         <div key={task} className="relative">
-                          <div className="px-4 py-3 bg-red-50 rounded-lg text-center text-xs font-medium text-red-700 border border-red-200">
+                          <div className="px-4 py-3 bg-red-50 rounded-lg text-center text-xs font-medium text-red-700 border border-red-200 h-20 flex flex-col items-center justify-center">
                             {task}
                             <div className="mt-2 flex flex-wrap gap-1 justify-center">
                               <span className="px-2 py-0.5 bg-white rounded text-xs">⏱️</span>
@@ -120,9 +121,9 @@ export const BeforeAfterYuno = () => {
                   >
                     {/* Company at top */}
                     <div className="flex justify-center mb-4">
-                      <div className="px-6 py-3 bg-gray-100 rounded-xl font-semibold text-gray-700 border-2 border-gray-200">
+                      <Link href="/about-us" className="px-6 py-3 bg-gray-100 rounded-xl font-semibold text-gray-700 border-2 border-gray-200 hover:bg-gray-200 transition-colors cursor-pointer">
                         COMPANY
-                      </div>
+                      </Link>
                     </div>
 
                     {/* Altura Layer */}
@@ -139,7 +140,7 @@ export const BeforeAfterYuno = () => {
                       {["AI Automation", "Centralized Data", "Strategic Teams", "Scalable Tech"].map((solution, i) => (
                         <div key={solution} className="relative">
                           <div className="absolute top-0 left-1/2 w-0.5 h-8 bg-blue-300 -translate-x-1/2 -translate-y-full" />
-                          <div className="px-4 py-3 bg-green-50 rounded-lg text-center text-xs font-medium text-green-700 border border-green-200">
+                          <div className="px-4 py-3 bg-green-50 rounded-lg text-center text-xs font-medium text-green-700 border border-green-200 h-20 flex flex-col items-center justify-center">
                             {solution}
                             <div className="mt-2">
                               <span className="px-2 py-0.5 bg-white rounded text-xs">✅</span>
@@ -147,14 +148,6 @@ export const BeforeAfterYuno = () => {
                           </div>
                         </div>
                       ))}
-                    </div>
-
-                    <div className="mt-6 text-center space-y-2">
-                      <p className="text-sm text-blue-600 font-semibold">Automated Operation</p>
-                      <p className="text-sm text-blue-600 font-semibold">Centralized & Visible Data</p>
-                      <p className="text-sm text-blue-600 font-semibold">Free & Strategic Teams</p>
-                      <p className="text-sm text-blue-600 font-semibold">Technology that Scales</p>
-                      <p className="text-base font-bold text-green-600 mt-4">A Business in Motion</p>
                     </div>
                   </motion.div>
                 )}

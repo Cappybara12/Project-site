@@ -2,8 +2,21 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguageSwitcher } from "../components/common/useLanguageSwitcher";
 
 export default function BookADemoPage() {
+  const { currentLang } = useLanguageSwitcher();
+  
+  const content = {
+    heading: {
+      en: "Talk with one of our tech experts",
+      es: "Habla con uno de nuestros expertos en tecnología"
+    },
+    subtitle: {
+      en: "Build a tech infrastructure that works better, fails less, and drives revenue at scale.",
+      es: "Construye una infraestructura tecnológica que funcione mejor, falle menos y genere ingresos a escala."
+    }
+  };
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -36,11 +49,10 @@ export default function BookADemoPage() {
               BOOK A DEMO
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Talk with one of our<br />
-              <span className="text-blue-600">payment experts</span>
+              {content.heading[currentLang]}
             </h1>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Build a payment engine that approves more, fails less, and drives revenue at scale.
+              {content.subtitle[currentLang]}
             </p>
 
           </motion.div>

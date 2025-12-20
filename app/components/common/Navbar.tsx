@@ -62,7 +62,7 @@ export const Navbar = () => {
     { href: "#", label: "Product" },
     { href: "/nova", label: "NOVA AI" },
     { href: "#", label: "Developers" },
-    { href: "#", label: "Company" },
+    { href: "/about-us", label: "Company" },
     { href: "/pricing", label: "Pricing" },
     { href: "#", label: "Integrations" },
   ];
@@ -383,7 +383,7 @@ export const Navbar = () => {
             <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
               Developers
             </Link>
-            <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
+            <Link href="/about-us" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
               Company
             </Link>
             <Link href="/pricing" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
