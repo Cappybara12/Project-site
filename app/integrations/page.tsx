@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Search } from "lucide-react";
 import Link from "next/link";
+import { useLanguageSwitcher } from "../components/common/useLanguageSwitcher";
 
 // Integration data - keeping existing structure
 const integrations = [
@@ -59,8 +60,20 @@ const categories = [
 ];
 
 export default function IntegrationsPage() {
+  const { currentLang } = useLanguageSwitcher();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  const content = {
+    heading: {
+      en: "We connect your technology so your systems work as one ecosystem",
+      es: "Conectamos tu tecnología para que tus sistemas trabajen como un solo ecosistema"
+    },
+    subheading: {
+      en: "Altura integrates with ecommerce platforms, CRM, ERP, marketing tools, messaging, payments, analytics and internal systems. We design stable and secure integrations that allow information to flow between tools and processes to operate in a coordinated and efficient manner.",
+      es: "Altura se integra con plataformas de ecommerce, CRM, ERP, herramientas de marketing, mensajería, pagos, analítica y sistemas internos. Diseñamos integraciones estables y seguras que permiten que la información fluya entre herramientas y que los procesos operen de forma coordinada y eficiente."
+    }
+  };
 
   const filteredIntegrations = useMemo(() => {
     return integrations.filter(integration => {
@@ -76,8 +89,11 @@ export default function IntegrationsPage() {
       <section className="py-16 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
-            Select your data source
+            {content.heading[currentLang]}
           </h1>
+          <p className="text-lg md:text-xl text-gray-600 text-center max-w-4xl mx-auto mt-6 leading-relaxed">
+            {content.subheading[currentLang]}
+          </p>
         </div>
       </section>
 

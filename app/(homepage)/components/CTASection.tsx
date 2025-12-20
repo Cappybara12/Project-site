@@ -14,17 +14,17 @@ export const CTASection = () => {
             id="leftTrack"
             d="M 120 -100 L 120 120 Q 120 220, 220 260 Q 320 300, 220 380 Q 120 460, 120 560 L 120 700"
             stroke="rgba(255,255,255,0.2)"
-            strokeWidth="2"
+            strokeWidth="1"
             fill="none"
           />
-          {/* Animated glowing capsule */}
-          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" opacity="0.9">
+          {/* Animated glowing capsule - thinner */}
+          <rect x="-4" y="-1" width="8" height="2" rx="1" fill="white" opacity="0.8">
             <animateMotion dur="8s" repeatCount="indefinite" rotate="auto">
               <mpath href="#leftTrack" />
             </animateMotion>
           </rect>
-          {/* Glow effect */}
-          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" filter="url(#glowFilter)" opacity="0.6">
+          {/* Glow effect - thinner */}
+          <rect x="-4" y="-1" width="8" height="2" rx="1" fill="white" filter="url(#glowFilter)" opacity="0.4">
             <animateMotion dur="8s" repeatCount="indefinite" rotate="auto">
               <mpath href="#leftTrack" />
             </animateMotion>
@@ -33,7 +33,7 @@ export const CTASection = () => {
           {/* Glow filter */}
           <defs>
             <filter id="glowFilter" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feGaussianBlur stdDeviation="2" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
@@ -49,16 +49,16 @@ export const CTASection = () => {
             id="rightTrack"
             d="M 1080 -100 L 1080 120 Q 1080 220, 980 260 Q 880 300, 980 380 Q 1080 460, 1080 560 L 1080 700"
             stroke="rgba(255,255,255,0.2)"
-            strokeWidth="2"
+            strokeWidth="1"
             fill="none"
           />
-          {/* Animated glowing capsule */}
-          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" opacity="0.9">
+          {/* Animated glowing capsule - thinner */}
+          <rect x="-4" y="-1" width="8" height="2" rx="1" fill="white" opacity="0.8">
             <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" begin="1s">
               <mpath href="#rightTrack" />
             </animateMotion>
           </rect>
-          <rect x="-12" y="-3" width="24" height="6" rx="3" fill="white" filter="url(#glowFilter2)" opacity="0.6">
+          <rect x="-4" y="-1" width="8" height="2" rx="1" fill="white" filter="url(#glowFilter2)" opacity="0.4">
             <animateMotion dur="10s" repeatCount="indefinite" rotate="auto" begin="1s">
               <mpath href="#rightTrack" />
             </animateMotion>
@@ -66,7 +66,7 @@ export const CTASection = () => {
           
           <defs>
             <filter id="glowFilter2" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feGaussianBlur stdDeviation="2" result="blur" />
               <feMerge>
                 <feMergeNode in="blur" />
                 <feMergeNode in="SourceGraphic" />
