@@ -80,3 +80,5 @@ export const ProductHero = ({ badge, titlePart1, titlePart2, subtitle }: Product
     </section>
   );
 };
+
+

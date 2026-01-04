@@ -10,9 +10,9 @@ export const BeforeAfterYuno = () => {
   return (
     <section className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left Content */}
-          <div>
+          <div className="lg:sticky lg:top-32">
             <div className="flex justify-start mb-6">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-xs font-semibold text-gray-500 uppercase tracking-wider border border-gray-200">
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ export const BeforeAfterYuno = () => {
             </div>
 
             {/* Diagram */}
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 min-h-[400px] relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 h-[500px] relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {view === "before" ? (
                   <motion.div
@@ -79,7 +79,7 @@ export const BeforeAfterYuno = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="space-y-6"
+                    className="space-y-6 h-full flex flex-col justify-center"
                   >
                     {/* Company at top */}
                     <div className="flex justify-center mb-8">
@@ -117,7 +117,7 @@ export const BeforeAfterYuno = () => {
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="space-y-6"
+                    className="space-y-6 h-full flex flex-col justify-center"
                   >
                     {/* Company at top */}
                     <div className="flex justify-center mb-4">

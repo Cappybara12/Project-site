@@ -60,8 +60,6 @@ export const Navbar = () => {
 
   const navLinks = [
     { href: "#", label: "Product" },
-    { href: "/nova", label: "NOVA AI" },
-    { href: "#", label: "Developers" },
     { href: "/about-us", label: "Company" },
     { href: "/pricing", label: "Pricing" },
     { href: "/integrations", label: "Integrations" },
@@ -69,10 +67,8 @@ export const Navbar = () => {
 
   const resourcesLinks = [
     { title: "Blog", icon: "📝", href: "/blog" },
-    { title: "eBooks", icon: "📚", href: "#" },
-    { title: "Success Stories", icon: "⚡", href: "#" },
-    { title: "Product Updates", icon: "📢", href: "#" },
-    { title: "Newsroom", icon: "📰", href: "#" }
+    { title: "Trust & Security", icon: "🛡️", href: "/trust-and-security" },
+    { title: "Terms & Conditions", icon: "📄", href: "/terms-and-conditions" }
   ];
 
   return (
@@ -175,7 +171,7 @@ export const Navbar = () => {
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
-                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Centraliza, analiza y potencia tu ecommerce" : "Centralize, analyze and power your ecommerce"}</p>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
                         </div>
                       </div>
                       <ul className="space-y-2">
@@ -223,15 +219,9 @@ export const Navbar = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="border-t border-gray-100 px-8 py-4 flex items-center justify-between bg-gray-50">
+                  <div className="border-t border-gray-100 px-8 py-4 flex items-center justify-end bg-gray-50">
                     <Link href="/book-a-demo" className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors">
                       Book a demo
-                    </Link>
-                    <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium flex items-center gap-2">
-                      See it in action
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
                     </Link>
                   </div>
                 </div>
@@ -311,7 +301,7 @@ export const Navbar = () => {
                         </div>
                         <div>
                           <h3 className="font-bold text-gray-900 text-sm uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
-                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Ecosistema de datos para ecommerce, marketing y operaciones digitales" : "Data ecosystem for ecommerce, marketing and digital operations"}</p>
+                          <p className="text-xs text-gray-500">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
                         </div>
                       </div>
                       <ul className="space-y-2">
@@ -362,27 +352,15 @@ export const Navbar = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className="border-t border-gray-100 px-8 py-4 flex items-center justify-between bg-gray-50">
+                  <div className="border-t border-gray-100 px-8 py-4 flex items-center justify-end bg-gray-50">
                     <Link href="/book-a-demo" className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors">
                       Book a demo
-                    </Link>
-                    <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium flex items-center gap-2">
-                      See it in action
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
                     </Link>
                   </div>
                 </div>
               )}
             </div>
 
-            <Link href="/nova" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
-              NOVA AI
-            </Link>
-            <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
-              Developers
-            </Link>
             <Link href="/about-us" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
               Company
             </Link>
@@ -410,7 +388,7 @@ export const Navbar = () => {
               
               {resourcesOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden"
                   onMouseEnter={() => {
                     if (productTimerRef.current) clearTimeout(productTimerRef.current);
                     setResourcesOpen(true);
@@ -446,13 +424,7 @@ export const Navbar = () => {
 
                     {/* Right - Menu Items */}
                     <div className="p-4">
-                      {[
-                        { title: "Blog", icon: "📝", href: "/blog" },
-                        { title: "eBooks", icon: "📚", href: "#" },
-                        { title: "Success Stories", icon: "⚡", href: "#" },
-                        { title: "Product Updates", icon: "📢", href: "#" },
-                        { title: "Newsroom", icon: "📰", href: "#" }
-                      ].map((item) => (
+                      {resourcesLinks.map((item) => (
                         <Link
                           key={item.title}
                           href={item.href}

@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -86,14 +85,16 @@ export const Hero = () => {
           transition={{ delay: 0.3 }}
           className="flex items-center justify-center gap-4 mb-12"
         >
-          <a href="/book-a-demo">
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
-              Explore Products
-            </button>
-          </a>
-          <button className="bg-gray-100 text-gray-700 px-8 py-4 rounded-full text-base font-medium hover:bg-gray-200 transition-colors flex items-center gap-2">
-            See it in action
-            <ArrowRight className="w-4 h-4" />
+          <button 
+            onClick={() => {
+              const element = document.getElementById('automations');
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="bg-blue-600 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
+          >
+            Explore Products
           </button>
         </motion.div>
 

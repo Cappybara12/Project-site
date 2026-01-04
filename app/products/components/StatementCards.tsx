@@ -65,3 +65,5 @@ export const StatementCards = ({ statements }: StatementCardsProps) => {
     </section>
   );
 };
+
+

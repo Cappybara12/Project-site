@@ -5,9 +5,11 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { regions } from "@/data/regions";
 import Image from "next/image";
+import { useLanguageSwitcher } from "@/app/components/common/useLanguageSwitcher";
 
 export const GlobalRegions = () => {
   const [activeRegion, setActiveRegion] = useState(regions[0].id);
+  const { currentLang } = useLanguageSwitcher();
 
   const active = regions.find(r => r.id === activeRegion) || regions[0];
 
@@ -25,9 +27,13 @@ export const GlobalRegions = () => {
             </div>
           </div>
           <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
-            Make global<br />payments effortless
+            {currentLang === "es" ? "Tecnología que piensa como tu negocio" : "Technology that works the way your business thinks"}
           </h2>
-          <p className="text-lg text-gray-500">Connect every part of your global payment operation.</p>
+          <p className="text-lg text-gray-500">
+            {currentLang === "es" 
+              ? "Un enfoque unificado para simplificar la complejidad, mejorar la ejecución y permitir que las empresas avancen con claridad y confianza." 
+              : "A unified approach to simplify complexity, improve execution, and help companies move forward with clarity and confidence."}
+          </p>
         </div>
 
         {/* Main Content */}
@@ -35,8 +41,12 @@ export const GlobalRegions = () => {
           {/* Left Navigation */}
           <div className="lg:col-span-4">
             <div className="bg-gray-50 rounded-3xl p-8 md:p-10">
-              <h3 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-6">{active.heading}</h3>
-              <p className="text-gray-600 mb-8 leading-relaxed">{active.description}</p>
+              <h3 className="text-sm font-bold text-blue-600 uppercase tracking-wider mb-6">
+                {currentLang === "es" ? (active.headingEs || active.heading) : active.heading}
+              </h3>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                {currentLang === "es" ? (active.descriptionEs || active.description) : active.description}
+              </p>
               
               <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors flex items-center gap-2 mb-12">
                 Explore all integrations
@@ -62,7 +72,9 @@ export const GlobalRegions = () => {
                         className="absolute left-[-3px] w-[7px] h-[7px] rounded-full bg-blue-600 z-10"
                       />
                     )}
-                    <span className="text-sm font-semibold uppercase tracking-wider pl-6">{region.title}</span>
+                    <span className="text-sm font-semibold uppercase tracking-wider pl-6">
+                      {currentLang === "es" ? (region.titleEs || region.title) : region.title}
+                    </span>
                   </button>
                 ))}
               </div>

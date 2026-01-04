@@ -2,8 +2,11 @@ export const regions = [
   {
     id: 'north-america',
     title: 'NORTH AMERICA',
-    heading: 'GO GLOBAL IN WEEKS, NOT MONTHS',
-    description: 'Integrate over 1,000 payment methods, PSPs, and fraud solutions with a single API. Expand into new markets in weeks instead of months.',
+    titleEs: 'NORTEAMÉRICA',
+    heading: 'SIMPLIFY OPERATIONS',
+    headingEs: 'SIMPLIFICAR LA OPERACIÓN',
+    description: 'We help businesses reduce operational noise by structuring processes, systems, and flows in a way that is easier to manage, understand, and evolve over time.',
+    descriptionEs: 'Ayudamos a las empresas a reducir el ruido operativo estructurando procesos, sistemas y flujos de una forma más clara, manejable y preparada para evolucionar.',
     providers: [
       { name: 'STRIPE', icon: 'S', color: '#635BFF' },
       { name: 'MASTERCARD', icon: 'MC', color: '#EB001B' },
@@ -16,8 +19,11 @@ export const regions = [
   {
     id: 'latam',
     title: 'LATAM',
-    heading: 'PAYMENTS TAILORED FOR LATAM',
-    description: 'Access local payment methods like PIX, Mercado Pago, and regional PSPs across Latin America with one integration.',
+    titleEs: 'LATAM',
+    heading: 'CONNECT EVERYTHING',
+    headingEs: 'CONECTAR TODO',
+    description: 'We design technology so systems communicate naturally, information flows consistently, and teams operate with a shared source of truth across the organization.',
+    descriptionEs: 'Diseñamos tecnología para que los sistemas se comuniquen de forma natural, la información fluya de manera consistente y los equipos trabajen con una visión compartida.',
     providers: [
       { name: 'PIX', icon: 'P', color: '#32BCAD' },
       { name: 'MERCADO PAGO', icon: 'M', color: '#00AEEF' },
@@ -30,8 +36,11 @@ export const regions = [
   {
     id: 'europe',
     title: 'EUROPE',
-    heading: 'EUROPEAN PAYMENT METHODS',
-    description: 'Integrate European wallets, bank transfers, and local payment methods like SEPA, Klarna, and Adyen seamlessly.',
+    titleEs: 'EUROPA',
+    heading: 'AUTOMATE THE REPETITIVE',
+    headingEs: 'AUTOMATIZAR LO REPETITIVO',
+    description: 'By removing repetitive and manual work, we allow teams to focus on decision-making, creativity, and growth instead of daily execution overload.',
+    descriptionEs: 'Al eliminar tareas manuales y repetitivas, permitimos que los equipos se enfoquen en decisiones estratégicas, creatividad y crecimiento, no en la carga diaria.',
     providers: [
       { name: 'ADYEN', icon: 'A', color: '#0ABF53' },
       { name: 'CHECKOUT', icon: 'C', color: '#7C3AED' },
@@ -44,8 +53,11 @@ export const regions = [
   {
     id: 'apac',
     title: 'APAC',
-    heading: 'APAC LOCAL PAYMENT METHODS',
-    description: 'Connect to Alipay, WeChat Pay, PayTM, and hundreds of regional payment methods across Asia-Pacific.',
+    titleEs: 'APAC',
+    heading: 'TURN DATA INTO DIRECTION',
+    headingEs: 'CONVERTIR DATOS EN DIRECCIÓN',
+    description: 'We transform raw data into clear signals that help leaders understand what\'s happening, why it matters, and what to do next—without unnecessary complexity.',
+    descriptionEs: 'Transformamos datos dispersos en señales claras que ayudan a entender qué está pasando, por qué es relevante y cuál es el siguiente paso.',
     providers: [
       { name: 'ALIPAY', icon: 'A', color: '#1677FF' },
       { name: 'WECHAT PAY', icon: 'W', color: '#07C160' },
@@ -58,8 +70,11 @@ export const regions = [
   {
     id: 'middle-east',
     title: 'MIDDLE EAST',
-    heading: 'MIDDLE EAST PAYMENT SOLUTIONS',
-    description: 'Support local payment methods and cross-border flows across the Middle East region.',
+    titleEs: 'MEDIO ORIENTE',
+    heading: 'DESIGN FOR CHANGE',
+    headingEs: 'DISEÑAR PARA EL CAMBIO',
+    description: 'Our approach assumes change is constant. We create technology that adapts, scales, and grows with the business instead of limiting future possibilities.',
+    descriptionEs: 'Nuestro enfoque asume que el cambio es constante. Creamos soluciones que se adaptan, escalan y crecen junto al negocio, sin limitar el futuro.',
     providers: [
       { name: 'CHECKOUT', icon: 'C', color: '#7C3AED' },
       { name: 'TELR', icon: 'T', color: '#E74C3C' },
@@ -71,8 +86,11 @@ export const regions = [
   {
     id: 'africa',
     title: 'AFRICA',
-    heading: 'AFRICAN PAYMENT NETWORKS',
-    description: 'Integrate mobile money and regional processors across African markets.',
+    titleEs: 'ÁFRICA',
+    heading: 'ENABLE BETTER DECISIONS',
+    headingEs: 'HABILITAR MEJORES DECISIONES',
+    description: 'When systems are connected and information is clear, teams can act faster, align better, and make decisions with confidence across the entire organization.',
+    descriptionEs: 'Cuando los sistemas están conectados y la información es clara, los equipos actúan con mayor velocidad, alineación y seguridad en toda la organización.',
     providers: [
       { name: 'M-PESA', icon: 'M', color: '#00A850' },
       { name: 'AIRTEL MONEY', icon: 'A', color: '#ED1C24' },

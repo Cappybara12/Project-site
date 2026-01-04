@@ -694,13 +694,13 @@ export const StickyFeatures = () => {
   return (
     <section className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Centered SOLUTIONS Button */}
+        {/* Centered PRODUCTS Button */}
         <div className="flex justify-center mb-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-xs font-semibold text-gray-500 uppercase tracking-wider border border-gray-200">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
             </svg>
-            SOLUTIONS
+            PRODUCTS
           </div>
         </div>
 
@@ -709,10 +709,10 @@ export const StickyFeatures = () => {
           <div className="lg:w-1/3">
             <div className="sticky top-32">
               <div className="inline-block px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full text-xs font-semibold text-indigo-700 mb-6 uppercase tracking-wider">
-                Altura Solutions
+                Altura Products
               </div>
               <h2 className="text-4xl font-medium text-gray-900 mb-8 leading-tight">
-                Three solutions that strengthen<br />your company's operations
+                Three products that strengthen<br />your company's operations
               </h2>
               <p className="text-gray-500 mb-12 leading-relaxed">
                 Technology designed to improve how you serve, manage and scale every area of your business.
@@ -751,9 +751,11 @@ export const StickyFeatures = () => {
               </div>
               
               <div className="mt-12">
-                <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/30 hover:shadow-xl">
-                    Explore All Solutions →
-                </button>
+                <a href="/book-a-demo">
+                  <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg shadow-indigo-500/30 hover:shadow-xl">
+                    Book a demo
+                  </button>
+                </a>
               </div>
             </div>
           </div>
@@ -848,13 +850,6 @@ export const StickyFeatures = () => {
                            </div>
                          </>
                        )}
-                     </div>
-
-                     {/* CTA Button */}
-                     <div className="mt-8">
-                       <button className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl">
-                         {feature.cta} →
-                       </button>
                      </div>
                   </div>
                 </motion.div>
