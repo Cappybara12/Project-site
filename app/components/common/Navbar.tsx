@@ -11,6 +11,8 @@ export const Navbar = () => {
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductOpen, setMobileProductOpen] = useState(false);
+  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
   const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
   const { currentLang, isOpen, setIsOpen, switchLanguage } = useLanguageSwitcher();
   const langDropdownRef = useRef<HTMLDivElement>(null);
@@ -545,7 +547,223 @@ export const Navbar = () => {
 
                 {/* Navigation Links */}
                 <div className="space-y-1 mb-6 flex-grow">
-                  {navLinks.map((link) => (
+                  {/* Product Dropdown */}
+                  <div className="mb-1">
+                    <button
+                      onClick={() => setMobileProductOpen(!mobileProductOpen)}
+                      className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
+                    >
+                      <span>Product</span>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${mobileProductOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    
+                    {mobileProductOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="mt-2 space-y-1 pl-4 overflow-hidden"
+                      >
+                        {/* AUTOMATIONS */}
+                        <div className="mb-4">
+                          <div className="px-4 py-2 mb-2">
+                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">AUTOMATIONS</h3>
+                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Agentes de IA para servicio al cliente y ventas" : "AI Agents for Customer Service and Sales"}</p>
+                          </div>
+                          {[
+                            { name: "WhatsApp", href: "/products/whatsapp", icon: "💬" },
+                            { name: "Instagram", href: "/products/instagram", icon: "📷" },
+                            { name: "Messenger", href: "/products/messenger", icon: "💬" },
+                            { name: "Email", href: "/products/email", icon: "✉️" },
+                            { name: "Calls", href: "/products/calls", icon: "📞" }
+                          ].map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileProductOpen(false);
+                              }}
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                            >
+                              <span className="mr-2">{item.icon}</span>
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                        
+                        {/* ONE SOURCE PLATFORM */}
+                        <div className="mb-4 border-t border-gray-200 pt-4">
+                          <div className="px-4 py-2 mb-2">
+                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
+                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
+                          </div>
+                          {[
+                            { name: "Dashboards", href: "#", icon: "📊" },
+                            { name: "Deep Analysis", href: "#", icon: "🔍" },
+                            { name: "AI Chat", href: "#", icon: "🤖" },
+                            { name: "Insight ML", href: "#", icon: "🧠" },
+                            { name: "Competitor Intelligence", href: "#", icon: "📈" }
+                          ].map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileProductOpen(false);
+                              }}
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                            >
+                              <span className="mr-2">{item.icon}</span>
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                        
+                        {/* CUSTOM PROJECTS */}
+                        <div className="mb-4 border-t border-gray-200 pt-4">
+                          <div className="px-4 py-2 mb-2">
+                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">CUSTOM PROJECTS</h3>
+                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Escala las operaciones de tu empresa" : "Scale your company's operations"}</p>
+                          </div>
+                          {[
+                            { name: "Apps", href: "#", icon: "📱" },
+                            { name: "Websites", href: "#", icon: "🌐" },
+                            { name: "Integrations", href: "#", icon: "🔗" },
+                            { name: "Systems", href: "#", icon: "⚙️" },
+                            { name: "Process Automation", href: "#", icon: "🔄" }
+                          ].map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileProductOpen(false);
+                              }}
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                            >
+                              <span className="mr-2">{item.icon}</span>
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+
+                  {/* Industries Dropdown */}
+                  <div className="mb-1">
+                    <button
+                      onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
+                      className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
+                    >
+                      <span>Industries</span>
+                      <ChevronDown
+                        className={`w-4 h-4 transition-transform ${mobileIndustriesOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    
+                    {mobileIndustriesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="mt-2 space-y-1 pl-4 overflow-hidden"
+                      >
+                        {/* AUTOMATIONS */}
+                        <div className="mb-4">
+                          <div className="px-4 py-2 mb-2">
+                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">AUTOMATIONS</h3>
+                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Automatización de IA para servicio al cliente, ventas y operaciones" : "AI automation for customer service, sales and operations"}</p>
+                          </div>
+                          {[
+                            { name: { en: "Retail", es: "Retail" }, href: "/industries/retail", icon: "🛍️" },
+                            { name: { en: "Pet Shops", es: "Tiendas de Mascotas" }, href: "/industries/retail/pet-shops", icon: "🐾" },
+                            { name: { en: "Dealerships", es: "Concesionarios" }, href: "/industries/retail/concesionarios", icon: "🚗" },
+                            { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/retail/distribuidoras", icon: "📦" },
+                            { name: { en: "Restaurants", es: "Restaurantes" }, href: "/industries/retail/restaurantes", icon: "🍽️" },
+                            { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" }
+                          ].map((item) => (
+                            <Link
+                              key={item.name.en}
+                              href={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileIndustriesOpen(false);
+                              }}
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                            >
+                              <span className="mr-2">{item.icon}</span>
+                              {item.name[currentLang]}
+                            </Link>
+                          ))}
+                        </div>
+                        
+                        {/* ONE SOURCE PLATFORM */}
+                        <div className="mb-4 border-t border-gray-200 pt-4">
+                          <div className="px-4 py-2 mb-2">
+                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
+                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
+                          </div>
+                          {[
+                            { name: { en: "Retail", es: "Retail" }, href: "/industries/retail/platform", icon: "🛍️" },
+                            { name: { en: "DTC Brands", es: "Marcas DTC" }, href: "/industries/retail/marcas-dtc", icon: "🏷️" },
+                            { name: { en: "Ecommerce", es: "Ecommerce" }, href: "/industries/retail/ecommerce", icon: "🛒" },
+                            { name: { en: "Agencies", es: "Agencias" }, href: "/industries/retail/agencias", icon: "📊" },
+                            { name: { en: "Marketplaces", es: "Marketplaces" }, href: "/industries/retail/marketplaces", icon: "🏪" },
+                            { name: { en: "Subscription Companies", es: "Empresas de suscripción" }, href: "/industries/retail/empresas-suscripcion", icon: "🔄" }
+                          ].map((item) => (
+                            <Link
+                              key={item.name.en}
+                              href={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileIndustriesOpen(false);
+                              }}
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                            >
+                              <span className="mr-2">{item.icon}</span>
+                              {item.name[currentLang]}
+                            </Link>
+                          ))}
+                        </div>
+                        
+                        {/* CUSTOM PROJECTS */}
+                        <div className="mb-4 border-t border-gray-200 pt-4">
+                          <div className="px-4 py-2 mb-2">
+                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">CUSTOM PROJECTS</h3>
+                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Desarrollos personalizados para procesos internos y plataformas empresariales" : "Custom developments for internal processes and enterprise platforms"}</p>
+                          </div>
+                          {[
+                            { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" },
+                            { name: { en: "Import & Export", es: "Importación y Exportación" }, href: "/industries/constructoras/import-export", icon: "📦" },
+                            { name: { en: "Insurance", es: "Aseguradoras" }, href: "/industries/constructoras/aseguradoras", icon: "🛡️" },
+                            { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/constructoras/distribuidoras", icon: "🚚" },
+                            { name: { en: "Logistics Companies", es: "Empresas logísticas" }, href: "/industries/constructoras/empresas-logisticas", icon: "📋" },
+                            { name: { en: "Retail", es: "Retail" }, href: "/industries/constructoras/retail", icon: "🛍️" }
+                          ].map((item) => (
+                            <Link
+                              key={item.name.en}
+                              href={item.href}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setMobileIndustriesOpen(false);
+                              }}
+                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
+                            >
+                              <span className="mr-2">{item.icon}</span>
+                              {item.name[currentLang]}
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </div>
+
+                  {/* Other Links */}
+                  {navLinks.filter(link => link.label !== "Product").map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
