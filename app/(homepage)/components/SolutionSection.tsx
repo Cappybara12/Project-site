@@ -71,6 +71,10 @@ export const SolutionSection = () => {
         <div className="space-y-16">
           {solutions.map((solution, index) => {
             const Icon = solution.icon;
+            // Mobile: Always content first, then visual (consistent order)
+            // Desktop: alternate order - even indices: content left, visual right; odd indices: visual left, content right
+            const isEven = index % 2 === 0;
+            
             return (
               <motion.div
                 key={solution.number}
@@ -80,8 +84,8 @@ export const SolutionSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
               >
-                {/* Left: Content */}
-                <div className={index % 2 === 0 ? "order-1" : "order-2"}>
+                {/* Left: Content - Always first on mobile, alternating on desktop */}
+                <div className={`order-1 ${isEven ? "lg:order-1" : "lg:order-2"}`}>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-4xl font-bold text-gray-300">{solution.number}</span>
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${solution.color} flex items-center justify-center`}>
@@ -107,8 +111,8 @@ export const SolutionSection = () => {
                   </div>
                 </div>
 
-                {/* Right: Visual */}
-                <div className={index % 2 === 0 ? "order-2" : "order-1"}>
+                {/* Right: Visual - Always second on mobile, alternating on desktop */}
+                <div className={`order-2 ${isEven ? "lg:order-2" : "lg:order-1"}`}>
                   <div className={`relative h-64 rounded-3xl bg-gradient-to-br ${solution.color} p-8 flex items-center justify-center overflow-hidden`}>
                     {/* Decorative elements */}
                     <div className="absolute inset-0 opacity-20">

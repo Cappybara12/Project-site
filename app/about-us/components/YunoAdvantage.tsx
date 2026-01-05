@@ -30,14 +30,14 @@ export const YunoAdvantage = () => {
   const FirstIcon = advantages[0].icon;
   
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-8 md:py-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-8 md:mb-12"
         >
           <p className="text-sm font-bold text-gray-600 uppercase tracking-widest mb-4">
             Why Altura Stands Out

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Globe, ChevronDown, Menu, X } from "lucide-react";
+import { Globe, ChevronDown, Menu, X, ArrowLeft } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useLanguageSwitcher } from "./useLanguageSwitcher";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,9 +11,7 @@ export const Navbar = () => {
   const [industriesOpen, setIndustriesOpen] = useState(false);
   const [resourcesOpen, setResourcesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileProductOpen, setMobileProductOpen] = useState(false);
-  const [mobileIndustriesOpen, setMobileIndustriesOpen] = useState(false);
-  const [mobileResourcesOpen, setMobileResourcesOpen] = useState(false);
+  const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null); // "product", "industries", "resources", etc.
   const { currentLang, isOpen, setIsOpen, switchLanguage } = useLanguageSwitcher();
   const langDropdownRef = useRef<HTMLDivElement>(null);
   const productDropdownRef = useRef<HTMLDivElement>(null);
@@ -46,6 +44,8 @@ export const Navbar = () => {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
+      // Reset submenu when menu closes
+      setMobileSubmenu(null);
     }
     return () => {
       document.body.style.overflow = "unset";
@@ -77,7 +77,7 @@ export const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {/* Logo */}
+          {/* Left: Logo */}
           <Link href="/" className="flex items-center cursor-pointer">
             <span className="text-2xl font-bold text-blue-600 flex items-center gap-2">
               <div className="grid grid-cols-2 gap-0.5">
@@ -90,7 +90,19 @@ export const Navbar = () => {
             </span>
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Right: Mobile Menu Button / Desktop Menu + Book a Demo */}
+          <div className="flex items-center gap-3">
+            {/* Book a Demo Button - Mobile Only */}
+            <Link 
+              href="/book-a-demo" 
+              className="md:hidden flex-shrink-0"
+            >
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
+                Book a Demo
+              </button>
+            </Link>
+
+            {/* Mobile Menu Button - Only on mobile */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden p-2 text-gray-600 hover:text-blue-600 transition-colors"
@@ -450,10 +462,17 @@ export const Navbar = () => {
             <Link href="/integrations" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
               Integrations
             </Link>
+
+            {/* Book a Demo Button - In main navigation */}
+            <Link href="/book-a-demo" className="flex-shrink-0 ml-4">
+              <button className="bg-blue-600 text-white px-6 py-2.5 md:px-8 md:py-3 rounded-full text-sm md:text-base font-medium hover:bg-blue-700 transition-colors whitespace-nowrap">
+                Book a Demo
+              </button>
+            </Link>
           </div>
 
           {/* Desktop Right Actions */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-6 ml-6">
             {/* Language Switcher */}
             <div className="relative" ref={langDropdownRef}>
               <button
@@ -502,11 +521,7 @@ export const Navbar = () => {
             <Link href="#" className="text-gray-600 hover:text-blue-600 text-sm font-medium transition-colors">
               Log In
             </Link>
-            <Link href="/book-a-demo">
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-all shadow-sm hover:shadow-md">
-                Book a Demo
-              </button>
-            </Link>
+          </div>
           </div>
         </div>
       </div>
@@ -520,7 +535,10 @@ export const Navbar = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setMobileMenuOpen(false)}
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setMobileSubmenu(null);
+              }}
               className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[60] md:hidden"
             />
 
@@ -534,284 +552,384 @@ export const Navbar = () => {
               className="fixed top-0 right-0 bottom-0 w-full max-w-sm bg-white shadow-2xl z-[70] md:hidden overflow-y-auto h-screen"
             >
               <div className="p-6 min-h-full flex flex-col">
+                <AnimatePresence mode="wait">
+                  {!mobileSubmenu ? (
+                    // Main Menu View
+                    <motion.div
+                      key="main"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex flex-col h-full"
+                    >
                 {/* Header */}
-                <div className="flex items-center justify-between mb-8 flex-shrink-0">
+                      <div className="flex items-center justify-between mb-6 flex-shrink-0">
                   <span className="text-xl font-bold text-blue-600">Menu</span>
                   <button
-                    onClick={() => setMobileMenuOpen(false)}
+                          onClick={() => {
+                            setMobileMenuOpen(false);
+                            setMobileSubmenu(null);
+                          }}
                     className="p-2 text-gray-600 hover:text-blue-600 transition-colors"
                   >
                     <X className="w-6 h-6" />
                   </button>
                 </div>
 
+                      {/* Contact Button at Top */}
+                      <div className="mb-6">
+                        <Link
+                          href="/book-a-demo"
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="block w-full bg-blue-600 text-white px-4 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors text-center"
+                        >
+                          Contáctanos
+                        </Link>
+                      </div>
+
                 {/* Navigation Links */}
-                <div className="space-y-1 mb-6 flex-grow">
-                  {/* Product Dropdown */}
-                  <div className="mb-1">
-                    <button
-                      onClick={() => setMobileProductOpen(!mobileProductOpen)}
-                      className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
-                    >
-                      <span>Product</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${mobileProductOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    
-                    {mobileProductOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="mt-2 space-y-1 pl-4 overflow-hidden"
-                      >
-                        {/* AUTOMATIONS */}
-                        <div className="mb-4">
-                          <div className="px-4 py-2 mb-2">
-                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">AUTOMATIONS</h3>
-                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Agentes de IA para servicio al cliente y ventas" : "AI Agents for Customer Service and Sales"}</p>
-                          </div>
-                          {[
-                            { name: "WhatsApp", href: "/products/whatsapp", icon: "💬" },
-                            { name: "Instagram", href: "/products/instagram", icon: "📷" },
-                            { name: "Messenger", href: "/products/messenger", icon: "💬" },
-                            { name: "Email", href: "/products/email", icon: "✉️" },
-                            { name: "Calls", href: "/products/calls", icon: "📞" }
-                          ].map((item) => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setMobileProductOpen(false);
-                              }}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                            >
-                              <span className="mr-2">{item.icon}</span>
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                        
-                        {/* ONE SOURCE PLATFORM */}
-                        <div className="mb-4 border-t border-gray-200 pt-4">
-                          <div className="px-4 py-2 mb-2">
-                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
-                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
-                          </div>
-                          {[
-                            { name: "Dashboards", href: "#", icon: "📊" },
-                            { name: "Deep Analysis", href: "#", icon: "🔍" },
-                            { name: "AI Chat", href: "#", icon: "🤖" },
-                            { name: "Insight ML", href: "#", icon: "🧠" },
-                            { name: "Competitor Intelligence", href: "#", icon: "📈" }
-                          ].map((item) => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setMobileProductOpen(false);
-                              }}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                            >
-                              <span className="mr-2">{item.icon}</span>
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                        
-                        {/* CUSTOM PROJECTS */}
-                        <div className="mb-4 border-t border-gray-200 pt-4">
-                          <div className="px-4 py-2 mb-2">
-                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">CUSTOM PROJECTS</h3>
-                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Escala las operaciones de tu empresa" : "Scale your company's operations"}</p>
-                          </div>
-                          {[
-                            { name: "Apps", href: "#", icon: "📱" },
-                            { name: "Websites", href: "#", icon: "🌐" },
-                            { name: "Integrations", href: "#", icon: "🔗" },
-                            { name: "Systems", href: "#", icon: "⚙️" },
-                            { name: "Process Automation", href: "#", icon: "🔄" }
-                          ].map((item) => (
-                            <Link
-                              key={item.name}
-                              href={item.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setMobileProductOpen(false);
-                              }}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                            >
-                              <span className="mr-2">{item.icon}</span>
-                              {item.name}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
+                      <div className="space-y-0 mb-6 flex-grow">
+                        {/* Product */}
+                        <button
+                          onClick={() => setMobileSubmenu("product")}
+                          className="w-full flex items-center justify-between px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors font-medium border-b border-gray-200"
+                        >
+                          <span>Product</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
 
-                  {/* Industries Dropdown */}
-                  <div className="mb-1">
-                    <button
-                      onClick={() => setMobileIndustriesOpen(!mobileIndustriesOpen)}
-                      className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
-                    >
-                      <span>Industries</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${mobileIndustriesOpen ? "rotate-180" : ""}`}
-                      />
-                    </button>
-                    
-                    {mobileIndustriesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="mt-2 space-y-1 pl-4 overflow-hidden"
-                      >
-                        {/* AUTOMATIONS */}
-                        <div className="mb-4">
-                          <div className="px-4 py-2 mb-2">
-                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">AUTOMATIONS</h3>
-                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Automatización de IA para servicio al cliente, ventas y operaciones" : "AI automation for customer service, sales and operations"}</p>
-                          </div>
-                          {[
-                            { name: { en: "Retail", es: "Retail" }, href: "/industries/retail", icon: "🛍️" },
-                            { name: { en: "Pet Shops", es: "Tiendas de Mascotas" }, href: "/industries/retail/pet-shops", icon: "🐾" },
-                            { name: { en: "Dealerships", es: "Concesionarios" }, href: "/industries/retail/concesionarios", icon: "🚗" },
-                            { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/retail/distribuidoras", icon: "📦" },
-                            { name: { en: "Restaurants", es: "Restaurantes" }, href: "/industries/retail/restaurantes", icon: "🍽️" },
-                            { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" }
-                          ].map((item) => (
-                            <Link
-                              key={item.name.en}
-                              href={item.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setMobileIndustriesOpen(false);
-                              }}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                            >
-                              <span className="mr-2">{item.icon}</span>
-                              {item.name[currentLang]}
-                            </Link>
-                          ))}
-                        </div>
-                        
-                        {/* ONE SOURCE PLATFORM */}
-                        <div className="mb-4 border-t border-gray-200 pt-4">
-                          <div className="px-4 py-2 mb-2">
-                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">ONE SOURCE PLATFORM</h3>
-                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
-                          </div>
-                          {[
-                            { name: { en: "Retail", es: "Retail" }, href: "/industries/retail/platform", icon: "🛍️" },
-                            { name: { en: "DTC Brands", es: "Marcas DTC" }, href: "/industries/retail/marcas-dtc", icon: "🏷️" },
-                            { name: { en: "Ecommerce", es: "Ecommerce" }, href: "/industries/retail/ecommerce", icon: "🛒" },
-                            { name: { en: "Agencies", es: "Agencias" }, href: "/industries/retail/agencias", icon: "📊" },
-                            { name: { en: "Marketplaces", es: "Marketplaces" }, href: "/industries/retail/marketplaces", icon: "🏪" },
-                            { name: { en: "Subscription Companies", es: "Empresas de suscripción" }, href: "/industries/retail/empresas-suscripcion", icon: "🔄" }
-                          ].map((item) => (
-                            <Link
-                              key={item.name.en}
-                              href={item.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setMobileIndustriesOpen(false);
-                              }}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                            >
-                              <span className="mr-2">{item.icon}</span>
-                              {item.name[currentLang]}
-                            </Link>
-                          ))}
-                        </div>
-                        
-                        {/* CUSTOM PROJECTS */}
-                        <div className="mb-4 border-t border-gray-200 pt-4">
-                          <div className="px-4 py-2 mb-2">
-                            <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider">CUSTOM PROJECTS</h3>
-                            <p className="text-xs text-gray-500">{currentLang === "es" ? "Desarrollos personalizados para procesos internos y plataformas empresariales" : "Custom developments for internal processes and enterprise platforms"}</p>
-                          </div>
-                          {[
-                            { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" },
-                            { name: { en: "Import & Export", es: "Importación y Exportación" }, href: "/industries/constructoras/import-export", icon: "📦" },
-                            { name: { en: "Insurance", es: "Aseguradoras" }, href: "/industries/constructoras/aseguradoras", icon: "🛡️" },
-                            { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/constructoras/distribuidoras", icon: "🚚" },
-                            { name: { en: "Logistics Companies", es: "Empresas logísticas" }, href: "/industries/constructoras/empresas-logisticas", icon: "📋" },
-                            { name: { en: "Retail", es: "Retail" }, href: "/industries/constructoras/retail", icon: "🛍️" }
-                          ].map((item) => (
-                            <Link
-                              key={item.name.en}
-                              href={item.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setMobileIndustriesOpen(false);
-                              }}
-                              className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                            >
-                              <span className="mr-2">{item.icon}</span>
-                              {item.name[currentLang]}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </div>
+                        {/* Industries */}
+                        <button
+                          onClick={() => setMobileSubmenu("industries")}
+                          className="w-full flex items-center justify-between px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors font-medium border-b border-gray-200"
+                        >
+                          <span>Industries</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
 
-                  {/* Other Links */}
-                  {navLinks.filter(link => link.label !== "Product").map((link) => (
+                        {/* Company */}
+                        <button
+                          onClick={() => setMobileSubmenu("company")}
+                          className="w-full flex items-center justify-between px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors font-medium border-b border-gray-200"
+                        >
+                          <span>Company</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+
+                        {/* Resources */}
+                        <button
+                          onClick={() => setMobileSubmenu("resources")}
+                          className="w-full flex items-center justify-between px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors font-medium border-b border-gray-200"
+                        >
+                          <span>Resources</span>
+                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </button>
+
+                        {/* Other Links */}
+                        {navLinks.filter(link => link.label !== "Product" && link.label !== "Company").map((link) => (
                     <Link
                       key={link.label}
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
+                            className="w-full flex items-center justify-between px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors font-medium border-b border-gray-200"
                     >
-                      {link.label}
+                            <span>{link.label}</span>
+                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
                     </Link>
                   ))}
                 </div>
-
-                {/* Resources Section */}
-                <div className="mb-6">
-                  <button
-                    onClick={() => setMobileResourcesOpen(!mobileResourcesOpen)}
-                    className="w-full flex items-center justify-between px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors font-medium"
-                  >
-                    <span>Resources</span>
-                    <ChevronDown
-                      className={`w-4 h-4 transition-transform ${mobileResourcesOpen ? "rotate-180" : ""}`}
-                    />
-                  </button>
-                  
-                  {mobileResourcesOpen && (
+                    </motion.div>
+                  ) : (
+                    // Submenu View
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      className="mt-2 space-y-1 pl-4"
+                      key={mobileSubmenu}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.2 }}
+                      className="flex flex-col h-full"
                     >
+                      {/* Back Button and Title */}
+                      <div className="mb-6 flex-shrink-0">
+                        <button
+                          onClick={() => setMobileSubmenu(null)}
+                          className="flex items-center gap-2 text-gray-600 hover:text-gray-900 mb-4 transition-colors"
+                        >
+                          <ArrowLeft className="w-5 h-5" />
+                          <span className="font-medium">Back</span>
+                        </button>
+                        <h2 className="text-2xl font-bold text-gray-900">
+                          {mobileSubmenu === "product" && "Product"}
+                          {mobileSubmenu === "industries" && "Industries"}
+                          {mobileSubmenu === "company" && "Company"}
+                          {mobileSubmenu === "resources" && "Resources"}
+                        </h2>
+                      </div>
+
+                      {/* Submenu Content */}
+                      <div className="flex-grow overflow-y-auto">
+                        {mobileSubmenu === "product" && (
+                          <div className="space-y-6">
+                            {/* AUTOMATIONS */}
+                            <div>
+                              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2 px-4">AUTOMATIONS</h3>
+                              <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Agentes de IA para servicio al cliente y ventas" : "AI Agents for Customer Service and Sales"}</p>
+                              <div className="space-y-0">
+                                {[
+                                  { name: "WhatsApp", href: "/products/whatsapp", icon: "💬" },
+                                  { name: "Instagram", href: "/products/instagram", icon: "📷" },
+                                  { name: "Messenger", href: "/products/messenger", icon: "💬" },
+                                  { name: "Email", href: "/products/email", icon: "✉️" },
+                                  { name: "Calls", href: "/products/calls", icon: "📞" }
+                                ].map((item) => (
+                                  <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileSubmenu(null);
+                                    }}
+                                    className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                                  >
+                                    <span className="mr-3 text-lg">{item.icon}</span>
+                                    <span className="font-medium">{item.name}</span>
+                                    <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            {/* ONE SOURCE PLATFORM */}
+                            <div>
+                              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2 px-4">ONE SOURCE PLATFORM</h3>
+                              <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
+                              <div className="space-y-0">
+                                {[
+                                  { name: "Dashboards", href: "#", icon: "📊" },
+                                  { name: "Deep Analysis", href: "#", icon: "🔍" },
+                                  { name: "AI Chat", href: "#", icon: "🤖" },
+                                  { name: "Insight ML", href: "#", icon: "🧠" },
+                                  { name: "Competitor Intelligence", href: "#", icon: "📈" }
+                                ].map((item) => (
+                                  <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileSubmenu(null);
+                                    }}
+                                    className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                                  >
+                                    <span className="mr-3 text-lg">{item.icon}</span>
+                                    <span className="font-medium">{item.name}</span>
+                                    <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            {/* CUSTOM PROJECTS */}
+                            <div>
+                              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2 px-4">CUSTOM PROJECTS</h3>
+                              <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Escala las operaciones de tu empresa" : "Scale your company's operations"}</p>
+                              <div className="space-y-0">
+                                {[
+                                  { name: "Apps", href: "#", icon: "📱" },
+                                  { name: "Websites", href: "#", icon: "🌐" },
+                                  { name: "Integrations", href: "#", icon: "🔗" },
+                                  { name: "Systems", href: "#", icon: "⚙️" },
+                                  { name: "Process Automation", href: "#", icon: "🔄" }
+                                ].map((item) => (
+                                  <Link
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileSubmenu(null);
+                                    }}
+                                    className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                                  >
+                                    <span className="mr-3 text-lg">{item.icon}</span>
+                                    <span className="font-medium">{item.name}</span>
+                                    <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {mobileSubmenu === "industries" && (
+                          <div className="space-y-6">
+                            {/* AUTOMATIONS */}
+                            <div>
+                              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2 px-4">AUTOMATIONS</h3>
+                              <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Automatización de IA para servicio al cliente, ventas y operaciones" : "AI automation for customer service, sales and operations"}</p>
+                              <div className="space-y-0">
+                                {[
+                                  { name: { en: "Retail", es: "Retail" }, href: "/industries/retail", icon: "🛍️" },
+                                  { name: { en: "Pet Shops", es: "Tiendas de Mascotas" }, href: "/industries/retail/pet-shops", icon: "🐾" },
+                                  { name: { en: "Dealerships", es: "Concesionarios" }, href: "/industries/retail/concesionarios", icon: "🚗" },
+                                  { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/retail/distribuidoras", icon: "📦" },
+                                  { name: { en: "Restaurants", es: "Restaurantes" }, href: "/industries/retail/restaurantes", icon: "🍽️" },
+                                  { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" }
+                                ].map((item) => (
+                                  <Link
+                                    key={item.name.en}
+                                    href={item.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileSubmenu(null);
+                                    }}
+                                    className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                                  >
+                                    <span className="mr-3 text-lg">{item.icon}</span>
+                                    <span className="font-medium">{item.name[currentLang]}</span>
+                                    <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            {/* ONE SOURCE PLATFORM */}
+                            <div>
+                              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2 px-4">ONE SOURCE PLATFORM</h3>
+                              <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
+                              <div className="space-y-0">
+                                {[
+                                  { name: { en: "Retail", es: "Retail" }, href: "/industries/retail/platform", icon: "🛍️" },
+                                  { name: { en: "DTC Brands", es: "Marcas DTC" }, href: "/industries/retail/marcas-dtc", icon: "🏷️" },
+                                  { name: { en: "Ecommerce", es: "Ecommerce" }, href: "/industries/retail/ecommerce", icon: "🛒" },
+                                  { name: { en: "Agencies", es: "Agencias" }, href: "/industries/retail/agencias", icon: "📊" },
+                                  { name: { en: "Marketplaces", es: "Marketplaces" }, href: "/industries/retail/marketplaces", icon: "🏪" },
+                                  { name: { en: "Subscription Companies", es: "Empresas de suscripción" }, href: "/industries/retail/empresas-suscripcion", icon: "🔄" }
+                                ].map((item) => (
+                                  <Link
+                                    key={item.name.en}
+                                    href={item.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileSubmenu(null);
+                                    }}
+                                    className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                                  >
+                                    <span className="mr-3 text-lg">{item.icon}</span>
+                                    <span className="font-medium">{item.name[currentLang]}</span>
+                                    <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                            
+                            {/* CUSTOM PROJECTS */}
+                            <div>
+                              <h3 className="text-xs font-bold text-gray-900 uppercase tracking-wider mb-2 px-4">CUSTOM PROJECTS</h3>
+                              <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Desarrollos personalizados para procesos internos y plataformas empresariales" : "Custom developments for internal processes and enterprise platforms"}</p>
+                              <div className="space-y-0">
+                                {[
+                                  { name: { en: "Construction", es: "Constructoras" }, href: "/industries/constructoras", icon: "🏗️" },
+                                  { name: { en: "Import & Export", es: "Importación y Exportación" }, href: "/industries/constructoras/import-export", icon: "📦" },
+                                  { name: { en: "Insurance", es: "Aseguradoras" }, href: "/industries/constructoras/aseguradoras", icon: "🛡️" },
+                                  { name: { en: "Distributors", es: "Distribuidoras" }, href: "/industries/constructoras/distribuidoras", icon: "🚚" },
+                                  { name: { en: "Logistics Companies", es: "Empresas logísticas" }, href: "/industries/constructoras/empresas-logisticas", icon: "📋" },
+                                  { name: { en: "Retail", es: "Retail" }, href: "/industries/constructoras/retail", icon: "🛍️" }
+                                ].map((item) => (
+                                  <Link
+                                    key={item.name.en}
+                                    href={item.href}
+                                    onClick={() => {
+                                      setMobileMenuOpen(false);
+                                      setMobileSubmenu(null);
+                                    }}
+                                    className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                                  >
+                                    <span className="mr-3 text-lg">{item.icon}</span>
+                                    <span className="font-medium">{item.name[currentLang]}</span>
+                                    <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                    </svg>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {mobileSubmenu === "company" && (
+                          <div className="space-y-0">
+                            {[
+                              { name: "About us", href: "/about-us", icon: "🏢" },
+                              { name: "Trust & Security", href: "/trust-and-security", icon: "🛡️" }
+                            ].map((item) => (
+                              <Link
+                                key={item.name}
+                                href={item.href}
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setMobileSubmenu(null);
+                                }}
+                                className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                              >
+                                <span className="mr-3 text-lg">{item.icon}</span>
+                                <span className="font-medium">{item.name}</span>
+                                <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+
+                        {mobileSubmenu === "resources" && (
+                          <div className="space-y-0">
                       {resourcesLinks.map((item) => (
                         <Link
                           key={item.title}
                           href={item.href}
                           onClick={() => {
                             setMobileMenuOpen(false);
-                            setMobileResourcesOpen(false);
-                          }}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-lg transition-colors"
-                        >
-                          <span className="mr-2">{item.icon}</span>
-                          {item.title}
+                                  setMobileSubmenu(null);
+                                }}
+                                className="flex items-center px-4 py-4 text-gray-900 hover:bg-gray-50 transition-colors border-b border-gray-200"
+                              >
+                                <span className="mr-3 text-lg">{item.icon}</span>
+                                <span className="font-medium">{item.title}</span>
+                                <svg className="w-4 h-4 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
                         </Link>
                       ))}
+                          </div>
+                        )}
+                      </div>
                     </motion.div>
                   )}
-                </div>
+                </AnimatePresence>
 
+                {/* Language Switcher and Action Buttons - Only show in main menu */}
+                {!mobileSubmenu && (
+                  <>
                 {/* Language Switcher */}
                 <div className="mb-6 border-t border-gray-200 pt-6">
                   <div className="px-4 mb-3">
@@ -859,11 +977,13 @@ export const Navbar = () => {
                   <Link
                     href="/book-a-demo"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full px-4 py-3 text-center bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors"
+                    className="block w-full px-4 py-2.5 text-center bg-blue-600 text-white rounded-full text-sm font-medium hover:bg-blue-700 transition-colors"
                   >
                     Book a Demo
                   </Link>
                 </div>
+                  </>
+                )}
               </div>
             </motion.div>
           </>

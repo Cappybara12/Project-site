@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export const Hero = () => {
   return (
@@ -44,12 +46,12 @@ export const Hero = () => {
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 text-center z-10">
+      <div className="max-w-6xl mx-auto px-4 z-10">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-6 border border-blue-100"
+          className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-8 border border-blue-100"
         >
           <span className="px-1.5 py-0.5 bg-blue-200/50 text-blue-700 rounded text-xs font-bold">ALTURA</span>
           Technology Infrastructure for Modern Businesses
@@ -60,7 +62,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+          className="text-[3rem] md:text-[5rem] font-normal text-gray-900 mb-8 text-center max-w-5xl mx-auto leading-[1.1]"
           style={{ letterSpacing: '-0.02em' }}
         >
           Technology Infrastructure
@@ -73,7 +75,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-xl text-gray-500 mb-8 max-w-2xl mx-auto leading-relaxed"
+          className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed text-center"
         >
           Technology designed to strengthen your operations, improve your customers' experience and accelerate your company's growth from a single ecosystem.
         </motion.p>
@@ -83,7 +85,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="flex items-center justify-center gap-4 mb-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
         >
           <button 
             onClick={() => {
@@ -92,10 +94,16 @@ export const Hero = () => {
                 element.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            className="bg-blue-600 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
+            className="w-full max-w-md md:w-auto md:max-w-none bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20"
           >
             Explore Products
           </button>
+          <Link href="/book-a-demo" className="w-full max-w-md md:w-auto md:max-w-none">
+            <button className="w-full md:w-auto bg-white text-blue-600 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors shadow-lg flex items-center justify-center gap-2">
+              Book a demo
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
         </motion.div>
 
         {/* Video Demo */}

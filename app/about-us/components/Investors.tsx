@@ -4,14 +4,14 @@ import { motion } from "framer-motion";
 
 export const Investors = () => {
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
+    <section className="relative py-8 md:py-12 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12"
         >
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Backed by leading global investors

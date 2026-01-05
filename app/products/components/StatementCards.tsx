@@ -35,8 +35,8 @@ export const StatementCards = ({ statements }: StatementCardsProps) => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
             >
-              {/* Left: Content */}
-              <div className={index % 2 === 0 ? "order-1" : "order-2"}>
+              {/* Content - Always first on mobile, alternating on desktop */}
+              <div className={`order-1 ${index % 2 === 0 ? "lg:order-1" : "lg:order-2"}`}>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="text-4xl font-bold text-gray-300">{String(index + 1).padStart(2, '0')}</span>
                 </div>
@@ -48,8 +48,8 @@ export const StatementCards = ({ statements }: StatementCardsProps) => {
                 </p>
               </div>
 
-              {/* Right: Image */}
-              <div className={index % 2 === 0 ? "order-2" : "order-1"}>
+              {/* Image - Always second on mobile, alternating on desktop */}
+              <div className={`order-2 ${index % 2 === 0 ? "lg:order-2" : "lg:order-1"}`}>
                 <div className="w-full h-[400px] bg-gray-50 rounded-2xl overflow-hidden flex items-center justify-center p-8">
                   <img
                     src={statement.image}

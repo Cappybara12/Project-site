@@ -704,12 +704,53 @@ export const StickyFeatures = () => {
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12">
+        {/* Mobile: Card Layout */}
+        <div className="lg:hidden space-y-6 mb-12">
+          <div className="text-center mb-8">
+            <div className="inline-block px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full text-xs font-semibold text-indigo-700 mb-4 uppercase tracking-wider">
+              Altura Product
+            </div>
+            <h2 className="text-3xl font-medium text-gray-900 mb-4 leading-tight">
+              Three products that strengthen your company's operations
+            </h2>
+            <p className="text-gray-500 leading-relaxed">
+              Technology designed to improve how you serve, manage and scale every area of your business.
+            </p>
+          </div>
+          
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <motion.div
+                key={feature.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 border border-gray-200"
+              >
+                <div className="flex items-center gap-3 text-indigo-600 mb-4">
+                  <Icon className="w-5 h-5" />
+                  <span className="text-xs font-bold uppercase tracking-wider">{feature.title}</span>
+                </div>
+                <h3 className="text-xl font-medium text-gray-900 mb-4">
+                  {feature.heading}
+                </h3>
+                <p className="text-gray-600 leading-relaxed text-sm mb-4">
+                  {feature.description}
+                </p>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Desktop: Sticky Sidebar + Scrollable Content */}
+        <div className="hidden lg:flex flex-col lg:flex-row gap-12">
           {/* Sticky Sidebar */}
           <div className="lg:w-1/3">
             <div className="sticky top-32">
               <div className="inline-block px-3 py-1 bg-gradient-to-r from-indigo-100 to-purple-100 rounded-full text-xs font-semibold text-indigo-700 mb-6 uppercase tracking-wider">
-                Altura Products
+                Altura Product
               </div>
               <h2 className="text-4xl font-medium text-gray-900 mb-8 leading-tight">
                 Three products that strengthen<br />your company's operations

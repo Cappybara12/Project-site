@@ -44,7 +44,7 @@ export const BeforeAfterYuno = () => {
           {/* Right - Toggle & Diagram */}
           <div>
             {/* Toggle */}
-            <div className="flex justify-end mb-8">
+            <div className="flex justify-center lg:justify-end mb-8">
               <div className="inline-flex bg-white rounded-full p-1 shadow-sm border border-gray-200">
                 <button
                   onClick={() => setView("before")}
@@ -70,7 +70,7 @@ export const BeforeAfterYuno = () => {
             </div>
 
             {/* Diagram */}
-            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100 h-[500px] relative overflow-hidden">
+            <div className="bg-white rounded-3xl p-6 md:p-8 lg:p-12 shadow-sm border border-gray-100 h-[400px] md:h-[500px] relative overflow-hidden">
               <AnimatePresence mode="wait">
                 {view === "before" ? (
                   <motion.div

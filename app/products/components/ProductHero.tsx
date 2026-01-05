@@ -29,6 +29,7 @@ export const ProductHero = ({ badge, titlePart1, titlePart2, subtitle }: Product
   return (
     <section className="relative pt-32 pb-12 overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -70,8 +71,8 @@ export const ProductHero = ({ badge, titlePart1, titlePart2, subtitle }: Product
           transition={{ delay: 0.3 }}
           className="flex items-center justify-center"
         >
-          <Link href="/book-a-demo">
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-full text-base font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
+          <Link href="/book-a-demo" className="w-full max-w-md md:w-auto md:max-w-none">
+            <button className="w-full md:w-auto bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">
               Book a demo
             </button>
           </Link>

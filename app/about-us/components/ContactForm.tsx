@@ -22,7 +22,7 @@ export const ContactForm = () => {
   };
 
   return (
-    <section className="relative py-24 bg-gradient-to-br from-blue-50 to-purple-50 overflow-hidden">
+    <section className="relative py-8 md:py-12 bg-gradient-to-br from-blue-50 to-purple-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Left Side - Content */}
@@ -138,17 +138,16 @@ export const ContactForm = () => {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Number of transactions per month</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Product</label>
                 <select
                   className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
                   value={formData.transactions}
                   onChange={(e) => setFormData({...formData, transactions: e.target.value})}
                 >
                   <option value="">Please select</option>
-                  <option value="0-1k">0 - 1,000</option>
-                  <option value="1k-10k">1,000 - 10,000</option>
-                  <option value="10k-100k">10,000 - 100,000</option>
-                  <option value="100k+">100,000+</option>
+                  <option value="automations">Automations</option>
+                  <option value="one-source-platform">One Source Platform</option>
+                  <option value="custom-projects">Custom Projects</option>
                 </select>
               </div>
             </div>

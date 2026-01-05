@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { regions } from "@/data/regions";
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguageSwitcher } from "@/app/components/common/useLanguageSwitcher";
 
 export const GlobalRegions = () => {
@@ -36,8 +37,88 @@ export const GlobalRegions = () => {
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+        {/* Mobile Layout */}
+        <div className="lg:hidden space-y-6">
+          {/* Explore All Integrations Button - Top, longer and thinner */}
+          <Link href="/integrations">
+            <button className="w-full bg-blue-600 text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+              Explore all integrations
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
+
+          {/* Globe Image with Overlapping Card */}
+          <div className="relative w-full">
+            <motion.div
+              key={`globe-mobile-${activeRegion}`}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
+              className="relative w-full bg-gradient-to-br from-blue-50 to-purple-100 rounded-3xl p-6 md:p-8 flex items-center justify-center overflow-visible min-h-[300px]"
+            >
+              <Image
+                src="/globe-regions.webp"
+                alt="Global regions"
+                width={800}
+                height={800}
+                className="w-full h-auto"
+                priority
+              />
+
+              {/* Payment Providers Card - Overlapping on Globe */}
+              <motion.div
+                key={`providers-mobile-${activeRegion}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="absolute right-4 bottom-8 bg-white rounded-2xl shadow-xl p-4 md:p-5 max-w-[200px] md:max-w-[240px] border border-gray-200"
+              >
+                <div className="flex flex-col gap-2.5">
+                  {active.providers.map((provider, index) => (
+                    <motion.div
+                      key={provider.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3, delay: 0.3 + index * 0.1 }}
+                      className="flex items-center gap-2.5"
+                    >
+                      <div
+                        className="w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-white font-bold text-xs md:text-sm flex-shrink-0"
+                        style={{ backgroundColor: provider.color }}
+                      >
+                        {provider.icon}
+                      </div>
+                      <span className="text-xs md:text-sm font-semibold text-gray-900 uppercase tracking-wide">{provider.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
+                <p className="text-xs text-gray-400 mt-3">+60 regional providers</p>
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* Region Selection Buttons - Below Providers (Mobile: Button Grid) */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-200">
+            <div className="grid grid-cols-3 gap-3">
+              {regions.map((region, index) => (
+                <button
+                  key={region.id}
+                  onClick={() => setActiveRegion(region.id)}
+                  className={`px-4 py-3 rounded-lg text-sm font-semibold uppercase tracking-wider transition-all duration-200 ${
+                    activeRegion === region.id
+                      ? 'bg-blue-600 text-white shadow-md'
+                      : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  }`}
+                >
+                  {currentLang === "es" ? (region.titleEs || region.title) : region.title}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Navigation */}
           <div className="lg:col-span-4">
             <div className="bg-gray-50 rounded-3xl p-8 md:p-10">
@@ -48,10 +129,12 @@ export const GlobalRegions = () => {
                 {currentLang === "es" ? (active.descriptionEs || active.description) : active.description}
               </p>
               
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors flex items-center gap-2 mb-12">
-                Explore all integrations
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              <Link href="/integrations">
+                <button className="bg-blue-600 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-blue-700 transition-colors flex items-center gap-2 mb-12">
+                  Explore all integrations
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
 
               {/* Region List */}
               <div className="space-y-1 relative">
@@ -83,7 +166,9 @@ export const GlobalRegions = () => {
 
           {/* Right Content - Globe & Providers */}
           <div className="lg:col-span-8">
-            <div className="relative h-full min-h-[500px] bg-gradient-to-br from-blue-50 to-purple-100 rounded-3xl p-8 md:p-12 flex items-center justify-center overflow-hidden">
+
+            {/* Desktop: Original layout */}
+            <div className="hidden lg:block relative h-full min-h-[500px] bg-gradient-to-br from-blue-50 to-purple-100 rounded-3xl p-8 md:p-12 flex items-center justify-center overflow-hidden">
               {/* Globe Image */}
               <motion.div
                 key={activeRegion}

@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Search } from "lucide-react";
+import { Search, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { useLanguageSwitcher } from "../components/common/useLanguageSwitcher";
 
@@ -63,6 +63,25 @@ export default function IntegrationsPage() {
   const { currentLang } = useLanguageSwitcher();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsCategoryDropdownOpen(false);
+      }
+    };
+
+    if (isCategoryDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCategoryDropdownOpen]);
 
   const content = {
     heading: {
@@ -88,6 +107,15 @@ export default function IntegrationsPage() {
       {/* Hero Section */}
       <section className="py-16 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Badge */}
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-xs font-semibold text-gray-500 uppercase tracking-wider border border-gray-200">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+              INTEGRATIONS
+            </div>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">
             {content.heading[currentLang]}
           </h1>
@@ -101,8 +129,41 @@ export default function IntegrationsPage() {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Left Sidebar - Categories */}
-            <div className="lg:w-64 flex-shrink-0">
+            {/* Mobile: Dropdown Categories */}
+            <div className="lg:hidden">
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+                  className="w-full flex items-center justify-between px-4 py-3 bg-gray-50 rounded-lg border border-gray-200 text-sm font-semibold text-gray-700 uppercase tracking-wider"
+                >
+                  <span>Categories: {selectedCategory}</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform ${isCategoryDropdownOpen ? "rotate-180" : ""}`} />
+                </button>
+                {isCategoryDropdownOpen && (
+                  <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-lg border border-gray-200 shadow-lg z-50 max-h-64 overflow-y-auto">
+                    {categories.map((category) => (
+                      <button
+                        key={category}
+                        onClick={() => {
+                          setSelectedCategory(category);
+                          setIsCategoryDropdownOpen(false);
+                        }}
+                        className={`w-full text-left px-4 py-2.5 text-sm font-medium transition-colors ${
+                          selectedCategory === category
+                            ? "bg-blue-600 text-white"
+                            : "text-gray-700 hover:bg-gray-100"
+                        }`}
+                      >
+                        {category}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Desktop: Left Sidebar - Categories */}
+            <div className="hidden lg:block lg:w-64 flex-shrink-0">
               <div className="bg-gray-50 rounded-lg p-6 sticky top-24">
                 <h3 className="text-sm font-semibold text-gray-700 mb-4 uppercase tracking-wider">
                   Categories:
@@ -195,8 +256,8 @@ export default function IntegrationsPage() {
           <p className="text-xl text-blue-100 mb-8">
             Talk with one of our payment experts.
           </p>
-          <Link href="/book-a-demo">
-            <button className="px-8 py-4 bg-white text-blue-600 rounded-full font-semibold text-lg hover:bg-blue-50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
+          <Link href="/book-a-demo" className="w-full max-w-md mx-auto block md:w-auto md:max-w-none">
+            <button className="w-full md:w-auto px-6 py-2.5 md:px-12 md:py-3 bg-white text-blue-600 rounded-full text-sm font-medium hover:bg-blue-50 transition-all duration-300 shadow-lg">
               Book a Demo
             </button>
           </Link>

@@ -261,10 +261,10 @@ export default function TrustAndSecurityPage() {
                 </Link>{" "}
                 for policies, certifications, and more.
               </p>
-              <Link href="/book-a-demo">
-                <button className="inline-flex items-center gap-2 px-8 py-4 bg-blue-600 text-white rounded-full font-semibold text-lg hover:bg-blue-700 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105">
+              <Link href="/book-a-demo" className="w-full max-w-md mx-auto block md:w-auto md:max-w-none md:inline-block">
+                <button className="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 md:px-8 md:py-4 bg-blue-600 text-white rounded-full text-sm md:text-lg font-medium md:font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg md:shadow-xl hover:shadow-2xl hover:scale-105">
                   Book a Demo
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
                 </button>
               </Link>
             </div>
@@ -363,15 +363,14 @@ export default function TrustAndSecurityPage() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Number of transactions per month</label>
+                    <label className="block text-sm font-semibold text-gray-700 mb-2">Product</label>
                     <select
                       className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent appearance-none bg-white"
                     >
                       <option value="">Please Select</option>
-                      <option value="0-1k">0 - 1,000</option>
-                      <option value="1k-10k">1,000 - 10,000</option>
-                      <option value="10k-100k">10,000 - 100,000</option>
-                      <option value="100k+">100,000+</option>
+                      <option value="automations">Automations</option>
+                      <option value="one-source-platform">One Source Platform</option>
+                      <option value="custom-projects">Custom Projects</option>
                     </select>
                   </div>
                 </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 export const CTASection = () => {
   return (
@@ -100,10 +101,12 @@ export const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
+          className="flex items-center justify-center"
         >
-          <a href="/book-a-demo">
-            <button className="bg-white text-blue-600 px-8 py-4 rounded-full text-base font-semibold hover:bg-blue-50 transition-colors shadow-lg">
+          <a href="/book-a-demo" className="w-full max-w-md md:w-auto md:max-w-none">
+            <button className="w-full md:w-auto bg-white text-blue-600 px-6 py-2.5 rounded-full text-sm font-medium hover:bg-blue-50 transition-colors shadow-lg flex items-center justify-center gap-2">
               Book a demo
+              <ArrowRight className="w-4 h-4" />
             </button>
           </a>
         </motion.div>
