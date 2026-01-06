@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export const Hero = () => {
   return (
-    <section className="relative pt-20 pb-16 overflow-hidden min-h-[80vh] flex flex-col items-center justify-center" style={{ background: '#EEF0F8' }}>
+    <section className="relative pt-12 md:pt-20 pb-16 overflow-hidden min-h-[80vh] flex flex-col items-center justify-center" style={{ background: '#EEF0F8' }}>
       {/* Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-20 left-[-10%] w-[600px] h-[600px] bg-blue-200/30 rounded-full blur-3xl" />
@@ -51,10 +51,12 @@ export const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium mb-8 border border-blue-100"
+          className="flex justify-center mb-4 md:mb-8"
         >
-          <span className="px-1.5 py-0.5 bg-blue-200/50 text-blue-700 rounded text-xs font-bold">ALTURA</span>
-          Technology Infrastructure for Modern Businesses
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-50 text-blue-600 rounded-full text-sm font-medium border border-blue-100">
+            <span className="px-1.5 py-0.5 bg-blue-200/50 text-blue-700 rounded text-xs font-bold">ALTURA</span>
+            Technology Infrastructure for Modern Businesses
+          </div>
         </motion.div>
 
         {/* Heading */}
@@ -62,7 +64,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="text-[3rem] md:text-[5rem] font-normal text-gray-900 mb-8 text-center max-w-5xl mx-auto leading-[1.1]"
+          className="text-[3rem] md:text-[5rem] font-normal text-gray-900 mb-4 md:mb-8 text-center max-w-5xl mx-auto leading-[1.1]"
           style={{ letterSpacing: '-0.02em' }}
         >
           Technology Infrastructure
@@ -75,7 +77,7 @@ export const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed text-center"
+          className="text-base md:text-lg text-gray-500 mb-6 md:mb-10 max-w-2xl mx-auto leading-relaxed text-center"
         >
           Technology designed to strengthen your operations, improve your customers' experience and accelerate your company's growth from a single ecosystem.
         </motion.p>

@@ -31,7 +31,7 @@ export const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="relative py-24 bg-white overflow-visible">
+    <section className="relative py-12 md:py-24 bg-white overflow-visible">
       {/* Animated track lines - straight and thinner inverted S pattern */}
       <div className="absolute inset-0 pointer-events-none overflow-visible">
         {/* Left track - straight vertical line with inverted S curve */}

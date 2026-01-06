@@ -692,7 +692,7 @@ export const StickyFeatures = () => {
   }, []);
 
   return (
-    <section className="bg-white py-24">
+    <section className="bg-white py-12 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Centered PRODUCTS Button */}
         <div className="flex justify-center mb-8">
@@ -727,18 +727,36 @@ export const StickyFeatures = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 border border-gray-200"
+                className="space-y-6"
               >
-                <div className="flex items-center gap-3 text-indigo-600 mb-4">
-                  <Icon className="w-5 h-5" />
-                  <span className="text-xs font-bold uppercase tracking-wider">{feature.title}</span>
+                {/* Text Section */}
+                <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 border border-gray-200">
+                  <div className="flex items-center gap-3 text-indigo-600 mb-4">
+                    <Icon className="w-5 h-5" />
+                    <span className="text-xs font-bold uppercase tracking-wider">{feature.title}</span>
+                  </div>
+                  <h3 className="text-xl font-medium text-gray-900 mb-4">
+                    {feature.heading}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {feature.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-medium text-gray-900 mb-4">
-                  {feature.heading}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm mb-4">
-                  {feature.description}
-                </p>
+                
+                {/* Image/Animation Section */}
+                <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-6 border border-gray-200">
+                  <div className="w-full">
+                    {feature.id === 'automations' && (
+                      <AutomationsAnimation isActive={true} />
+                    )}
+                    {feature.id === 'onesource' && (
+                      <OneSourceAnimation isActive={true} />
+                    )}
+                    {feature.id === 'custom' && (
+                      <CustomProjectsAnimation isActive={true} />
+                    )}
+                  </div>
+                </div>
               </motion.div>
             );
           })}
