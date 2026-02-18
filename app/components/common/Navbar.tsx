@@ -75,7 +75,7 @@ export const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Left: Logo */}
           <Link href="/" className="flex items-center cursor-pointer">
@@ -111,8 +111,8 @@ export const Navbar = () => {
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
 
-          {/* Desktop Menu - Centered */}
-          <div className="hidden md:flex items-center space-x-8 absolute left-1/2 transform -translate-x-1/2">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-8">
             {/* Product Dropdown */}
             <div 
               className="relative"
@@ -190,11 +190,11 @@ export const Navbar = () => {
                       </div>
                       <ul className="space-y-2">
                         {[
-                          { name: "Dashboards", href: "#", icon: "📊" },
-                          { name: "Deep Analysis", href: "#", icon: "🔍" },
-                          { name: "AI Chat", href: "#", icon: "🤖" },
-                          { name: "Insight ML", href: "#", icon: "🧠" },
-                          { name: "Competitor Intelligence", href: "#", icon: "📈" }
+                          { name: "Dashboards", href: "/products/dashboards", icon: "📊" },
+                          { name: "Deep Analysis", href: "/products/deep-analysis", icon: "🔍" },
+                          { name: "AI Chat", href: "/products/ai-chat", icon: "🤖" },
+                          { name: "Insight ML", href: "/products/insight-ml", icon: "🧠" },
+                          { name: "Competitor Intelligence", href: "/products/competitor-intelligence", icon: "📈" }
                         ].map((item) => (
                           <Link key={item.name} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
                             <span className="text-lg">{item.icon}</span>
@@ -219,11 +219,11 @@ export const Navbar = () => {
                       </div>
                       <ul className="space-y-2">
                         {[
-                          { name: "Apps", href: "#", icon: "📱" },
-                          { name: "Websites", href: "#", icon: "🌐" },
-                          { name: "Integrations", href: "#", icon: "🔗" },
-                          { name: "Systems", href: "#", icon: "⚙️" },
-                          { name: "Process Automation", href: "#", icon: "🔄" }
+                          { name: "Apps", href: "/products/apps", icon: "📱" },
+                          { name: "Websites", href: "/products/websites", icon: "🌐" },
+                          { name: "Integrations", href: "/integrations", icon: "🔗" },
+                          { name: "Systems", href: "/products/systems", icon: "⚙️" },
+                          { name: "Process Automation", href: "/products/process-automation", icon: "🔄" }
                         ].map((item) => (
                           <Link key={item.name} href={item.href} className="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors group">
                             <span className="text-lg">{item.icon}</span>
@@ -718,11 +718,11 @@ export const Navbar = () => {
                               <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Potencia tu ecosistema de ecommerce" : "Empower your eCommerce Ecosystem"}</p>
                               <div className="space-y-0">
                                 {[
-                                  { name: "Dashboards", href: "#", icon: "📊" },
-                                  { name: "Deep Analysis", href: "#", icon: "🔍" },
-                                  { name: "AI Chat", href: "#", icon: "🤖" },
-                                  { name: "Insight ML", href: "#", icon: "🧠" },
-                                  { name: "Competitor Intelligence", href: "#", icon: "📈" }
+                                  { name: "Dashboards", href: "/products/dashboards", icon: "📊" },
+                                  { name: "Deep Analysis", href: "/products/deep-analysis", icon: "🔍" },
+                                  { name: "AI Chat", href: "/products/ai-chat", icon: "🤖" },
+                                  { name: "Insight ML", href: "/products/insight-ml", icon: "🧠" },
+                                  { name: "Competitor Intelligence", href: "/products/competitor-intelligence", icon: "📈" }
                                 ].map((item) => (
                                   <Link
                                     key={item.name}
@@ -749,11 +749,11 @@ export const Navbar = () => {
                               <p className="text-xs text-gray-500 mb-4 px-4">{currentLang === "es" ? "Escala las operaciones de tu empresa" : "Scale your company's operations"}</p>
                               <div className="space-y-0">
                                 {[
-                                  { name: "Apps", href: "#", icon: "📱" },
-                                  { name: "Websites", href: "#", icon: "🌐" },
-                                  { name: "Integrations", href: "#", icon: "🔗" },
-                                  { name: "Systems", href: "#", icon: "⚙️" },
-                                  { name: "Process Automation", href: "#", icon: "🔄" }
+                                  { name: "Apps", href: "/products/apps", icon: "📱" },
+                                  { name: "Websites", href: "/products/websites", icon: "🌐" },
+                                  { name: "Integrations", href: "/integrations", icon: "🔗" },
+                                  { name: "Systems", href: "/products/systems", icon: "⚙️" },
+                                  { name: "Process Automation", href: "/products/process-automation", icon: "🔄" }
                                 ].map((item) => (
                                   <Link
                                     key={item.name}
